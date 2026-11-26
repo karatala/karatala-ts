@@ -1,0 +1,15 @@
+{
+  "name": "@karatala/ui-rachana",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "license": "GPL-3.0-only",
+  "exports": {
+    "./UiTextInput.svelte": "./src/UiTextInput.svelte",
+    "./UiLoading.svelte": "./src/UiLoading.svelte",
+    "./UiFloatingToolbar.svelte": "./src/UiFloatingToolbar.svelte"
+  },
+  "peerDependencies": {
+    "svelte": "^5.46.4"
+  }
+}

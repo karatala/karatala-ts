@@ -1,0 +1,26 @@
+{
+  "name": "@karatala/ui-komandir",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "license": "GPL-3.0-only",
+  "exports": {
+    "./Button.svelte": "./src/Button.svelte",
+    "./DataTable.svelte": "./src/DataTable.svelte",
+    "./TableRow.svelte": "./src/TableRow.svelte",
+    "./MessageBar.svelte": "./src/MessageBar.svelte",
+    "./PathLabel.svelte": "./src/PathLabel.svelte",
+    "./Portal.svelte": "./src/Portal.svelte",
+    "./Dialog.svelte": "./src/Dialog.svelte",
+    "./Popover.svelte": "./src/Popover.svelte",
+    "./controls.css": "./src/controls.css",
+    "./data-table.css": "./src/data-table.css",
+    "./table-row.css": "./src/table-row.css",
+    "./path-label.ts": "./src/path-label.ts",
+    "./portal.ts": "./src/portal.ts",
+    "./overlay-focus.ts": "./src/overlay-focus.ts"
+  },
+  "peerDependencies": {
+    "svelte": "^5.46.4"
+  }
+}
