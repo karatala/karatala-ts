@@ -19,11 +19,12 @@
 - Each public component needs its own page and a real rendered example. Do not replace a component with a screenshot or copied control markup.
 - Keep result/status space reserved. Longer source and integration details belong in disclosure sections.
 - Host defaults use bundled icons and English labels. Window examples omit persistence keys; native and application capabilities require explicit host callbacks.
+- icon-picker-memory.ts owns the IconPicker memory catalog, alias/theme samples, file-resource metadata and signal-aware loaders. Its artwork comes from the source Lucide folder/file SVGs under the package icon license record. Never access real files or application caches in these examples.
 
 ## Verification
 
 - bun run check:demo from the repository root checks the packages and demo. bun run demo starts loopback port 3212 without opening a browser.
-- All 65 preview routes were mounted in the hidden browser. Representative number, color, menu and window actions were checked. This is not device or full application acceptance.
+- The initial 65 preview routes and the added IconPicker route were mounted in the hidden browser. Representative number, color, menu, window and picker actions were checked. This is not device or full application acceptance.
 
 ## Child DOX Index
 

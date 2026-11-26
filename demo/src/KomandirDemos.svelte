@@ -1,6 +1,8 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import { provideKomandirUiHost } from "@karatala/ui-komandir/host.ts";
+  import { provideIconPickerHost } from "@karatala/ui-komandir/icon-picker-host.ts";
+  import { createMemoryIconPickerHost } from "./icon-picker-memory";
   import palettes from "./palettes.json";
   import Button from "@karatala/ui-komandir/Button.svelte";
   import CheckButton from "@karatala/ui-komandir/CheckButton.svelte";
@@ -18,6 +20,7 @@
   import HelpButton from "@karatala/ui-komandir/HelpButton.svelte";
   import Icon from "@karatala/ui-komandir/Icon.svelte";
   import IconButton from "@karatala/ui-komandir/IconButton.svelte";
+  import IconPicker from "@karatala/ui-komandir/IconPicker.svelte";
   import Keycap from "@karatala/ui-komandir/Keycap.svelte";
   import MessageBar from "@karatala/ui-komandir/MessageBar.svelte";
   import MiniPopup from "@karatala/ui-komandir/MiniPopup.svelte";
@@ -39,10 +42,13 @@
   let { name }: { name: string } = $props();
   let value=$state("all"); let color=$state("#4e7aff"); let checked=$state(false); let disabled=$state(false); let open=$state(false); let status=$state("Ready"); let width=$state(180); let ascending=$state(true); let trigger=$state<HTMLElement|null>(null);
   let bindings=$state({"sample.save":[{ctrl:true,key:"s"}]});
+  let iconValue=$state<string>();
   const defaults={"sample.save":[{ctrl:true,key:"s"}]};
   const options=[{value:"all",label:"All"},{value:"files",label:"Files"},{value:"folders",label:"Folders"},{value:"unavailable",label:"Unavailable",disabled:true}];
   const date={parts:[{text:"2026-11-26",muted:false},{text:" 12:30",muted:true}],visible:"2026-11-26 12:30",full:"2026-11-26 12:30:00"};
-  provideKomandirUiHost({});
+  const iconPickerHost = createMemoryIconPickerHost();
+  provideKomandirUiHost(iconPickerHost.icons);
+  provideIconPickerHost(iconPickerHost.picker);
   onMount(()=>{for(const [key,colorValue]of Object.entries(palettes.commander))document.documentElement.style.setProperty(key,colorValue);});
   function launch(event:MouseEvent){trigger=event.currentTarget as HTMLElement;open=true;}
   function close(){open=false;}
@@ -50,7 +56,7 @@
   function select(next:string){value=next;status="Selected: "+next;}
 </script>
 <div class="preview-host">
-  {#if ["Button","IconButton","CheckButton","Switch","Dropdown","SegmentedControl","TabSurface","SplitButton","Tooltip","Notification","WindowDialog","MiniPopup","ConfirmPopover","ContextMenu","ContextSubmenu","ContextAction","Portal","Dialog","Popover"].includes(name)}<div class="preview-tools"><CheckButton label="Disabled" checked={disabled} onChange={next=>disabled=next} /></div>{/if}
+  {#if ["Button","IconButton","IconPicker","CheckButton","Switch","Dropdown","SegmentedControl","TabSurface","SplitButton","Tooltip","Notification","WindowDialog","MiniPopup","ConfirmPopover","ContextMenu","ContextSubmenu","ContextAction","Portal","Dialog","Popover"].includes(name)}<div class="preview-tools"><CheckButton label="Disabled" checked={disabled} onChange={next=>disabled=next} /></div>{/if}
   <div class="sample">
   {#if name==="Button"}<Button {disabled} onclick={()=>status="Default clicked"}>Default</Button><Button tone="primary" {disabled} onclick={()=>status="Saved"}>Save</Button><Button tone="danger" {disabled}>Remove</Button>
   {:else if name==="IconButton"}<IconButton label="Close example" {disabled} onclick={()=>status="Close requested"}><Icon name="sharedControls.remove" /></IconButton>
@@ -67,6 +73,7 @@
   {:else if name==="Keycap"}<Keycap text="Ctrl" /><Keycap text="Enter" tone="gray" /><Keycap text="Esc" tone="red" />
   {:else if name==="ShortcutHint"}<ShortcutHint bindings={[{ctrl:true,key:"s"},{meta:true,key:"s"}]} />
   {:else if name==="Icon"}<Icon name="sharedControls.check" /><Icon name="sharedControls.remove" /><Icon name="sharedControls.dropdown" />
+  {:else if name==="IconPicker"}<IconPicker value={iconValue} fallbackName="fileEntries.file" {disabled} onChange={next=>{iconValue=next;status="Assigned icon: "+(next??"Inherit");}} />
   {:else if name==="SvgIcon"}<div style="width:36px;height:36px"><SvgIcon url="/sample-icon.svg" viewBox="0 0 24 24" onError={()=>status="Could not load the sample icon. Reload this example."} /></div>
   {:else if name==="MessageBar"}<MessageBar role="status" message="The memory sample is ready." />
   {:else if name==="PathLabel"}<div style="width:240px;max-width:100%"><PathLabel value="/Documents/Projects/Archive/Long folder/recording.wav" /></div>

@@ -1,6 +1,6 @@
 # KoMandir UI variants
 
-34 existing controls from KoMandir's src/web/ui with their props, interaction code, styles and local helper closure. IconPicker remains application-owned until its icon-library loading operations have a focused host contract. It is not listed as an extracted component.
+All 35 existing controls from KoMandir's src/web/ui with their props, interaction code, styles and local helper closure. IconPicker takes its catalog and loading operations from icon-picker-host.ts.
 
 ```ts
 import CheckButton from "@karatala/ui-komandir/CheckButton.svelte";
@@ -18,12 +18,14 @@ Defaults provide bundled semantic icons and English parameter interpolation. Fil
 
 Tooltip/ShortcutHint use the existing key capture/signature/format functions in shortcut-codec.ts. Command IDs are strings supplied by the consumer, with binding/default maps and validate/onAssign callbacks. The source recorder still assigns on key release; this is not a new universal shortcut policy. Product command catalogs and conflict scopes remain in the application.
 
+IconPicker requires provideIconPickerHost from icon-picker-host.ts in addition to the icon-rendering host. Its contract supplies choices, allowed-value validation, error guidance, search translation, active theme, revision cache and three cancellable loading paths: installed themes, file resources and cached icons. The component keeps original batching, debounce, alias grouping, keyboard grid navigation and commit/cancel behavior. See ../../docs/ui-connection.md for source mappings and connection order. The memory example never reads an executable or application cache.
+
 ## Integration and status
 
 Adopt Portal, Dialog, Popover, portal.ts and overlay-focus.ts together with their callers so one document has one stack. Table selection/commands, path authorization and persisted window policy stay with callers. See ../../docs/ui-provenance.json for every source path/hash and ../../docs/UI_TRANSFER_STATUS.md for checks. Source revision: ffb699e5b5d31007932ebe912dc5e20d3d77cad4 in the KoMandir Bun utilities repository.
 
-- ✅ Extracted 34 components and local CSS/helpers with host boundaries for translations, icons and window storage.
+- ✅ Extracted all 35 components and local CSS/helpers with host boundaries for translations, icons, window storage and picker loading.
 - ✅ Shared demo type/Svelte check, all preview mounts and representative actions completed.
 - [ ] Deliver the new shared commit, connect KoMandir's real host callbacks and replace local imports.
-- [ ] Transfer IconPicker after separating its application loading operations.
+- ✅ IconPicker transferred with its source styles and cancellable host callbacks; memory browser checks passed.
 - [ ] Consumer/native-device acceptance after reconnection.

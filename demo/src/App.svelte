@@ -67,7 +67,7 @@
           {#each group as item (item.id)}
             <article class="example">
               <div class="example-heading"><div><span class="badge">{item.variant === "rachana" ? "Rachana" : "KoMandir"}</span><h2><a href={`/${item.id}`}>{item.name}</a></h2></div><a href={`/preview/${item.id}`} target="_blank" rel="noopener">Open example ↗</a></div>
-              <iframe title={`${item.variant} ${item.name} live example`} src={`/preview/${item.id}`} loading="lazy" style:height={item.family === "windows" ? "540px" : item.family === "selection" || item.family === "menus" || item.family === "help" ? "350px" : "220px"}></iframe>
+              <iframe title={`${item.variant} ${item.name} live example`} src={`/preview/${item.id}`} loading="lazy" style:height={item.family === "windows" || item.name === "IconPicker" ? "540px" : item.family === "selection" || item.family === "menus" || item.family === "help" ? "350px" : "220px"}></iframe>
               <details open={!family}><summary>Usage</summary><pre><code>{`import ${item.name} from "${item.importPath}";\n\n${item.usage ?? ""}`}</code></pre><p>Use the props below. Markup from the live example. Its values and callbacks are local demo state; application actions and persistence remain with the caller.</p></details>
               <details><summary>Props and defaults</summary><pre><code>{item.props}</code></pre></details>
               <details><summary>Source and integration</summary><p>{item.source}</p><p>Import from this package, compile with one Svelte 5 peer, and supply the existing theme roles. See the package README for host setup. Each preview runs in its own document so the two legacy style systems cannot overwrite each other.</p></details>

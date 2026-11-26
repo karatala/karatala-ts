@@ -648,5 +648,15 @@
     "sourceSha256": "2b4a53a3219596b44cd495a34fb1c52b35676ec23194c8fbc95873e0a6f80f65",
     "unchangedBytes": true,
     "adaptation": "none"
+  },
+  {
+    "package": "ui-komandir",
+    "file": "IconPicker.svelte",
+    "sourceRepository": "KoMandir Bun utilities repository",
+    "sourceRevision": "2ce59b840c2bc88eb00a8a92007e71cd9611a6c4",
+    "sourcePath": "folder-sync/src/web/ui/IconPicker.svelte",
+    "sourceSha256": "7eb6eab885016c7729def8db69d8b0dbbbd0b228686c845882432485fd956c06",
+    "unchangedBytes": false,
+    "adaptation": "application catalog, validation, search translation, cache and cancellable loaders supplied through icon-picker-host; source styles and interaction code retained"
   }
 ]

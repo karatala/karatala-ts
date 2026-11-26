@@ -18,4 +18,6 @@ Pages include live controls, supported disabled states, usage markup, props/defa
 
 Shared pages align matching controls: Switch with Switch, Select with Dropdown, ModalDialog with WindowDialog. Components without a matching variant have their own row.
 
+The IconPicker example has a memory theme with an alias, bundled choices and two memory resource records. Use /memory/icons/sample.dll in its source field to view the resource gallery. No native file is read. memory-folder.svg and memory-file.svg retain source Lucide artwork from KoMandir src/icon-assets.json, with the external-use root ID added; see ../packages/ui-komandir/ICON-LICENSES.md.
+
 Run `bun run check:demo` for type/Svelte validation. `bun run catalog:update` refreshes the catalog after adding a package component or changing example markup. A full production build or deployment is a separate action.

@@ -62,7 +62,10 @@
     "./Tooltip.svelte": "./src/Tooltip.svelte",
     "./WindowDialog.svelte": "./src/WindowDialog.svelte",
     "./WindowTitleBar.svelte": "./src/WindowTitleBar.svelte",
-    "./icon-references.ts": "./src/icon-references.ts"
+    "./icon-references.ts": "./src/icon-references.ts",
+    "./IconPicker.svelte": "./src/IconPicker.svelte",
+    "./icon-picker-host.ts": "./src/icon-picker-host.ts",
+    "./icon-theme-search.ts": "./src/icon-theme-search.ts"
   },
   "peerDependencies": {
     "svelte": "^5.46.4"

@@ -470,6 +470,16 @@
     "usage": "<IconButton label=\"Close example\" {disabled} onclick={()=>status=\"Close requested\"}><Icon name=\"sharedControls.remove\" /></IconButton>"
   },
   {
+    "id": "komandir/IconPicker",
+    "variant": "komandir",
+    "name": "IconPicker",
+    "family": "icons",
+    "importPath": "@karatala/ui-komandir/IconPicker.svelte",
+    "props": "let { value, fallback, fallbackName, fallbackReference, disabled = false, onChange }: {\r\n    value?: string; fallback?: string; fallbackName?: IconName; fallbackReference?: CommandIconReference; disabled?: boolean; onChange(value?: string): void;\r\n  } = $props()",
+    "source": "packages/ui-komandir/src/IconPicker.svelte",
+    "usage": "<IconPicker value={iconValue} fallbackName=\"fileEntries.file\" {disabled} onChange={next=>{iconValue=next;status=\"Assigned icon: \"+(next??\"Inherit\");}} />"
+  },
+  {
     "id": "komandir/Keycap",
     "variant": "komandir",
     "name": "Keycap",
