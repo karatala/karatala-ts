@@ -15,6 +15,8 @@
 - Accept data and callbacks; do not import application source, translation providers or the editor.
 - Preserve the existing theme-role names for now. Consumers supply their theme values and compile Svelte with one peer runtime.
 - Copy the complete local dependency closure when adding a component. Isolate a host dependency only when required for that transfer.
+- UiCheckboxButton text defaults to its accessible label; an explicit empty text keeps table selection cells compact without losing their label.
+- UiTextArea derives the bound native field from Rachana BeatTextEditor and dialogs.css; use native rows and forward attributes/events instead of importing editor state. UiTextInput accepts native time fields. UiPositionSlider retains immediate oninput by default; optional oncommit owns a cancellable local draft and emits the native change once. Keep step and reset explicit and preserve existing consumers.
 - Compare two variants only when choosing a common replacement or changing a contract. Exhaustive cross-project comparison is not a prerequisite for extraction.
 
 ## Verification

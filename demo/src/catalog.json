@@ -45,9 +45,9 @@
     "name": "UiCheckboxButton",
     "family": "checks",
     "importPath": "@karatala/ui-rachana/UiCheckboxButton.svelte",
-    "props": "type Props = { checked: boolean; mixed?: boolean; compact?: boolean; onchange: (checked: boolean, event: MouseEvent) => void } & Omit<ComponentProps<typeof UiButton>, \"active\" | \"children\" | \"onchange\" | \"onclick\" | \"text\">;\r\n\nlet { checked, mixed = false, label, title, path, compact = false, disabled = false, class: className = \"\", onchange, ...buttonProps }: Props = $props()",
+    "props": "type Props = { checked: boolean; mixed?: boolean; compact?: boolean; onchange: (checked: boolean, event: MouseEvent) => void } & Omit<ComponentProps<typeof UiButton>, \"active\" | \"children\" | \"onchange\" | \"onclick\">;\r\n\nlet { checked, mixed = false, label, text = label, title, path, compact = false, disabled = false, class: className = \"\", onchange, ...buttonProps }: Props = $props()",
     "source": "packages/ui-rachana/src/UiCheckboxButton.svelte",
-    "usage": "<UiCheckboxButton label=\"Enabled option\" {checked} {disabled} onchange={next=>checked=next} /><UiCheckboxButton compact label=\"Mixed state\" checked={false} mixed {disabled} onchange={next=>checked=next} />"
+    "usage": "<UiCheckboxButton label=\"Enabled option\" {checked} {disabled} onchange={next=>checked=next} /><UiCheckboxButton compact label=\"Icon-only option\" text=\"\" {checked} {disabled} onchange={next=>checked=next} /><UiCheckboxButton compact label=\"Mixed state\" checked={false} mixed {disabled} onchange={next=>checked=next} />"
   },
   {
     "id": "rachana/UiComboButton",
@@ -175,9 +175,9 @@
     "name": "UiPositionSlider",
     "family": "numbers",
     "importPath": "@karatala/ui-rachana/UiPositionSlider.svelte",
-    "props": "let { label, min = 0, max, value, valueText, resetValue, disabled = false, onchange }: {\r\n    label: string;\r\n    min?: number;\r\n    max: number;\r\n    value: number;\r\n    valueText?: string;\r\n    resetValue: number;\r\n    disabled?: boolean;\r\n    onchange: (value: number) => void;\r\n  } = $props()",
+    "props": "let { label, min = 0, max, value, valueText, step = 1, resetValue, disabled = false, onchange, oncommit }: {\r\n    label: string;\r\n    min?: number;\r\n    max: number;\r\n    value: number;\r\n    valueText?: string;\r\n    step?: number;\r\n    resetValue?: number;\r\n    disabled?: boolean;\r\n    onchange?: (value: number) => void;\r\n    oncommit?: (value: number) => void;\r\n  } = $props()",
     "source": "packages/ui-rachana/src/UiPositionSlider.svelte",
-    "usage": "<UiPositionSlider label=\"Position\" {value} max={100} resetValue={75} {disabled} onchange={number} />"
+    "usage": "<UiPositionSlider label=\"Position\" {value} max={100} resetValue={75} {disabled} onchange={number} /><UiPositionSlider label=\"Commit position on release\" {value} max={100} step={0.1} {disabled} oncommit={next=>{number(next);status=\"Committed position: \"+next;}} />"
   },
   {
     "id": "rachana/UiResizeHandle",
@@ -260,14 +260,24 @@
     "usage": "<UiSwitch label=\"Automatic mode\" {checked} {disabled} onchange={next=>checked=next} />"
   },
   {
+    "id": "rachana/UiTextArea",
+    "variant": "rachana",
+    "name": "UiTextArea",
+    "family": "layout",
+    "importPath": "@karatala/ui-rachana/UiTextArea.svelte",
+    "props": "let { value = $bindable(\"\"), input = $bindable(), rows = 4, class: className = \"\", ...attributes }: Omit<HTMLTextareaAttributes, \"value\" | \"class\" | \"children\"> & { value?: string; input?: HTMLTextAreaElement; class?: string } = $props()",
+    "source": "packages/ui-rachana/src/UiTextArea.svelte",
+    "usage": "<UiTextArea aria-label=\"Sample multiline text\" bind:value={text} rows={4} maxlength={1000} {disabled} />"
+  },
+  {
     "id": "rachana/UiTextInput",
     "variant": "rachana",
     "name": "UiTextInput",
     "family": "layout",
     "importPath": "@karatala/ui-rachana/UiTextInput.svelte",
-    "props": "let { value = $bindable(\"\"), input = $bindable(), type = \"text\", class: className = \"\", ...attributes }: Omit<HTMLInputAttributes, \"value\" | \"class\" | \"type\"> & { value?: string; input?: HTMLInputElement; type?: \"text\" | \"search\" | \"email\" | \"password\" | \"url\"; class?: string } = $props()",
+    "props": "let { value = $bindable(\"\"), input = $bindable(), type = \"text\", class: className = \"\", ...attributes }: Omit<HTMLInputAttributes, \"value\" | \"class\" | \"type\"> & { value?: string; input?: HTMLInputElement; type?: \"text\" | \"search\" | \"email\" | \"password\" | \"url\" | \"time\"; class?: string } = $props()",
     "source": "packages/ui-rachana/src/UiTextInput.svelte",
-    "usage": "<UiTextInput aria-label=\"Sample text\" bind:value={text} {disabled} />"
+    "usage": "<UiTextInput aria-label=\"Sample text\" bind:value={text} {disabled} /><UiTextInput aria-label=\"Schedule time\" type=\"time\" value=\"22:30\" {disabled} />"
   },
   {
     "id": "rachana/UiTooltip",

@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { HTMLInputAttributes } from "svelte/elements";
-  let { value = $bindable(""), input = $bindable(), type = "text", class: className = "", ...attributes }: Omit<HTMLInputAttributes, "value" | "class" | "type"> & { value?: string; input?: HTMLInputElement; type?: "text" | "search" | "email" | "password" | "url"; class?: string } = $props();
+  let { value = $bindable(""), input = $bindable(), type = "text", class: className = "", ...attributes }: Omit<HTMLInputAttributes, "value" | "class" | "type"> & { value?: string; input?: HTMLInputElement; type?: "text" | "search" | "email" | "password" | "url" | "time"; class?: string } = $props();
 </script>
 
 <input {...attributes} bind:this={input} bind:value {type} class={`ui-text-input ${className}`} />

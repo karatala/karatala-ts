@@ -49,6 +49,7 @@
     "./UiShortcutHint.svelte": "./src/UiShortcutHint.svelte",
     "./UiStepControl.svelte": "./src/UiStepControl.svelte",
     "./UiSwitch.svelte": "./src/UiSwitch.svelte",
+    "./UiTextArea.svelte": "./src/UiTextArea.svelte",
     "./UiTextInput.svelte": "./src/UiTextInput.svelte",
     "./UiTooltip.svelte": "./src/UiTooltip.svelte",
     "./UiValueControl.svelte": "./src/UiValueControl.svelte",

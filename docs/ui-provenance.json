@@ -46,8 +46,8 @@
     "sourceRevision": "02e63ce9827dc1d267e1a13758901f83da87f72a",
     "sourcePath": "src/frontend/ui/UiCheckboxButton.svelte",
     "sourceSha256": "93112713e1ecf541b16fc829f128e6ca196c2755299a0cc44b448d4bc04edce1",
-    "unchangedBytes": true,
-    "adaptation": "none"
+    "unchangedBytes": false,
+    "adaptation": "optional visible text defaults to the accessible label; empty text supports existing labelled table selection cells without duplicating captions"
   },
   {
     "package": "ui-rachana",
@@ -176,8 +176,8 @@
     "sourceRevision": "02e63ce9827dc1d267e1a13758901f83da87f72a",
     "sourcePath": "src/frontend/ui/UiPositionSlider.svelte",
     "sourceSha256": "fed773a85a281cd78993f5f5899070ffa0ffedf6e072da87cef5b87e1963adb6",
-    "unchangedBytes": true,
-    "adaptation": "none"
+    "unchangedBytes": false,
+    "adaptation": "optional fractional step and change-event commit with cancellable local draft; omitted reset disables double-click reset; original oninput callback mode retained"
   },
   {
     "package": "ui-rachana",
@@ -266,8 +266,8 @@
     "sourceRevision": "02e63ce9827dc1d267e1a13758901f83da87f72a",
     "sourcePath": "src/frontend/ui/UiTextInput.svelte",
     "sourceSha256": "95a5d90cd710b375440ad9e2eeb17932f885dabac4a71f441f736390359c1339",
-    "unchangedBytes": true,
-    "adaptation": "none"
+    "unchangedBytes": false,
+    "adaptation": "added the native time input type; existing rendering and input behavior retained"
   },
   {
     "package": "ui-rachana",
@@ -658,5 +658,21 @@
     "sourceSha256": "7eb6eab885016c7729def8db69d8b0dbbbd0b228686c845882432485fd956c06",
     "unchangedBytes": false,
     "adaptation": "application catalog, validation, search translation, cache and cancellable loaders supplied through icon-picker-host; source styles and interaction code retained"
+  },
+  {
+    "package": "ui-rachana",
+    "file": "UiTextArea.svelte",
+    "sourceRepository": "karatala/Komprohit",
+    "sourceRevision": "c503ee6fa8eb9796d195974be55259bf4aae3feb",
+    "sourcePath": "src/frontend/editor/BeatTextEditor.svelte",
+    "sourceSha256": "9efe7a069d1ead86aa0267f0807c57ec690cbdc053361f940b47179cabc61fce",
+    "unchangedBytes": false,
+    "adaptation": "extracted the native bound textarea from BeatTextEditor; reusable attribute/ref boundary follows UiTextInput; field styling comes from dialogs.css with shared disabled/focus states and native rows instead of feature-specific minimum height",
+    "additionalSources": [
+      {
+        "sourcePath": "src/themes/dialogs.css",
+        "sourceSha256": "c4d0fa7ad83dab63a5fc3ba5f8c0950ef988db1f4bf1f4a07e77f2d70c63928d"
+      }
+    ]
   }
 ]

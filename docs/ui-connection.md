@@ -5,7 +5,7 @@ Owner: karatala-ts. This document owns shared host contracts and connection orde
 ## Delivery and runtime
 
 - ✅ Initial UI packages are published in ebf477b on origin/dev.
-- ✅ All 31 Rachana and 35 KoMandir components now have shared source and a live memory example.
+- ✅ All 32 Rachana and 35 KoMandir components now have shared source and a live memory example.
 - ✅ IconPicker is published in 1f1fc62 on origin/dev. Consumers pin an available commit before connecting a package.
 - [ ] Add only the required file dependency: @karatala/ui-rachana or @karatala/ui-komandir from vendor/shared/packages. Rachana also needs the existing dom-input package. Keep one Svelte peer runtime per consumer.
 - [ ] Refresh each consumer lockfile and check its real host after dependency updates are authorized. No application build or deploy is part of extraction.

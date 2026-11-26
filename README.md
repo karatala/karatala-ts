@@ -5,7 +5,7 @@ Shared TypeScript packages for Rachana, KoMandir, Shravanam and future applicati
 | Package | Scope | Status |
 | --- | --- | --- |
 | [@karatala/dom-input](packages/dom-input/README.md) | Pointer focus release and document hover ownership | Connected to Rachana and Shravanam; portable checks passed, device coverage remains separate |
-| [@karatala/ui-rachana](packages/ui-rachana/README.md) | Existing Rachana UI variants | 31 components extracted with local helpers/styles and host callbacks |
+| [@karatala/ui-rachana](packages/ui-rachana/README.md) | Existing Rachana UI variants | 32 components extracted with local helpers/styles and host callbacks |
 | [@karatala/ui-komandir](packages/ui-komandir/README.md) | Existing KoMandir UI variants | All 35 components extracted with local helpers/styles and host callbacks |
 
 Consumers use a pinned Git submodule at `vendor/shared` and depend only on the required package folders. There is no umbrella runtime entry or root installation script. UI variants retain their existing props, behavior, theme roles and source names. Extraction does not wait for exhaustive comparison; unify variants only when a common replacement is selected. Common theme normalization, updates and platform adapters remain future work.

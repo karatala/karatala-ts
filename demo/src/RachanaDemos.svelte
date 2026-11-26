@@ -30,6 +30,7 @@
   import UiShortcutHint from "@karatala/ui-rachana/UiShortcutHint.svelte";
   import UiStepControl from "@karatala/ui-rachana/UiStepControl.svelte";
   import UiSwitch from "@karatala/ui-rachana/UiSwitch.svelte";
+  import UiTextArea from "@karatala/ui-rachana/UiTextArea.svelte";
   import UiTextInput from "@karatala/ui-rachana/UiTextInput.svelte";
   import UiTooltip from "@karatala/ui-rachana/UiTooltip.svelte";
   import UiValueControl from "@karatala/ui-rachana/UiValueControl.svelte";
@@ -44,22 +45,23 @@
   function select(next:string){choice=next;status="Selected: "+next;}
 </script>
 <div class="app-shell preview-host" data-appearance="rachana-dark">
-  {#if ["UiButton","UiTextInput","UiField","UiCheckboxButton","UiSwitch","UiNumberStepper","UiStepControl","UiValueControl","UiPositionSlider","UiSelect","UiComboButton","UiWheelButton","UiZoomSelect","UiSegmentedControl","UiSegmentedButton","UiSegmentedGroup","UiContextMenu","UiMiniPopup","ModalDialog"].includes(name)}<div class="preview-tools"><UiCheckboxButton compact label="Disabled" checked={disabled} onchange={next=>disabled=next} /></div>{/if}
+  {#if ["UiButton","UiTextInput","UiTextArea","UiField","UiCheckboxButton","UiSwitch","UiNumberStepper","UiStepControl","UiValueControl","UiPositionSlider","UiSelect","UiComboButton","UiWheelButton","UiZoomSelect","UiSegmentedControl","UiSegmentedButton","UiSegmentedGroup","UiContextMenu","UiMiniPopup","ModalDialog"].includes(name)}<div class="preview-tools"><UiCheckboxButton compact label="Disabled" checked={disabled} onchange={next=>disabled=next} /></div>{/if}
   <div class="sample">
   {#if name === "UiButton"}
     <UiButton label="Default action" text="Default" {disabled} onclick={()=>status="Default clicked"} /><UiButton label="Save" text="Save" tone="primary" {disabled} onclick={()=>status="Saved"} /><UiButton label="Remove" text="Remove" tone="danger" {disabled} onclick={()=>status="Removed"} /><UiButton label="Close" variant="icon" tone="close" path={uiIcons.close} {disabled} />
-  {:else if name === "UiTextInput"}<UiTextInput aria-label="Sample text" bind:value={text} {disabled} />
+  {:else if name === "UiTextInput"}<UiTextInput aria-label="Sample text" bind:value={text} {disabled} /><UiTextInput aria-label="Schedule time" type="time" value="22:30" {disabled} />
+  {:else if name === "UiTextArea"}<UiTextArea aria-label="Sample multiline text" bind:value={text} rows={4} maxlength={1000} {disabled} />
   {:else if name === "UiField"}<UiField label="Name"><UiTextInput aria-label="Name" bind:value={text} {disabled} /></UiField>
   {:else if name === "UiLoading"}<UiLoading label="Loading sample" />
   {:else if name === "UiFloatingToolbar"}<div class="toolbar-stage"><UiFloatingToolbar label="Sample tools"><UiButton label="Add" variant="icon" text="+" /><UiButton label="Close tool" path={uiIcons.close} variant="icon" /></UiFloatingToolbar><p>Content area</p></div>
   {:else if name === "UiIcon"}<UiIcon path={uiIcons.star} label="Star" /><UiIcon path={uiIcons.close} label="Close" />
-  {:else if name === "UiCheckboxButton"}<UiCheckboxButton label="Enabled option" {checked} {disabled} onchange={next=>checked=next} /><UiCheckboxButton compact label="Mixed state" checked={false} mixed {disabled} onchange={next=>checked=next} />
+  {:else if name === "UiCheckboxButton"}<UiCheckboxButton label="Enabled option" {checked} {disabled} onchange={next=>checked=next} /><UiCheckboxButton compact label="Icon-only option" text="" {checked} {disabled} onchange={next=>checked=next} /><UiCheckboxButton compact label="Mixed state" checked={false} mixed {disabled} onchange={next=>checked=next} />
   {:else if name === "UiSwitch"}<UiSwitch label="Automatic mode" {checked} {disabled} onchange={next=>checked=next} />
   {:else if name === "UiFavoriteButton"}<div data-favorite-item class="favorite-stage"><UiFavoriteButton label="Saved favorite" active={true} onclick={()=>status="Favorite selected"} /><span>Hover to reveal another favorite:</span><UiFavoriteButton label="Toggle favorite" active={checked} onclick={()=>checked=!checked} /></div>
   {:else if name === "UiNumberStepper"}<UiNumberStepper label="Amount" {value} min={0} max={100} suffix="%" {disabled} onchange={number} />
   {:else if name === "UiStepControl"}<UiStepControl label="Step value" caption={String(value)} upLabel="Increase" downLabel="Decrease" {disabled} onup={()=>number(value+1)} ondown={()=>number(value-1)} />
   {:else if name === "UiValueControl"}<UiValueControl label="Volume" {value} max={100} resetValue={75} {disabled} onchange={number} /><UiValueControl label="Dial" {value} max={100} resetValue={75} dial {disabled} onchange={number} />
-  {:else if name === "UiPositionSlider"}<UiPositionSlider label="Position" {value} max={100} resetValue={75} {disabled} onchange={number} />
+  {:else if name === "UiPositionSlider"}<UiPositionSlider label="Position" {value} max={100} resetValue={75} {disabled} onchange={number} /><UiPositionSlider label="Commit position on release" {value} max={100} step={0.1} {disabled} oncommit={next=>{number(next);status="Committed position: "+next;}} />
   {:else if name === "UiResizeHandle"}<div class="resize-stage" style:width={value+80+"px"}><span>Resizable panel</span><UiResizeHandle label="Resize panel" {value} minimum={0} maximum={150} onchange={number} onreset={()=>number(75)} /></div>
   {:else if name === "UiSelect"}<UiSelect label="File scope" bind:value={choice} {disabled} onchange={()=>status="Selected: "+choice}>{#each options as option}<option value={option.value}>{option.label}</option>{/each}<option disabled>Unavailable</option></UiSelect>
   {:else if name === "UiComboButton"}<UiComboButton label="Scope grid" value={choice} {options} {disabled} onchange={select} />

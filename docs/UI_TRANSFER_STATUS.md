@@ -1,5 +1,13 @@
 # UI transfer status
 
+## Form extensions for Shravanam
+
+- ✅ Extracted UiTextArea from Rachana BeatTextEditor and dialog field styles, with native rows, validation, events and a bound element reference.
+- ✅ UiTextInput accepts time; UiCheckboxButton can hide visible text while retaining its label. UiPositionSlider supports fractional steps and optional commit on the native change event, with cancellation and optional reset. Existing defaults remain unchanged.
+- ✅ The catalog contains 67 real component pages. The shared Svelte/type check has zero errors and warnings. Source derivations and adaptations are recorded in ui-provenance.json.
+- [ ] Publish the new shared commit, then record consumer pins and browser/device acceptance in the application plans.
+
+
 Owner: karatala-ts. This is a source transfer and demo record, not a merged cross-project design. Existing Rachana R-family and KoMandir K-family catalogs remain the owners of product approval until consumers connect to these packages.
 
 ## Extracted
@@ -14,7 +22,7 @@ Owner: karatala-ts. This is a source transfer and demo record, not a merged cros
 
 ## Demo
 
-- ✅ 66 component pages, each with a real shared-package example, import/usage markup, props/defaults and source information.
+- ✅ 67 component pages, each with a real shared-package example, import/usage markup, props/defaults and source information.
 - ✅ Shared family pages put existing variants beside each other for later comparison. No behavior is normalized for the demo.
 - ✅ Preview documents isolate legacy CSS and overlay stacks. Examples use memory-only values, bundled icons and no persisted window keys.
 - ✅ Catalog update script rejects a public component without a live example branch.

@@ -1,16 +1,24 @@
 <script lang="ts">
   import { releasePointerFocus } from "@karatala/dom-input";
 
-  let { label, min = 0, max, value, valueText, resetValue, disabled = false, onchange }: {
+  let { label, min = 0, max, value, valueText, step = 1, resetValue, disabled = false, onchange, oncommit }: {
     label: string;
     min?: number;
     max: number;
     value: number;
     valueText?: string;
-    resetValue: number;
+    step?: number;
+    resetValue?: number;
     disabled?: boolean;
-    onchange: (value: number) => void;
+    onchange?: (value: number) => void;
+    oncommit?: (value: number) => void;
   } = $props();
+  let draft = $state<number | null>(null);
+  $effect(() => { if (disabled) draft = null; });
+  function cancel(event: Event & { currentTarget: HTMLInputElement }) {
+    draft = null;
+    event.currentTarget.value = String(value);
+  }
 </script>
 
 <input
@@ -18,15 +26,17 @@
   type="range"
   {min}
   {max}
-  {value}
+  value={draft ?? value}
   {disabled}
-  step="1"
+  {step}
   aria-label={label}
   aria-valuetext={valueText}
-  oninput={(event) => onchange(event.currentTarget.valueAsNumber)}
+  oninput={event => { const next = event.currentTarget.valueAsNumber; if (oncommit) draft = next; onchange?.(next); }}
+  onchange={event => { const next = event.currentTarget.valueAsNumber; const pending = draft !== null; draft = null; if (pending && next !== value) oncommit?.(next); }}
+  onkeydown={event => { if (event.key === "Escape" && draft !== null) { event.preventDefault(); event.stopPropagation(); cancel(event); } }}
   onpointerup={releasePointerFocus}
-  onpointercancel={releasePointerFocus}
-  ondblclick={() => { if (!disabled) onchange(resetValue); }} />
+  onpointercancel={event => { cancel(event); releasePointerFocus(event); }}
+  ondblclick={() => { if (!disabled && resetValue !== undefined) { if (oncommit) oncommit(resetValue); else onchange?.(resetValue); } }} />
 
 <style>
   .position-slider { box-sizing: border-box; width: 100%; min-width: 0; height: 24px; margin: 0; padding: 0; border: none; appearance: none; background: transparent; cursor: pointer; touch-action: pan-y; direction: ltr; }

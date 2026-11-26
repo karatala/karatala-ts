@@ -2,8 +2,8 @@
   import type { ComponentProps } from "svelte";
   import UiButton from "./UiButton.svelte";
   import UiIcon from "./UiIcon.svelte";
-  type Props = { checked: boolean; mixed?: boolean; compact?: boolean; onchange: (checked: boolean, event: MouseEvent) => void } & Omit<ComponentProps<typeof UiButton>, "active" | "children" | "onchange" | "onclick" | "text">;
-  let { checked, mixed = false, label, title, path, compact = false, disabled = false, class: className = "", onchange, ...buttonProps }: Props = $props();
+  type Props = { checked: boolean; mixed?: boolean; compact?: boolean; onchange: (checked: boolean, event: MouseEvent) => void } & Omit<ComponentProps<typeof UiButton>, "active" | "children" | "onchange" | "onclick">;
+  let { checked, mixed = false, label, text = label, title, path, compact = false, disabled = false, class: className = "", onchange, ...buttonProps }: Props = $props();
 </script>
 
 <UiButton
@@ -12,7 +12,7 @@
   {label}
   {title}
   {disabled}
-  text={label}
+  {text}
   active={mixed ? "mixed" : checked}
   onclick={event => onchange(!checked, event)}>
   <span class="checkbox-mark" class:is-checked={checked || mixed} aria-hidden="true">
