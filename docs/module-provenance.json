@@ -1,0 +1,82 @@
+[
+  {
+    "package": "web-updater",
+    "file": "src/core.ts",
+    "sourceRepository": "karatala/Komprohit",
+    "sourceRevision": "0231177ddb5739742c5faef40432e9cc35a11b3c",
+    "sourcePath": "modules/web-updater/core.ts",
+    "sourceSha256": "63af1506bfa1aeaf1f76747499ac30e635350adfe4f49b10a7905c74fbdd9455",
+    "unchangedBytes": true,
+    "adaptation": "none; independent explicit core, Bun, Capacitor and ZIP exports"
+  },
+  {
+    "package": "web-updater",
+    "file": "src/bun-host.ts",
+    "sourceRepository": "karatala/Komprohit",
+    "sourceRevision": "0231177ddb5739742c5faef40432e9cc35a11b3c",
+    "sourcePath": "modules/web-updater/bun-host.ts",
+    "sourceSha256": "611a883a8d55a8e820852178194d945eb22f73e17e76fd649e43736dc62eeb9f",
+    "unchangedBytes": true,
+    "adaptation": "none; independent explicit core, Bun, Capacitor and ZIP exports"
+  },
+  {
+    "package": "web-updater",
+    "file": "src/capacitor-host.ts",
+    "sourceRepository": "karatala/Komprohit",
+    "sourceRevision": "0231177ddb5739742c5faef40432e9cc35a11b3c",
+    "sourcePath": "modules/web-updater/capacitor-host.ts",
+    "sourceSha256": "9973b464aa75ab59f155c4dfdbe0a008bde3c00cd43899dcdf483436ec684220",
+    "unchangedBytes": true,
+    "adaptation": "none; independent explicit core, Bun, Capacitor and ZIP exports"
+  },
+  {
+    "package": "web-updater",
+    "file": "src/zip.ts",
+    "sourceRepository": "karatala/Komprohit",
+    "sourceRevision": "0231177ddb5739742c5faef40432e9cc35a11b3c",
+    "sourcePath": "modules/web-updater/zip.ts",
+    "sourceSha256": "9c66b393671f4ff9c8d8b3ebdfd11cedabaf3c236b0e4686b1222077ad197638",
+    "unchangedBytes": true,
+    "adaptation": "none; independent explicit core, Bun, Capacitor and ZIP exports"
+  },
+  {
+    "package": "browser-files",
+    "file": "src/index.ts",
+    "sourceRepository": "karatala/shravanam",
+    "sourceRevision": "3393f3a877c8048a516e3a981325f5f0662f13a8",
+    "sourcePath": "src/browser-files.ts",
+    "sourceSha256": "3371ee13426fc93e4826861ed56616073207dce7d5171b13284a194cc764fe38",
+    "unchangedBytes": false,
+    "adaptation": "Media filtering is a caller-supplied picker option; BrowserPickedFile replaces the product-specific type name. Preserve null for unsupported picker, rejected cancellation and synchronous drop capture."
+  },
+  {
+    "package": "offline-shell",
+    "file": "src/listed-shell.ts",
+    "sourceRepository": "karatala/shravanam",
+    "sourceRevision": "3393f3a877c8048a516e3a981325f5f0662f13a8",
+    "sourcePath": "public/service-worker.js",
+    "sourceSha256": "ece357643b91ac9109b9c5ffc19a0934c7537913cc67ded50b223b5b5dc62181",
+    "unchangedBytes": false,
+    "adaptation": "Move registration/cache/fetch effects into an explicit self-contained installer. Namespace, revision, file list and optional activation message/development manifest are caller data. Retain separate listed cache-first, reload-aware cache-first and development network-first policies. Resolve development navigation/manifest paths against the worker scope."
+  },
+  {
+    "package": "offline-shell",
+    "file": "src/cached-shell.ts",
+    "sourceRepository": "karatala/Komprohit",
+    "sourceRevision": "0231177ddb5739742c5faef40432e9cc35a11b3c",
+    "sourcePath": "public/service-worker.js",
+    "sourceSha256": "1d1123c17d2726f7a701e25a341ec31dc407df98381e77ed0d2822c6b73fdc56",
+    "unchangedBytes": false,
+    "adaptation": "Move registration/cache/fetch effects into an explicit self-contained installer. Namespace, revision, file list and optional activation message/development manifest are caller data. Retain separate listed cache-first, reload-aware cache-first and development network-first policies. Resolve development navigation/manifest paths against the worker scope."
+  },
+  {
+    "package": "offline-shell",
+    "file": "src/development-shell.ts",
+    "sourceRepository": "karatala/Komprohit",
+    "sourceRevision": "0231177ddb5739742c5faef40432e9cc35a11b3c",
+    "sourcePath": "public/service-worker-dev.js",
+    "sourceSha256": "fa85587258414d05397b060c78b702e5964cc11f801cb0777afa0b489a10709b",
+    "unchangedBytes": false,
+    "adaptation": "Move registration/cache/fetch effects into an explicit self-contained installer. Namespace, revision, file list and optional activation message/development manifest are caller data. Retain separate listed cache-first, reload-aware cache-first and development network-first policies. Resolve development navigation/manifest paths against the worker scope."
+  }
+]

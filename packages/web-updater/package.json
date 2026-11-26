@@ -1,0 +1,29 @@
+{
+  "name": "@karatala/web-updater",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "license": "GPL-3.0-only",
+  "exports": {
+    ".": "./src/core.ts",
+    "./bun": "./src/bun-host.ts",
+    "./capacitor": "./src/capacitor-host.ts",
+    "./zip": "./src/zip.ts"
+  },
+  "peerDependencies": {
+    "@capacitor/core": "^8.0.0",
+    "@capgo/capacitor-updater": "8.54.0"
+  },
+  "peerDependenciesMeta": {
+    "@capacitor/core": {
+      "optional": true
+    },
+    "@capgo/capacitor-updater": {
+      "optional": true
+    }
+  },
+  "scripts": {
+    "test": "bun test ./tests",
+    "check": "tsc --project tsconfig.json"
+  }
+}

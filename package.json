@@ -9,6 +9,7 @@
   "scripts": {
     "demo": "bun run --cwd demo dev",
     "check:demo": "bun run --cwd demo check",
-    "catalog:update": "bun scripts/update-catalog.ts"
+    "catalog:update": "bun scripts/update-catalog.ts",
+    "test:modules": "bun test packages/web-updater/tests packages/offline-shell/tests packages/browser-files/tests"
   }
 }

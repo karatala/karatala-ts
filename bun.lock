@@ -22,12 +22,20 @@
         "vite": "8.3.0",
       },
     },
+    "packages/browser-files": {
+      "name": "@karatala/browser-files",
+      "version": "0.1.0",
+    },
     "packages/dom-input": {
       "name": "@karatala/dom-input",
       "version": "0.1.0",
       "devDependencies": {
         "happy-dom": "20.14.5",
       },
+    },
+    "packages/offline-shell": {
+      "name": "@karatala/offline-shell",
+      "version": "0.1.0",
     },
     "packages/ui-bootstrap": {
       "name": "@karatala/ui-bootstrap",
@@ -56,6 +64,18 @@
         "svelte": "^5.46.4",
       },
     },
+    "packages/web-updater": {
+      "name": "@karatala/web-updater",
+      "version": "0.1.0",
+      "peerDependencies": {
+        "@capacitor/core": "^8.0.0",
+        "@capgo/capacitor-updater": "8.54.0",
+      },
+      "optionalPeers": [
+        "@capacitor/core",
+        "@capgo/capacitor-updater",
+      ],
+    },
   },
   "packages": {
     "@emnapi/core": ["@emnapi/core@2.0.0-beta.2", "", { "dependencies": { "@emnapi/wasi-threads": "2.2.0", "tslib": "^2.4.0" } }, "sha512-MzCVoWtcg4Pm2B3je5mMvYMvj3MmBKw+fU7vbsJc9/iT8ip6/eYIHo/Dsm/mr+wsHB6SEyJDuxB09Yy6r/8+4A=="],
@@ -74,15 +94,21 @@
 
     "@jridgewell/trace-mapping": ["@jridgewell/trace-mapping@0.3.31", "", { "dependencies": { "@jridgewell/resolve-uri": "^3.1.0", "@jridgewell/sourcemap-codec": "^1.4.14" } }, "sha512-zzNR+SdQSDJzc8joaeP8QQoCQr8NuYx2dIIytl1QeBEZHJ9uW6hebsrYgbz8hJwUQao3TWCMtmfV8Nu1twOLAw=="],
 
+    "@karatala/browser-files": ["@karatala/browser-files@workspace:packages/browser-files"],
+
     "@karatala/demo": ["@karatala/demo@workspace:demo"],
 
     "@karatala/dom-input": ["@karatala/dom-input@workspace:packages/dom-input"],
+
+    "@karatala/offline-shell": ["@karatala/offline-shell@workspace:packages/offline-shell"],
 
     "@karatala/ui-bootstrap": ["@karatala/ui-bootstrap@workspace:packages/ui-bootstrap"],
 
     "@karatala/ui-komandir": ["@karatala/ui-komandir@workspace:packages/ui-komandir"],
 
     "@karatala/ui-rachana": ["@karatala/ui-rachana@workspace:packages/ui-rachana"],
+
+    "@karatala/web-updater": ["@karatala/web-updater@workspace:packages/web-updater"],
 
     "@napi-rs/wasm-runtime": ["@napi-rs/wasm-runtime@1.2.6", "", { "dependencies": { "@tybys/wasm-util": "^0.10.3" }, "peerDependencies": { "@emnapi/core": "^1.7.1 || 2.0.0-beta.2", "@emnapi/runtime": "^1.7.1 || 2.0.0-beta.2" } }, "sha512-mRyDmEw9/fCDXCGfL1sbgIw/GUK0PVxRW4YwgPN61F3LQ+fSyoBFarJVzgGyhF6kRzEQZ0FejDqm4WLXSeqQmw=="],
 
