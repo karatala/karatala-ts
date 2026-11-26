@@ -41,7 +41,7 @@
   let recorder = $state<HTMLButtonElement | null>(null);
   let addRecorder = $state<HTMLButtonElement | null>(null);
   let generation = 0;
-  let hasDefaultChanges = $derived(command !== null && defaults[command].length > 0 && bindings[command].map(shortcutSignature).join("|") !== defaults[command].map(shortcutSignature).join("|"));
+  let hasDefaultChanges = $derived(command !== null && defaults[command]!.length > 0 && bindings[command]!.map(shortcutSignature).join("|") !== defaults[command]!.map(shortcutSignature).join("|"));
   let target: HTMLElement | null = null;
   let timer: ReturnType<typeof setTimeout> | undefined;
   let leaveTimer: ReturnType<typeof setTimeout> | undefined;
@@ -169,7 +169,7 @@
     try {
       const conflict = validate(assignedCommand, shortcuts);
       if (conflict) throw new Error(conflict);
-      if (bindings[assignedCommand].map(shortcutSignature).join("|") !== shortcuts.map(shortcutSignature).join("|")) await onAssign(assignedCommand, shortcuts);
+      if (bindings[assignedCommand]!.map(shortcutSignature).join("|") !== shortcuts.map(shortcutSignature).join("|")) await onAssign(assignedCommand, shortcuts);
       if (generation === assignedGeneration) cancelRecording();
     }
     catch (saveError) { if (generation === assignedGeneration) error = saveError instanceof Error ? saveError.message : String(saveError); }
@@ -384,13 +384,13 @@
             {/if}
           </button>
         {/each}
-        {#if bindings[command].length}
+        {#if bindings[command]!.length}
           <Button class="tooltip-shortcut-action" aria-label={message("Clear shortcuts")} disabled={saving || !ready} onclick={() => void assign([])}>
             {message("Clear")}
           </Button>
         {/if}
         {#if hasDefaultChanges}
-          <Button class="tooltip-shortcut-action" aria-label={message("Reset shortcuts to default")} disabled={saving || !ready} onclick={() => { if (command) void assign(defaults[command].map(shortcut => ({ ...shortcut }))); }}>
+          <Button class="tooltip-shortcut-action" aria-label={message("Reset shortcuts to default")} disabled={saving || !ready} onclick={() => { if (command) void assign(defaults[command]!.map(shortcut => ({ ...shortcut }))); }}>
             {message("Default")}
           </Button>
         {/if}

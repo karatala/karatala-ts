@@ -18,6 +18,8 @@ Defaults provide bundled semantic icons and English parameter interpolation. Fil
 
 Tooltip/ShortcutHint use the existing key capture/signature/format functions in shortcut-codec.ts. Command IDs are strings supplied by the consumer, with binding/default maps and validate/onAssign callbacks. The source recorder still assigns on key release; this is not a new universal shortcut policy. Product command catalogs and conflict scopes remain in the application.
 
+Supply a bindings and defaults array for every ID in commands, including empty arrays for unassigned commands. This retains the source catalog contract and supports consumers with noUncheckedIndexedAccess enabled.
+
 IconPicker requires provideIconPickerHost from icon-picker-host.ts in addition to the icon-rendering host. Its contract supplies choices, allowed-value validation, error guidance, search translation, active theme, revision cache and three cancellable loading paths: installed themes, file resources and cached icons. The component keeps original batching, debounce, alias grouping, keyboard grid navigation and commit/cancel behavior. See ../../docs/ui-connection.md for source mappings and connection order. The memory example never reads an executable or application cache.
 
 ## Integration and status

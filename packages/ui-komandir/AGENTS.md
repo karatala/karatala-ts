@@ -17,6 +17,7 @@
 - controls.css retains existing global selectors. Consumers own theme roles and document styling; do not present it as an isolated theme reset.
 - Copy the full local dependency closure. Only application-dependent code needs an adapter; extraction does not require a behavior redesign.
 - IconPicker requires provideIconPickerHost before mounting. The application owns its icon catalog, allowed values, loaders, revision cache and active theme. Keep original request cancellation, debounce, batching and explicit commit behavior. Imports must not start a load.
+- Tooltip requires an array in bindings and defaults for every ID in commands, including an empty array when unassigned. Retain this caller contract when checking the string-keyed maps under noUncheckedIndexedAccess.
 
 ## Verification
 

@@ -9,8 +9,8 @@ Owner: karatala-ts. This is a source transfer and demo record, not a merged cros
 - ✅ 46 component files are byte-identical; 20 contain import/host-boundary or type changes. Component styles and interaction implementations are retained. Exact source hashes, revisions and paths are in ui-provenance.json.
 - ✅ All 66 component style blocks match the source files. The opt-in Rachana stylesheet keeps the existing UI folder CSS and selected theme rules in source cascade order.
 - ✅ IconPicker: extracted with explicit catalog, validation, cache and signal-aware loading callbacks. Original search/grouping helpers and synonyms are retained. Source and consumer mappings are in ui-connection.md.
-- ✅ Initial 65-component commit ebf477b is available on origin/dev. The added IconPicker still needs delivery before an application can pin its shared implementation.
-- [ ] Reconnect application imports after the shared commit is available in upstream. Keep consumer pins reproducible. No push or publication was performed.
+- ✅ All 66 components, including IconPicker, are available in 1f1fc62 on origin/dev. The strict Tooltip binding-map annotations added during consumer connection preserve the existing complete-map contract and runtime behavior.
+- Application repositories own connection and acceptance records. Keep consumer pins reproducible; only pin delivered shared code. The agent does not push.
 
 ## Demo
 
@@ -26,9 +26,9 @@ Owner: karatala-ts. This is a source transfer and demo record, not a merged cros
 - ✅ Representative actions: Rachana 150 percent normalized to 100; KoMandir ColorPicker applied #e08040; KoMandir nested menu ran Details; Rachana window Save returned its memory text; KoMandir window opened/closed. These are smoke checks, not an exhaustive behavior comparison.
 - ✅ Added IconPicker route: Russian search/alias grouping, theme selection, file-resource selection, invalid-input guidance, Escape retaining the committed value and Inherit. Its component page and iframe also opened without console errors. This does not verify native resource decoding or application requests.
 - ✅ Local server runs on 127.0.0.1:3212 with automatic browser opening disabled. Dependency installation used --ignore-scripts; no production build or deploy ran.
-- [ ] Real consumer adapters, keyboard/device regressions, native icon sources, persisted geometry and application theme changes require checks after connection.
+- [ ] Native-device regressions and platform icon sources require consumer checks; the catalog does not prove them. Application hosts own keyboard, theme and persisted-geometry acceptance.
 
 ## Next
 
-- [ ] Deliver this shared commit, then connect existing application hosts and replace local UI imports in groups. Archive superseded local source only after callers use the shared implementation.
+- Consumer owners deliver a shared code commit before pinning it, connect their hosts and replace imports in groups. Archive superseded local source only after callers use the shared implementation.
 - [ ] Extend the catalog when another ready component is extracted. Reuse approved controls for new features; keep distinct existing variants focused rather than adding flags to one universal control.

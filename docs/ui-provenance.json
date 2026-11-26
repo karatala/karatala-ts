@@ -627,7 +627,7 @@
     "sourcePath": "folder-sync/src/web/ui/Tooltip.svelte",
     "sourceSha256": "2808ea01643ba3bc46e197d2be31f38d46f535158c33c2276e89f864f14b9d6c",
     "unchangedBytes": false,
-    "adaptation": "application import boundary or icon metadata/geometry types; source styles and interaction code retained"
+    "adaptation": "application host and string command IDs; non-null binding-map types retain the complete-map caller contract; source styles and runtime behavior retained"
   },
   {
     "package": "ui-komandir",

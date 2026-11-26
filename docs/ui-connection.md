@@ -6,9 +6,11 @@ Owner: karatala-ts. This document owns shared host contracts and connection orde
 
 - ✅ Initial UI packages are published in ebf477b on origin/dev.
 - ✅ All 31 Rachana and 35 KoMandir components now have shared source and a live memory example.
-- [ ] Deliver the IconPicker addition, then pin that available commit in consumers before connecting it.
+- ✅ IconPicker is published in 1f1fc62 on origin/dev. Consumers pin an available commit before connecting a package.
 - [ ] Add only the required file dependency: @karatala/ui-rachana or @karatala/ui-komandir from vendor/shared/packages. Rachana also needs the existing dom-input package. Keep one Svelte peer runtime per consumer.
 - [ ] Refresh each consumer lockfile and check its real host after dependency updates are authorized. No application build or deploy is part of extraction.
+
+Consumer repositories own their current connection and acceptance records. With the native Svelte type checker, source paths can be mapped in a separate check-only TypeScript config. Keep those aliases out of the runtime config so Bun still resolves one installed Svelte peer. Exclude the shared demo and unused source packages from the consumer's root scan; imported application dependencies still receive their type checks.
 
 ## KoMandir hosts
 
