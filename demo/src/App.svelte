@@ -4,7 +4,9 @@
   const pathname = window.location.pathname;
   const preview = pathname.startsWith("/preview/");
   const route = pathname.replace(/^\/(?:preview\/)?/, "");
-  const families: Record<string, string> = { buttons: "Buttons", colors: "Colors", checks: "Checkboxes & switches", numbers: "Numbers & sliders", selection: "Selection & dropdowns", windows: "Windows & overlays", menus: "Menus", help: "Help & shortcuts", tables: "Tables & rows", icons: "Icons", layout: "Fields & layout" };
+  const families: Record<string, string> = { buttons: "Buttons", colors: "Colors", checks: "Checkboxes & switches", numbers: "Numbers & sliders", selection: "Selection & dropdowns", windows: "Windows & overlays", menus: "Menus", help: "Help & shortcuts", tables: "Tables & rows", icons: "Icons", layout: "Fields & layout", startup: "Startup & recovery" };
+  const variantLabels: Record<string, string> = { rachana: "Rachana", komandir: "KoMandir", bootstrap: "Independent DOM" };
+  const previewUrl = (item: typeof catalog[number]) => item.variant === "bootstrap" ? "/startup-preview.html?state=error" : `/preview/${item.id}`;
   const family = route.startsWith("compare/") ? route.slice(8) : undefined;
   const selected = catalog.find(item => item.id === route);
   const examples = family ? groupVariants(catalog.filter(item => item.family === family)) : selected ? [[selected]] : [];
@@ -39,9 +41,9 @@
           <a href={`/compare/${key}`} aria-current={family === key ? "page" : undefined}>{label}</a>
         {/each}
       </nav>
-      {#each ["rachana", "komandir"] as variant}
+      {#each ["rachana", "komandir", "bootstrap"] as variant}
         <nav aria-label={`${variant} components`}>
-          <h2>{variant === "rachana" ? "Rachana" : "KoMandir"}</h2>
+          <h2>{variantLabels[variant]}</h2>
           {#each visible.filter(item => item.variant === variant) as item}
             <a href={`/${item.id}`} aria-current={selected?.id === item.id ? "page" : undefined}>{item.name}</a>
           {/each}
@@ -50,7 +52,7 @@
     </aside>
     <main class="content">
       <header class="page-title"><p>KARATALA / UI CATALOG</p><h1>{title}</h1>
-        <p>{family ? "Existing variants, side by side. Each example keeps its own styles and behavior." : selected ? `${selected.variant === "rachana" ? "Rachana" : "KoMandir"} variant · preserved source component` : "Ready components from Rachana and KoMandir. Pick a component or compare a family."}</p>
+        <p>{family ? "Existing variants, side by side. Each example keeps its own styles and behavior." : selected ? `${variantLabels[selected.variant]} variant · preserved source component` : "Ready components from Rachana and KoMandir. Pick a component or compare a family."}</p>
       </header>
       {#if selected}<p><a href={`/compare/${selected.family}`}>Compare all {families[selected.family].toLowerCase()} →</a></p>{/if}
       {#if !examples.length}
@@ -66,11 +68,12 @@
           <div class="example-group" class:is-comparison={!!family && group.length > 1}>
           {#each group as item (item.id)}
             <article class="example">
-              <div class="example-heading"><div><span class="badge">{item.variant === "rachana" ? "Rachana" : "KoMandir"}</span><h2><a href={`/${item.id}`}>{item.name}</a></h2></div><a href={`/preview/${item.id}`} target="_blank" rel="noopener">Open example ↗</a></div>
-              <iframe title={`${item.variant} ${item.name} live example`} src={`/preview/${item.id}`} loading="lazy" style:height={item.family === "windows" || item.name === "IconPicker" ? "540px" : item.family === "selection" || item.family === "menus" || item.family === "help" ? "350px" : "220px"}></iframe>
-              <details open={!family}><summary>Usage</summary><pre><code>{`import ${item.name} from "${item.importPath}";\n\n${item.usage ?? ""}`}</code></pre><p>Use the props below. Markup from the live example. Its values and callbacks are local demo state; application actions and persistence remain with the caller.</p></details>
+              <div class="example-heading"><div><span class="badge">{variantLabels[item.variant]}</span><h2><a href={`/${item.id}`}>{item.name}</a></h2></div><a href={previewUrl(item)} target="_blank" rel="noopener">Open example ↗</a></div>
+              <iframe title={`${item.variant} ${item.name} live example`} src={previewUrl(item)} loading="lazy" style:height={item.family === "startup" || item.family === "windows" || item.name === "IconPicker" ? "540px" : item.family === "selection" || item.family === "menus" || item.family === "help" ? "350px" : "220px"}></iframe>
+              <details open={!family}><summary>Usage</summary><pre><code>{item.variant === "bootstrap" ? item.usage : `import ${item.name} from "${item.importPath}";\n\n${item.usage ?? ""}`}</code></pre><p>Use the props below. Markup from the live example. Its values and callbacks are local demo state; application actions and persistence remain with the caller.</p></details>
+              {#if item.variant === "bootstrap"}<p class="note">Standalone scenarios: <a href="/startup-preview.html?state=loading" target="_blank" rel="noopener">Loading</a> · <a href="/startup-preview.html?state=late-error" target="_blank" rel="noopener">Failure after startup</a> · <a href="/startup-preview.html?state=error&clipboard=denied" target="_blank" rel="noopener">Clipboard denied</a>. This preview has no Svelte import. Window, copy and reload actions change memory only.</p>{/if}
               <details><summary>Props and defaults</summary><pre><code>{item.props}</code></pre></details>
-              <details><summary>Source and integration</summary><p>{item.source}</p><p>Import from this package, compile with one Svelte 5 peer, and supply the existing theme roles. See the package README for host setup. Each preview runs in its own document so the two legacy style systems cannot overwrite each other.</p></details>
+              <details><summary>Source and integration</summary><p>{item.source}</p><p>{#if item.variant === "bootstrap"}Render static markup and inline this package CSS and a separate classic connection script before loading the application. The application owns labels, fatal-error policy and action callbacks. No Svelte runtime is required.{:else}Import from this package, compile with one Svelte 5 peer, and supply the existing theme roles. See the package README for host setup. Each preview runs in its own document so the two legacy style systems cannot overwrite each other.{/if}</p></details>
             </article>
           {/each}
           </div>

@@ -4,6 +4,7 @@ Shared TypeScript packages for Rachana, KoMandir, Shravanam and future applicati
 
 | Package | Scope | Status |
 | --- | --- | --- |
+| [@karatala/ui-bootstrap](packages/ui-bootstrap/README.md) | Static loading, emergency and window controls without Svelte | Derived from Rachana DOM startup UI; caller owns language, failures and actions |
 | [@karatala/dom-input](packages/dom-input/README.md) | Pointer focus release and document hover ownership | Connected to Rachana and Shravanam; portable checks passed, device coverage remains separate |
 | [@karatala/ui-rachana](packages/ui-rachana/README.md) | Existing Rachana UI variants | 32 components extracted with local helpers/styles and host callbacks |
 | [@karatala/ui-komandir](packages/ui-komandir/README.md) | Existing KoMandir UI variants | All 35 components extracted with local helpers/styles and host callbacks |

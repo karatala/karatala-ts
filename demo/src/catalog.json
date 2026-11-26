@@ -668,5 +668,15 @@
     "props": "let { heading, center, actions, trailingDrag, children }: { heading: Snippet; center?: Snippet; actions?: Snippet; trailingDrag?: Snippet; children: Snippet } = $props()",
     "source": "packages/ui-komandir/src/WindowTitleBar.svelte",
     "usage": "<div class=\"title-stage\"><WindowTitleBar>{#snippet heading()}<strong>Memory window</strong>{/snippet}<IconButton label=\"Close title example\" onclick={()=>status=\"Close requested\"}><Icon name=\"sharedControls.remove\" /></IconButton></WindowTitleBar></div>"
+  },
+  {
+    "id": "bootstrap/StartupScreen",
+    "variant": "bootstrap",
+    "name": "StartupScreen",
+    "family": "startup",
+    "importPath": "@karatala/ui-bootstrap",
+    "source": "packages/ui-bootstrap/src/index.ts + markup.ts + styles.css",
+    "props": "startupMarkup({ title, logoUrl, labels? }): string\nconnectStartup(root, { labels?, actions: { copy(text): Promise<void>, reload(): void, window?: { minimize(), maximize(), close() } } })\nController: setStatus(message), showError(message), complete(), dispose()",
+    "usage": "import { startupMarkup, connectStartup } from \"@karatala/ui-bootstrap\";\nimport \"@karatala/ui-bootstrap/styles.css\";\n\ndocument.body.insertAdjacentHTML(\"beforeend\", startupMarkup({ title: \"Example\", logoUrl: \"./icon.svg\" }));\nconst startup = connectStartup(document.getElementById(\"startup\")!, {\n  actions: { copy: text => navigator.clipboard.writeText(text), reload: () => location.reload() },\n});\n// Mount succeeded: startup.complete(). Failure: startup.showError(displayMessage)."
   }
 ]

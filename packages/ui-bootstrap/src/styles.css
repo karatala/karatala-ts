@@ -1,0 +1,24 @@
+/* Derived from Rachana index.html and the standalone startup error panel. */
+[data-karatala-startup] { position: fixed; inset: 0; z-index: 10000; display: grid; place-items: center; box-sizing: border-box; overflow: auto; padding: 24px; background: var(--startup-background, #070408); color: var(--startup-text, #d8dbe3); font: 13px/1.5 system-ui, sans-serif; }
+[data-karatala-startup] [hidden] { display: none !important; }
+[data-karatala-startup]::before { content: ""; position: absolute; inset: 0; pointer-events: none; background: var(--startup-gradient, radial-gradient(circle at center, #171729 0%, #070408 100%)); background-size: 100% 100%; animation: startup-gradient-pulse 8s ease alternate infinite; }
+[data-karatala-startup][data-window="true"] { padding-top: calc(56px + env(safe-area-inset-top)); }
+[data-karatala-startup] [data-startup-header] { position: fixed; inset: 0 0 auto; z-index: 1; display: flex; align-items: center; gap: 6px; min-height: 32px; padding: env(safe-area-inset-top) max(8px, env(safe-area-inset-right)) 0 max(8px, env(safe-area-inset-left)); background: var(--startup-header-surface, #1e1e1e); }
+[data-karatala-startup] .startup-title { flex: 1; font-size: 12px; font-weight: 500; }
+[data-karatala-startup] .startup-window-actions { display: flex; gap: 2px; }
+[data-karatala-startup] .startup-loading { position: relative; display: grid; justify-items: center; align-content: center; gap: 20px; }
+[data-karatala-startup] .startup-loading img { width: var(--startup-logo-size, 112px); height: var(--startup-logo-size, 112px); object-fit: contain; filter: drop-shadow(0 0 20px rgb(254 201 101 / 30%)); animation: startup-logo-glow 3s ease-in-out infinite; }
+[data-karatala-startup] [data-startup-phase] { max-width: 360px; min-height: 3em; color: var(--startup-muted, #8b8b98); text-align: center; overflow-wrap: anywhere; }
+[data-karatala-startup] .startup-error-panel { position: relative; display: grid; gap: 10px; width: min(800px, 100%); }
+[data-karatala-startup] .startup-error-actions { display: flex; justify-content: flex-end; gap: 6px; }
+[data-karatala-startup] button { display: grid; place-items: center; box-sizing: border-box; width: 36px; height: 36px; padding: 8px; border: none; border-radius: 6px; color: var(--startup-text, #d8dbe3); background: var(--startup-control-surface, #2b2b36); cursor: pointer; }
+[data-karatala-startup] button svg { width: 20px; height: 20px; fill: currentColor; }
+[data-karatala-startup] .startup-window-actions button { width: 26px; height: 26px; padding: 5px; background: transparent; }
+[data-karatala-startup] .startup-window-actions svg { width: 16px; height: 16px; }
+[data-karatala-startup] button:hover { background: var(--startup-control-hover, #3a3a48); }
+[data-karatala-startup] button:focus-visible, [data-karatala-startup] textarea:focus-visible { outline: 2px solid var(--startup-accent, #8995ff); outline-offset: 2px; }
+[data-karatala-startup] textarea { display: block; box-sizing: border-box; width: 100%; height: min(55dvh, 480px); min-height: 180px; padding: 14px; border: none; border-radius: 8px; resize: vertical; color: var(--startup-text, #d8dbe3); background: var(--startup-field-surface, #20212a); font: 13px/1.5 ui-monospace, monospace; }
+@keyframes startup-gradient-pulse { from { opacity: .72; } to { opacity: 1; } }
+@keyframes startup-logo-glow { 50% { filter: drop-shadow(0 0 28px rgb(254 201 101 / 50%)); } }
+@media (prefers-reduced-motion: reduce) { [data-karatala-startup]::before, [data-karatala-startup] .startup-loading img { animation: none; } }
+@media (hover: none) { [data-karatala-startup] button:hover { background: var(--startup-control-surface, #2b2b36); } }

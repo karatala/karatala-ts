@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "@karatala/dom-input": "workspace:*",
+    "@karatala/ui-bootstrap": "workspace:*",
     "@karatala/ui-rachana": "workspace:*",
     "@karatala/ui-komandir": "workspace:*",
     "svelte": "5.57.3"

@@ -674,5 +674,45 @@
         "sourceSha256": "c4d0fa7ad83dab63a5fc3ba5f8c0950ef988db1f4bf1f4a07e77f2d70c63928d"
       }
     ]
+  },
+  {
+    "package": "ui-bootstrap",
+    "file": "index.ts",
+    "sourceRepository": "karatala/Komprohit",
+    "sourceRevision": "de1c0135c8e6d1f766c54c095eee90d4ee3a3c14",
+    "sourcePath": "src/app/startup-error.ts",
+    "sourceSha256": "3dd38a855370582c05b51e4ec538017e05f5138d7de923c5409b14e4f56e4fbe",
+    "unchangedBytes": false,
+    "adaptation": "Framework-independent extraction: escaped static markup, explicit labels/actions, namespaced source styles and MDI paths, sticky error lifecycle, background inert state and focus containment. Copy/reload geometry also derives from src/app/startup-error.ts."
+  },
+  {
+    "package": "ui-bootstrap",
+    "file": "markup.ts",
+    "sourceRepository": "karatala/Komprohit",
+    "sourceRevision": "de1c0135c8e6d1f766c54c095eee90d4ee3a3c14",
+    "sourcePath": "src/app/startup-error.ts",
+    "sourceSha256": "3dd38a855370582c05b51e4ec538017e05f5138d7de923c5409b14e4f56e4fbe",
+    "unchangedBytes": false,
+    "adaptation": "Framework-independent extraction: escaped static markup, explicit labels/actions, namespaced source styles and MDI paths, sticky error lifecycle, background inert state and focus containment. Copy/reload geometry also derives from src/app/startup-error.ts."
+  },
+  {
+    "package": "ui-bootstrap",
+    "file": "styles.css",
+    "sourceRepository": "karatala/Komprohit",
+    "sourceRevision": "de1c0135c8e6d1f766c54c095eee90d4ee3a3c14",
+    "sourcePath": "index.html",
+    "sourceSha256": "aa97833d15c673f5bd6eabb10d61463bdab1d3b2d7f1d124bc695f067b452a50",
+    "unchangedBytes": false,
+    "adaptation": "Framework-independent extraction: escaped static markup, explicit labels/actions, namespaced source styles and MDI paths, sticky error lifecycle, background inert state and focus containment. Copy/reload geometry also derives from src/app/startup-error.ts."
+  },
+  {
+    "package": "ui-bootstrap",
+    "file": "icons.ts",
+    "sourceRepository": "karatala/Komprohit",
+    "sourceRevision": "de1c0135c8e6d1f766c54c095eee90d4ee3a3c14",
+    "sourcePath": "src/frontend/ui/icons.ts",
+    "sourceSha256": "6730315f66d1d9cf7e54ab3ed9254c8219b57c847e7817f69c6e676402d2e52d",
+    "unchangedBytes": false,
+    "adaptation": "Framework-independent extraction: escaped static markup, explicit labels/actions, namespaced source styles and MDI paths, sticky error lifecycle, background inert state and focus containment. Copy/reload geometry also derives from src/app/startup-error.ts."
   }
 ]

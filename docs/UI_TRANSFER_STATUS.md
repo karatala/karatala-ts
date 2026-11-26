@@ -1,11 +1,18 @@
 # UI transfer status
 
+## Independent startup and emergency UI
+
+- ✅ @karatala/ui-bootstrap derives static loading/error presentation, MDI actions and the DOM error field from Rachana. It has no Svelte, Bun or native runtime dependency. Applications supply language, failure text, clipboard/reload/window actions and global exception policy.
+- ✅ Standalone lifecycle supports failure before initialization and after complete; a late complete cannot hide an error. Modal focus, background inert restoration and clipboard fallback are covered by six DOM tests with 29 assertions.
+- ✅ Added the 68th catalog page, bootstrap/StartupScreen, with a separate no-Svelte preview. Browser checks passed for loading/logo, copy, reload, window callback, recovery after complete and denied clipboard/manual selection. The shared type/Svelte check has zero errors and warnings.
+- [ ] Consumer generated-HTML checks must reject the real application graph and exercise late failures. Native desktop/Android window acceptance stays with the application.
+
 ## Form extensions for Shravanam
 
 - ✅ Extracted UiTextArea from Rachana BeatTextEditor and dialog field styles, with native rows, validation, events and a bound element reference.
 - ✅ UiTextInput accepts time; UiCheckboxButton can hide visible text while retaining its label. UiPositionSlider supports fractional steps and optional commit on the native change event, with cancellation and optional reset. Existing defaults remain unchanged.
 - ✅ The catalog contains 67 real component pages. The shared Svelte/type check has zero errors and warnings. Source derivations and adaptations are recorded in ui-provenance.json.
-- [ ] Publish the new shared commit, then record consumer pins and browser/device acceptance in the application plans.
+- ✅ Form extensions were delivered in 9bfe6d8. Consumer repositories own their pins and browser/device acceptance.
 
 
 Owner: karatala-ts. This is a source transfer and demo record, not a merged cross-project design. Existing Rachana R-family and KoMandir K-family catalogs remain the owners of product approval until consumers connect to these packages.
@@ -22,7 +29,7 @@ Owner: karatala-ts. This is a source transfer and demo record, not a merged cros
 
 ## Demo
 
-- ✅ 67 component pages, each with a real shared-package example, import/usage markup, props/defaults and source information.
+- ✅ 68 component pages, each with a real shared-package example, import/usage markup, props/defaults and source information.
 - ✅ Shared family pages put existing variants beside each other for later comparison. No behavior is normalized for the demo.
 - ✅ Preview documents isolate legacy CSS and overlay stacks. Examples use memory-only values, bundled icons and no persisted window keys.
 - ✅ Catalog update script rejects a public component without a live example branch.

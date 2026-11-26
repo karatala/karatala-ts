@@ -9,6 +9,7 @@
 - Each package owns its implementation, contract, provenance and checks. Applications own commands, data, persistence, permissions and activation policy.
 - `packages/dom-input/AGENTS.md` owns M01. Other packages are not approved by its presence.
 - `packages/ui-rachana/AGENTS.md` and `packages/ui-komandir/AGENTS.md` own the preserved UI variants from each application. Extract ready components with their dependency closure; compare variants only when choosing a common replacement or changing behavior.
+- `packages/ui-bootstrap/AGENTS.md` owns the independent static/DOM loading and emergency UI. Applications load its inline connection before their framework graph and own fatal-error policy and platform callbacks.
 - `demo/AGENTS.md` owns individual component pages, shared family pages and isolated live previews. scripts/update-catalog.ts generates its runtime component/props/usage index.
 
 ## Local Contracts
@@ -30,4 +31,5 @@
 - `packages/dom-input/AGENTS.md`: DOM focus/hover helpers and their tests.
 - `packages/ui-rachana/AGENTS.md`: preserved Rachana component variants.
 - `packages/ui-komandir/AGENTS.md`: preserved KoMandir component variants and overlay cluster.
+- `packages/ui-bootstrap/AGENTS.md`: first-paint and emergency DOM controls without a framework runtime.
 - `demo/AGENTS.md`: local component catalog and memory-only examples.
