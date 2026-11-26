@@ -1,0 +1,65 @@
+.ui-tab {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  flex: 0 0 auto;
+  gap: 0;
+  min-width: 0;
+  min-height: 27px;
+  padding: 3px 2px 0;
+  border-radius: var(--ui-corner-radius, 6px) var(--ui-corner-radius, 6px) 0 0;
+  color: var(--ui-tab-foreground, var(--theme-tabs-foreground));
+  background: var(--ui-tab-background, var(--theme-tabs-background));
+}
+
+.ui-tab::before {
+  position: absolute;
+  inset: 0 0 auto;
+  height: 3px;
+  border-radius: inherit;
+  background: transparent;
+  pointer-events: none;
+  content: "";
+}
+
+.ui-tab.accented::before {
+  background: var(--theme-workbench-accent);
+}
+
+.ui-tab:is(:hover, :focus-within) {
+  background-image: linear-gradient(to bottom, var(--theme-workbench-hover), transparent);
+}
+
+.ui-tab > button {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  min-width: 0;
+  min-height: 22px;
+  padding: 2px 6px;
+  border: none;
+  border-radius: 0;
+  color: inherit;
+  background: transparent;
+  cursor: pointer;
+}
+
+.ui-tab > button:hover {
+  background: transparent;
+}
+
+.ui-tab.active > button {
+  font-weight: var(--ui-weight-strong);
+}
+
+.ui-tab > button:disabled {
+  cursor: default;
+  opacity: 0.4;
+}
+
+.ui-tab-content-header {
+  border-top: 3px solid var(--ui-tab-edge, var(--theme-workbench-accent));
+  border-radius: var(--ui-corner-radius, 6px);
+  color: var(--ui-tab-content-foreground, var(--theme-workbench-foreground));
+  background: var(--ui-tab-content-background, var(--theme-workbench-surface));
+}

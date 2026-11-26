@@ -1,0 +1,34 @@
+/* Shared resize feedback, cards, fields, headings and messages. */
+[data-appearance="rachana-dark"] .ui-resize-handle { z-index: 80; width: 6px; margin: 0; padding: 0; border: none; border-radius: 0; background: transparent; outline: none; touch-action: none; user-select: none; cursor: ew-resize; }
+[data-appearance="rachana-dark"] .ui-resize-handle.is-vertical { cursor: ns-resize; }
+[data-appearance="rachana-dark"] .ui-resize-handle.has-shadow { box-shadow: 4px 0 10px rgb(0 0 0 / 30%); }
+[data-appearance="rachana-dark"] .ui-resize-handle.has-shadow.is-vertical { box-shadow: 0 -4px 10px rgb(0 0 0 / 30%); }
+[data-appearance="rachana-dark"] .ui-resize-handle:is(:hover:where([data-ui-hover="true"] *), :focus-visible, .is-resizing) { background: var(--resize-highlight); }
+[data-appearance="rachana-dark"] .ui-list-card { --list-card-detail: var(--ui-text-muted); min-width: 0; padding: 6px 8px; border-radius: 5px; background: var(--ui-subtle-surface); color: var(--ui-text); font-size: 12px; }
+[data-appearance="rachana-dark"] .ui-list-card:is(.is-current, [aria-pressed="true"]) { --list-card-detail: color-mix(in srgb, var(--ui-on-accent) 82%, transparent); background: var(--ui-segment-active); color: var(--ui-on-accent); }
+[data-appearance="rachana-dark"] .ui-list-card :is(strong, .ui-list-card-title) { font-size: 12px; font-weight: 700; }
+[data-appearance="rachana-dark"] .ui-list-card :is(small, .ui-list-card-detail) { color: var(--list-card-detail); font-size: 10px; line-height: 1.3; }
+[data-appearance="rachana-dark"] .ui-field { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 6px 12px; width: 100%; min-width: 0; }
+[data-appearance="rachana-dark"] .ui-field.is-stacked { grid-template-columns: minmax(0, 1fr); align-items: stretch; }
+[data-appearance="rachana-dark"] .ui-field-caption { min-width: 0; font-size: 12px; line-height: 1.4; color: var(--ui-text-muted); }
+.ui-section-heading, .ui-section-title, .ui-section-actions { display: flex; align-items: center; gap: 6px; min-width: 0; }
+.ui-section-heading { justify-content: space-between; flex-wrap: wrap; min-height: 28px; }
+.ui-section-title { flex-wrap: wrap; }
+.ui-section-title > :is(h2, strong) { margin: 0; color: var(--ui-text-muted); font-size: var(--section-heading-size, 14px); font-weight: 600; text-transform: uppercase; letter-spacing: .04em; }
+.ui-section-title > small { color: var(--ui-text-muted); font-size: 11px; font-weight: normal; }
+.ui-section-actions { justify-content: flex-end; flex-wrap: wrap; margin-inline-start: auto; }
+:root [data-appearance] .ui-inline-message { margin: 6px 0; font: inherit; }
+:root .ui-inline-message[role="alert"] { color: var(--color-danger); }
+.ui-notice { position: relative; display: flex; align-items: center; flex-wrap: wrap; gap: 8px; box-sizing: border-box; min-height: 36px; padding: 7px 11px; color: var(--ui-notice-text); background: var(--ui-notice-surface); border-radius: 7px; box-shadow: 0 5px 16px rgb(0 0 0 / 38%); }
+.ui-notice.is-error { color: var(--ui-error-text); background: var(--ui-error-surface); }
+.ui-notice > :is(span, p) { flex: 1 1 180px; min-width: 0; overflow-wrap: anywhere; }
+.ui-notice > svg { flex: 0 0 auto; color: var(--ui-notice-icon); }
+.ui-notice.is-error > svg { color: var(--ui-error-icon); }
+.ui-notice .ui-button:not(.is-close):not(.is-danger) { color: inherit; background: color-mix(in srgb, currentColor 12%, transparent); }
+.ui-notice.has-close { min-height: 42px; padding-inline-end: 44px; }
+.ui-notice > .ui-notice-close.ui-button { position: absolute; inset-block-start: 7px; inset-inline-end: 7px; }
+.ui-status-banner:not(.is-error) { color: var(--ui-text); background: var(--ui-menu-surface); }
+.ui-status-banner.is-translucent:not(.is-error) { background: color-mix(in srgb, var(--ui-menu-surface) 70%, transparent); }
+.ui-status-banner > :is(span, p) { flex-basis: min-content; }
+.ui-toast .ui-toast-message.ui-button.is-text { flex: 1 1 auto; justify-content: flex-start; min-width: 0; max-width: 100%; height: auto; padding: 0; color: inherit; background: transparent; text-align: start; white-space: normal; overflow-wrap: anywhere; }
+.ui-toast .ui-toast-message.ui-button.is-text:is(:focus-visible, :hover:where([data-ui-hover="true"] *)) { text-decoration: underline; }

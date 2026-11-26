@@ -1,0 +1,45 @@
+/* Shared compact rows for selection and action menus. The host owns its surface and interaction. */
+[data-appearance] :is(.ui-combo-options.is-list, .shell-menu.ui-action-menu) {
+  padding: 3px;
+  border-radius: 4px;
+}
+[data-appearance] .ui-combo-options.is-list { color: var(--ui-text); background: var(--ui-field-surface, var(--ui-control-surface)); }
+[data-appearance] .ui-combo-options.is-list.is-toolbar { background: var(--ui-segment-surface); }
+[data-appearance] .shell-menu.ui-action-menu {
+  display: grid;
+  gap: 0;
+  max-width: calc(100dvw - 16px);
+  font: 12px/1.35 Tahoma, "Segoe UI", sans-serif;
+}
+[data-appearance] .ui-combo-options.is-list .ui-combo-items { gap: 0; }
+[data-appearance] :is(.ui-combo-options.is-list .ui-combo-option, .shell-menu.ui-action-menu > .ui-button) {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  min-height: var(--ui-tab-button-height, 26px);
+  height: auto;
+  justify-content: flex-start;
+  padding: 3px 7px;
+  border-radius: 2px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  line-height: 1.35;
+  text-align: start;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+[data-appearance] .ui-combo-options.is-list .ui-combo-option-content { white-space: normal; overflow-wrap: anywhere; }
+[data-appearance] .ui-combo-options.is-list .ui-combo-option-content > span { min-width: 0; }
+[data-appearance] .ui-combo-options.is-list .ui-combo-option.is-current { color: var(--ui-on-accent); background: var(--ui-segment-active); }
+[data-appearance] :is(.ui-combo-options.is-list .ui-combo-option:not(.is-current), .shell-menu.ui-action-menu > .ui-button):is(.is-selected, :focus-visible):not(:disabled) {
+  color: var(--ui-control-hover-text);
+  background: var(--ui-segment-hover);
+}
+[data-appearance] :is(.ui-combo-options.is-list .ui-combo-option, .shell-menu.ui-action-menu > .ui-button):disabled { opacity: .42; }
+@media (hover: hover) and (pointer: fine) {
+  [data-appearance] :is(.ui-combo-options.is-list .ui-combo-option:not(.is-current), .shell-menu.ui-action-menu > .ui-button):hover:where([data-ui-hover="true"] *):not(:disabled) {
+    color: var(--ui-control-hover-text);
+    background: var(--ui-segment-hover);
+  }
+}

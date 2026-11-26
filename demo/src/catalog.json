@@ -1,0 +1,652 @@
+[
+  {
+    "id": "rachana/ModalDialog",
+    "variant": "rachana",
+    "name": "ModalDialog",
+    "family": "windows",
+    "importPath": "@karatala/ui-rachana/ModalDialog.svelte",
+    "props": "let { title, layoutKey, onclose, children, actions, titleStart, titleEnd, showTitle = true, modal = true, stretchContent = false, translate: translateLabel, class: className = \"\" }: {\r\n    title: string;\r\n    layoutKey: string;\r\n    onclose?: () => void;\r\n    translate?: (text: string) => string;\r\n    children: Snippet;\r\n    actions?: Snippet;\r\n    titleStart?: Snippet;\r\n    titleEnd?: Snippet;\r\n    showTitle?: boolean;\r\n    modal?: boolean;\r\n    stretchContent?: boolean;\r\n    class?: string;\r\n  } = $props()",
+    "source": "packages/ui-rachana/src/ModalDialog.svelte",
+    "usage": "<UiButton label=\"Open window\" text=\"Open window\" {disabled} onclick={()=>open=true} />{#if open}<ModalDialog title=\"Memory window\" layoutKey=\"demo\" onclose={()=>open=false}><UiTextInput aria-label=\"Window text\" bind:value={text} /><UiHelp label=\"Window help\" sections={[{title:\"Help\",text:\"First Escape closes help, second closes this window.\"}]} />{#snippet actions()}<UiButton label=\"Save window\" text=\"Save\" onclick={()=>{status=\"Saved: \"+text;open=false;}} /><UiButton label=\"Cancel window\" text=\"Cancel\" onclick={()=>open=false} />{/snippet}</ModalDialog>{/if}"
+  },
+  {
+    "id": "rachana/TimelineFlag",
+    "variant": "rachana",
+    "name": "TimelineFlag",
+    "family": "layout",
+    "importPath": "@karatala/ui-rachana/TimelineFlag.svelte",
+    "props": "let { label, text = label, color, title, data, onclick, ondblclick, oncontextmenu }: {\r\n    label: string; text?: string; color: string; title?: string; data?: Record<`data-${string}`, string>;\r\n    onclick?: (event: MouseEvent) => void; ondblclick?: (event: MouseEvent) => void; oncontextmenu?: (event: MouseEvent) => void;\r\n  } = $props()",
+    "source": "packages/ui-rachana/src/TimelineFlag.svelte",
+    "usage": "<TimelineFlag label=\"Section marker\" text=\"Verse\" color=\"#e08040\" onclick={()=>status=\"Marker selected\"} />"
+  },
+  {
+    "id": "rachana/TimelineMarkerName",
+    "variant": "rachana",
+    "name": "TimelineMarkerName",
+    "family": "layout",
+    "importPath": "@karatala/ui-rachana/TimelineMarkerName.svelte",
+    "props": "let { value = $bindable(), label = \"Section\", autofocus = false }: { value: string; label?: string; autofocus?: boolean } = $props()",
+    "source": "packages/ui-rachana/src/TimelineMarkerName.svelte",
+    "usage": "<TimelineMarkerName label=\"Section\" bind:value={text} />"
+  },
+  {
+    "id": "rachana/UiButton",
+    "variant": "rachana",
+    "name": "UiButton",
+    "family": "buttons",
+    "importPath": "@karatala/ui-rachana/UiButton.svelte",
+    "props": "type Props = {\r\n    label: string;\r\n    title?: string;\r\n    path?: string;\r\n    iconUrl?: string;\r\n    text?: string;\r\n    active?: boolean | \"mixed\";\r\n    disabled?: boolean;\r\n    toolbar?: boolean;\r\n    filled?: boolean;\r\n    variant?: \"control\" | \"icon\" | \"text\";\r\n    tone?: \"default\" | \"primary\" | \"danger\" | \"close\";\r\n    shape?: \"circle\" | \"rounded\";\r\n    class?: string;\r\n    type?: \"button\" | \"reset\" | \"submit\";\r\n    onclick?: (event: MouseEvent) => void;\r\n    onpointerup?: (event: PointerEvent & { currentTarget: HTMLButtonElement }) => void;\r\n    children?: Snippet;\r\n  }\n\nlet {\r\n    label,\r\n    title,\r\n    path,\r\n    iconUrl,\r\n    text,\r\n    active,\r\n    disabled = false,\r\n    toolbar = false,\r\n    filled,\r\n    variant = \"control\",\r\n    tone = \"default\",\r\n    shape = \"rounded\",\r\n    class: className = \"\",\r\n    type = \"button\",\r\n    onclick,\r\n    onpointerup,\r\n    children,\r\n    ...buttonProps\r\n  }: Props = $props()",
+    "source": "packages/ui-rachana/src/UiButton.svelte",
+    "usage": "<UiButton label=\"Default action\" text=\"Default\" {disabled} onclick={()=>status=\"Default clicked\"} /><UiButton label=\"Save\" text=\"Save\" tone=\"primary\" {disabled} onclick={()=>status=\"Saved\"} /><UiButton label=\"Remove\" text=\"Remove\" tone=\"danger\" {disabled} onclick={()=>status=\"Removed\"} /><UiButton label=\"Close\" variant=\"icon\" tone=\"close\" path={uiIcons.close} {disabled} />"
+  },
+  {
+    "id": "rachana/UiCheckboxButton",
+    "variant": "rachana",
+    "name": "UiCheckboxButton",
+    "family": "checks",
+    "importPath": "@karatala/ui-rachana/UiCheckboxButton.svelte",
+    "props": "type Props = { checked: boolean; mixed?: boolean; compact?: boolean; onchange: (checked: boolean, event: MouseEvent) => void } & Omit<ComponentProps<typeof UiButton>, \"active\" | \"children\" | \"onchange\" | \"onclick\" | \"text\">;\r\n\nlet { checked, mixed = false, label, title, path, compact = false, disabled = false, class: className = \"\", onchange, ...buttonProps }: Props = $props()",
+    "source": "packages/ui-rachana/src/UiCheckboxButton.svelte",
+    "usage": "<UiCheckboxButton label=\"Enabled option\" {checked} {disabled} onchange={next=>checked=next} /><UiCheckboxButton compact label=\"Mixed state\" checked={false} mixed {disabled} onchange={next=>checked=next} />"
+  },
+  {
+    "id": "rachana/UiComboButton",
+    "variant": "rachana",
+    "name": "UiComboButton",
+    "family": "selection",
+    "importPath": "@karatala/ui-rachana/UiComboButton.svelte",
+    "props": "let {\r\n    label,\r\n    value,\r\n    options,\r\n    direction = \"vertical\",\r\n    wheel = false,\r\n    centerText,\r\n    caption,\r\n    compactCaption = false,\r\n    menuStyle = \"grid\",\r\n    iconUrl,\r\n    path,\r\n    loop = false,\r\n    toolbar = false,\r\n    triggerRole,\r\n    disabled = false,\r\n    class: className = \"\",\r\n    onchange,\r\n  }: {\r\n    label: string;\r\n    value: string;\r\n    options: readonly ComboButtonOption[];\r\n    direction?: \"horizontal\" | \"vertical\";\r\n    wheel?: boolean;\r\n    centerText?: string;\r\n    caption?: string;\r\n    compactCaption?: boolean;\r\n    menuStyle?: \"grid\" | \"list\";\r\n    iconUrl?: string;\r\n    path?: string;\r\n    loop?: boolean;\r\n    toolbar?: boolean;\r\n    triggerRole?: \"combobox\";\r\n    disabled?: boolean;\r\n    class?: string;\r\n    onchange: (value: string) => void;\r\n  } = $props()",
+    "source": "packages/ui-rachana/src/UiComboButton.svelte",
+    "usage": "<UiComboButton label=\"Scope grid\" value={choice} {options} {disabled} onchange={select} />"
+  },
+  {
+    "id": "rachana/UiContextMenu",
+    "variant": "rachana",
+    "name": "UiContextMenu",
+    "family": "menus",
+    "importPath": "@karatala/ui-rachana/UiContextMenu.svelte",
+    "props": "let { children, label, onopen, onselect, actionsFor, holdOnMouse = false, class: className = \"shell-menu\" }: { children: Snippet; label: string; holdOnMouse?: boolean; onopen?: () => void; onselect?: () => void; actionsFor?: (target: Element, clientX?: number) => ContextMenuAction[]; class?: string } = $props()",
+    "source": "packages/ui-rachana/src/UiContextMenu.svelte",
+    "usage": "<UiContextMenu label=\"Sample actions\" actionsFor={()=>[{label:\"Open\",run:()=>status=\"Open requested\"},{label:\"Copy\",run:()=>status=\"Copy requested\"}]}><UiButton label=\"Context menu target\" text=\"Right-click or Shift+F10\" {disabled} /></UiContextMenu>"
+  },
+  {
+    "id": "rachana/UiFavoriteButton",
+    "variant": "rachana",
+    "name": "UiFavoriteButton",
+    "family": "buttons",
+    "importPath": "@karatala/ui-rachana/UiFavoriteButton.svelte",
+    "props": "let { active, label, onclick }: { active: boolean; label: string; onclick: () => void } = $props()",
+    "source": "packages/ui-rachana/src/UiFavoriteButton.svelte",
+    "usage": "<div data-favorite-item class=\"favorite-stage\"><UiFavoriteButton label=\"Saved favorite\" active={true} onclick={()=>status=\"Favorite selected\"} /><span>Hover to reveal another favorite:</span><UiFavoriteButton label=\"Toggle favorite\" active={checked} onclick={()=>checked=!checked} /></div>"
+  },
+  {
+    "id": "rachana/UiField",
+    "variant": "rachana",
+    "name": "UiField",
+    "family": "layout",
+    "importPath": "@karatala/ui-rachana/UiField.svelte",
+    "props": "let { label, stacked = false, children }: { label?: string; stacked?: boolean; children: Snippet } = $props()",
+    "source": "packages/ui-rachana/src/UiField.svelte",
+    "usage": "<UiField label=\"Name\"><UiTextInput aria-label=\"Name\" bind:value={text} {disabled} /></UiField>"
+  },
+  {
+    "id": "rachana/UiFloatingToolbar",
+    "variant": "rachana",
+    "name": "UiFloatingToolbar",
+    "family": "layout",
+    "importPath": "@karatala/ui-rachana/UiFloatingToolbar.svelte",
+    "props": "let { label, children }: { label: string; children: Snippet } = $props()",
+    "source": "packages/ui-rachana/src/UiFloatingToolbar.svelte",
+    "usage": "<div class=\"toolbar-stage\"><UiFloatingToolbar label=\"Sample tools\"><UiButton label=\"Add\" variant=\"icon\" text=\"+\" /><UiButton label=\"Close tool\" path={uiIcons.close} variant=\"icon\" /></UiFloatingToolbar><p>Content area</p></div>"
+  },
+  {
+    "id": "rachana/UiHelp",
+    "variant": "rachana",
+    "name": "UiHelp",
+    "family": "help",
+    "importPath": "@karatala/ui-rachana/UiHelp.svelte",
+    "props": "let { label, sections }: { label: string; sections: { title: string; text: string }[] } = $props()",
+    "source": "packages/ui-rachana/src/UiHelp.svelte",
+    "usage": "<UiHelp label=\"Example help\" sections={[{title:\"Help\",text:\"This example changes memory only. Escape closes pinned help.\"}]} />"
+  },
+  {
+    "id": "rachana/UiIcon",
+    "variant": "rachana",
+    "name": "UiIcon",
+    "family": "icons",
+    "importPath": "@karatala/ui-rachana/UiIcon.svelte",
+    "props": "let { path, src, size = 20, label, class: className = \"\" }: { path?: string; src?: string; size?: number; label?: string; class?: string } = $props()",
+    "source": "packages/ui-rachana/src/UiIcon.svelte",
+    "usage": "<UiIcon path={uiIcons.star} label=\"Star\" /><UiIcon path={uiIcons.close} label=\"Close\" />"
+  },
+  {
+    "id": "rachana/UiKeycap",
+    "variant": "rachana",
+    "name": "UiKeycap",
+    "family": "help",
+    "importPath": "@karatala/ui-rachana/UiKeycap.svelte",
+    "props": "let { text, path, tone = \"light\", pulsing = false }: { text: string; path?: string; tone?: \"light\" | \"gray\" | \"red\"; pulsing?: boolean } = $props()",
+    "source": "packages/ui-rachana/src/UiKeycap.svelte",
+    "usage": "<UiKeycap text=\"Ctrl\" /><UiKeycap text=\"Enter\" tone=\"gray\" /><UiKeycap text=\"Esc\" tone=\"red\" />"
+  },
+  {
+    "id": "rachana/UiLoading",
+    "variant": "rachana",
+    "name": "UiLoading",
+    "family": "layout",
+    "importPath": "@karatala/ui-rachana/UiLoading.svelte",
+    "props": "let { label, class: className = \"\" }: { label: string; class?: string } = $props()",
+    "source": "packages/ui-rachana/src/UiLoading.svelte",
+    "usage": "<UiLoading label=\"Loading sample\" />"
+  },
+  {
+    "id": "rachana/UiMiniPopup",
+    "variant": "rachana",
+    "name": "UiMiniPopup",
+    "family": "windows",
+    "importPath": "@karatala/ui-rachana/UiMiniPopup.svelte",
+    "props": "let { children, trigger, anchorElement, anchorPoint, label, open = $bindable(false), onopenchange, class: className = \"\", width = 288, align = \"end\", side = \"bottom\", sideOffset = 6, viewportPadding = 12 }: {\r\n    children: Snippet;\r\n    trigger?: Snippet<[{ onclick: (event: MouseEvent) => void; \"aria-haspopup\": \"dialog\"; \"aria-expanded\": boolean; \"aria-controls\": string | undefined }]>;\r\n    anchorElement?: HTMLElement;\r\n    anchorPoint?: { x: number; y: number };\r\n    label?: string;\r\n    open?: boolean;\r\n    onopenchange?: (open: boolean, returnFocus?: boolean) => void;\r\n    class?: string;\r\n    width?: number;\r\n    align?: \"start\" | \"center\" | \"end\";\r\n    side?: \"top\" | \"bottom\" | \"left\" | \"right\";\r\n    sideOffset?: number;\r\n    viewportPadding?: number;\r\n  } = $props()",
+    "source": "packages/ui-rachana/src/UiMiniPopup.svelte",
+    "usage": "<UiMiniPopup bind:open label=\"Memory popup\">{#snippet trigger(attributes)}<UiButton {...attributes} label=\"Open popup\" text=\"Open popup\" {disabled} />{/snippet}<UiTextInput aria-label=\"Popup text\" bind:value={text} /><UiButton label=\"Close popup\" text=\"Close\" onclick={()=>open=false} /></UiMiniPopup>"
+  },
+  {
+    "id": "rachana/UiNumberStepper",
+    "variant": "rachana",
+    "name": "UiNumberStepper",
+    "family": "numbers",
+    "importPath": "@karatala/ui-rachana/UiNumberStepper.svelte",
+    "props": "let { value = $bindable(), min, max, label, step = 1, editable = true, allowFractionalInput = false, decimalPlaces, disabled = false, placeholder, suffix, normalize, onchange, field }: {\r\n    value?: number; min?: number; max?: number; label: string; step?: number; editable?: boolean; allowFractionalInput?: boolean; decimalPlaces?: number; disabled?: boolean; placeholder?: string; suffix?: string | ((value: number) => string); normalize?: (value: number, previous: number) => number; onchange?: (value: number) => void; field?: Field;\r\n  } = $props()",
+    "source": "packages/ui-rachana/src/UiNumberStepper.svelte",
+    "usage": "<UiNumberStepper label=\"Amount\" {value} min={0} max={100} suffix=\"%\" {disabled} onchange={number} />"
+  },
+  {
+    "id": "rachana/UiPickerFilter",
+    "variant": "rachana",
+    "name": "UiPickerFilter",
+    "family": "selection",
+    "importPath": "@karatala/ui-rachana/UiPickerFilter.svelte",
+    "props": "let { query = $bindable(\"\"), favoritesOnly = $bindable(false), searchLabel, showSearch = true, searchInput = $bindable(), children, onchange }: {\r\n    query?: string;\r\n    favoritesOnly?: boolean;\r\n    searchLabel: string;\r\n    showSearch?: boolean;\r\n    searchInput?: HTMLInputElement;\r\n    children: Snippet;\r\n    onchange?: () => void;\r\n  } = $props()",
+    "source": "packages/ui-rachana/src/UiPickerFilter.svelte",
+    "usage": "<UiPickerFilter searchLabel=\"Search samples\" bind:query={text} bind:favoritesOnly={checked}><UiSegmentedButton label=\"All\" text=\"All\" active /></UiPickerFilter>"
+  },
+  {
+    "id": "rachana/UiPositionSlider",
+    "variant": "rachana",
+    "name": "UiPositionSlider",
+    "family": "numbers",
+    "importPath": "@karatala/ui-rachana/UiPositionSlider.svelte",
+    "props": "let { label, min = 0, max, value, valueText, resetValue, disabled = false, onchange }: {\r\n    label: string;\r\n    min?: number;\r\n    max: number;\r\n    value: number;\r\n    valueText?: string;\r\n    resetValue: number;\r\n    disabled?: boolean;\r\n    onchange: (value: number) => void;\r\n  } = $props()",
+    "source": "packages/ui-rachana/src/UiPositionSlider.svelte",
+    "usage": "<UiPositionSlider label=\"Position\" {value} max={100} resetValue={75} {disabled} onchange={number} />"
+  },
+  {
+    "id": "rachana/UiResizeHandle",
+    "variant": "rachana",
+    "name": "UiResizeHandle",
+    "family": "layout",
+    "importPath": "@karatala/ui-rachana/UiResizeHandle.svelte",
+    "props": "let {\r\n    label,\r\n    value,\r\n    minimum,\r\n    maximum,\r\n    increaseDirection = 1,\r\n    orientation = \"horizontal\",\r\n    shadow = false,\r\n    fromParentEdge = false,\r\n    unitsPerPixel = 1,\r\n    keyboardStep = 8,\r\n    cancelBehavior = \"restore\",\r\n    class: className = \"\",\r\n    onstart,\r\n    onchange,\r\n    oncommit,\r\n    onreset,\r\n  }: {\r\n    label: string;\r\n    value: number;\r\n    minimum: number;\r\n    maximum: number;\r\n    increaseDirection?: 1 | -1;\r\n    orientation?: \"horizontal\" | \"vertical\";\r\n    shadow?: boolean;\r\n    fromParentEdge?: boolean;\r\n    unitsPerPixel?: number;\r\n    keyboardStep?: number;\r\n    cancelBehavior?: \"restore\" | \"keep\";\r\n    class?: string;\r\n    onstart?: () => void;\r\n    onchange: (value: number) => void;\r\n    oncommit?: (value: number) => void;\r\n    onreset?: (event: MouseEvent) => void;\r\n  } = $props()",
+    "source": "packages/ui-rachana/src/UiResizeHandle.svelte",
+    "usage": "<div class=\"resize-stage\" style:width={value+80+\"px\"}><span>Resizable panel</span><UiResizeHandle label=\"Resize panel\" {value} minimum={0} maximum={150} onchange={number} onreset={()=>number(75)} /></div>"
+  },
+  {
+    "id": "rachana/UiSegmentedButton",
+    "variant": "rachana",
+    "name": "UiSegmentedButton",
+    "family": "selection",
+    "importPath": "@karatala/ui-rachana/UiSegmentedButton.svelte",
+    "props": "let { label, text, path, iconUrl, active, current, labelMode = \"all\", fillWidth = false, class: className = \"\", ...buttonProps }: Omit<ComponentProps<typeof UiButton>, \"variant\"> & { current?: \"page\"; labelMode?: \"all\" | \"icons\" | \"active\"; fillWidth?: boolean } = $props()",
+    "source": "packages/ui-rachana/src/UiSegmentedButton.svelte",
+    "usage": "<UiSegmentedGroup label=\"Pages\">{#each options as option}<UiSegmentedButton label={option.label} text={option.label} active={choice===option.value} {disabled} onclick={()=>select(option.value)} />{/each}</UiSegmentedGroup>"
+  },
+  {
+    "id": "rachana/UiSegmentedControl",
+    "variant": "rachana",
+    "name": "UiSegmentedControl",
+    "family": "selection",
+    "importPath": "@karatala/ui-rachana/UiSegmentedControl.svelte",
+    "props": "let { label, options, value, clearValue, disabled = false, toolbar = false, compact = false, vertical = false, columns, fillWidth = false, showLabels = false, labelMode, current, swipe = false, returnOnReselect = false, icons = {}, iconUrls = {}, texts = {}, onchange }: {\r\n    label: string;\r\n    options: readonly { label: string; value: string }[];\r\n    value: string | null;\r\n    clearValue?: string;\r\n    disabled?: boolean;\r\n    toolbar?: boolean;\r\n    compact?: boolean;\r\n    vertical?: boolean;\r\n    columns?: number;\r\n    fillWidth?: boolean;\r\n    showLabels?: boolean;\r\n    labelMode?: \"all\" | \"icons\" | \"active\";\r\n    current?: \"page\";\r\n    swipe?: boolean;\r\n    returnOnReselect?: boolean;\r\n    icons?: Readonly<Record<string, string>>;\r\n    iconUrls?: Readonly<Record<string, string>>;\r\n    texts?: Readonly<Record<string, string>>;\r\n    onchange: (value: string) => void;\r\n  } = $props()",
+    "source": "packages/ui-rachana/src/UiSegmentedControl.svelte",
+    "usage": "<UiSegmentedControl label=\"Scope\" value={choice} {options} {disabled} labelMode=\"all\" onchange={select} />"
+  },
+  {
+    "id": "rachana/UiSegmentedGroup",
+    "variant": "rachana",
+    "name": "UiSegmentedGroup",
+    "family": "selection",
+    "importPath": "@karatala/ui-rachana/UiSegmentedGroup.svelte",
+    "props": "let { label, children, class: className = \"\" }: { label: string; children: Snippet; class?: string } = $props()",
+    "source": "packages/ui-rachana/src/UiSegmentedGroup.svelte",
+    "usage": "<UiSegmentedGroup label=\"Actions\"><UiButton label=\"Add\" text=\"Add\" {disabled} /><UiButton label=\"Remove\" text=\"Remove\" {disabled} /></UiSegmentedGroup>"
+  },
+  {
+    "id": "rachana/UiSelect",
+    "variant": "rachana",
+    "name": "UiSelect",
+    "family": "selection",
+    "importPath": "@karatala/ui-rachana/UiSelect.svelte",
+    "props": "let { label, value = $bindable(), disabled = false, toolbar = false, class: className = \"\", onchange, children }: {\r\n    label: string;\r\n    value: string | number | boolean;\r\n    disabled?: boolean;\r\n    toolbar?: boolean;\r\n    class?: string;\r\n    onchange?: (event: Event & { currentTarget: HTMLSelectElement }) => void;\r\n    children: Snippet;\r\n  } = $props()",
+    "source": "packages/ui-rachana/src/UiSelect.svelte",
+    "usage": "<UiSelect label=\"File scope\" bind:value={choice} {disabled} onchange={()=>status=\"Selected: \"+choice}>{#each options as option}<option value={option.value}>{option.label}</option>{/each}<option disabled>Unavailable</option></UiSelect>"
+  },
+  {
+    "id": "rachana/UiShortcutHint",
+    "variant": "rachana",
+    "name": "UiShortcutHint",
+    "family": "help",
+    "importPath": "@karatala/ui-rachana/UiShortcutHint.svelte",
+    "props": "let { value }: { value: string } = $props()",
+    "source": "packages/ui-rachana/src/UiShortcutHint.svelte",
+    "usage": "<UiShortcutHint value=\"Save: Ctrl+S / Meta+S\" />"
+  },
+  {
+    "id": "rachana/UiStepControl",
+    "variant": "rachana",
+    "name": "UiStepControl",
+    "family": "numbers",
+    "importPath": "@karatala/ui-rachana/UiStepControl.svelte",
+    "props": "let { label, caption, upLabel, downLabel, upShortcut, downShortcut, upShortcutId, downShortcutId, disabled = false, upDisabled = false, downDisabled = false, onup, ondown }: { label: string; caption: string; upLabel: string; downLabel: string; upShortcut?: string; downShortcut?: string; upShortcutId?: string; downShortcutId?: string; disabled?: boolean; upDisabled?: boolean; downDisabled?: boolean; onup: () => void; ondown: () => void } = $props()",
+    "source": "packages/ui-rachana/src/UiStepControl.svelte",
+    "usage": "<UiStepControl label=\"Step value\" caption={String(value)} upLabel=\"Increase\" downLabel=\"Decrease\" {disabled} onup={()=>number(value+1)} ondown={()=>number(value-1)} />"
+  },
+  {
+    "id": "rachana/UiSwitch",
+    "variant": "rachana",
+    "name": "UiSwitch",
+    "family": "checks",
+    "importPath": "@karatala/ui-rachana/UiSwitch.svelte",
+    "props": "let { checked, label, text = label, title, disabled = false, onchange }: { checked: boolean; label: string; text?: string; title?: string; disabled?: boolean; onchange: (checked: boolean) => void } = $props()",
+    "source": "packages/ui-rachana/src/UiSwitch.svelte",
+    "usage": "<UiSwitch label=\"Automatic mode\" {checked} {disabled} onchange={next=>checked=next} />"
+  },
+  {
+    "id": "rachana/UiTextInput",
+    "variant": "rachana",
+    "name": "UiTextInput",
+    "family": "layout",
+    "importPath": "@karatala/ui-rachana/UiTextInput.svelte",
+    "props": "let { value = $bindable(\"\"), input = $bindable(), type = \"text\", class: className = \"\", ...attributes }: Omit<HTMLInputAttributes, \"value\" | \"class\" | \"type\"> & { value?: string; input?: HTMLInputElement; type?: \"text\" | \"search\" | \"email\" | \"password\" | \"url\"; class?: string } = $props()",
+    "source": "packages/ui-rachana/src/UiTextInput.svelte",
+    "usage": "<UiTextInput aria-label=\"Sample text\" bind:value={text} {disabled} />"
+  },
+  {
+    "id": "rachana/UiTooltip",
+    "variant": "rachana",
+    "name": "UiTooltip",
+    "family": "help",
+    "importPath": "@karatala/ui-rachana/UiTooltip.svelte",
+    "props": "let { delayMs, resolveShortcuts, shortcutEditor }: { delayMs: number; resolveShortcuts?: (element: Element) => ShortcutTarget[]; shortcutEditor?: Snippet<[ShortcutTarget[], string]> } = $props()",
+    "source": "packages/ui-rachana/src/UiTooltip.svelte",
+    "usage": "<UiButton label=\"Tooltip example\" text=\"Hover or focus\" title=\"A real delayed tooltip\" />"
+  },
+  {
+    "id": "rachana/UiValueControl",
+    "variant": "rachana",
+    "name": "UiValueControl",
+    "family": "numbers",
+    "importPath": "@karatala/ui-rachana/UiValueControl.svelte",
+    "props": "let {\r\n    label,\r\n    title = label,\r\n    min = 0,\r\n    max,\r\n    value,\r\n    resetValue,\r\n    disabled = false,\r\n    dial = false,\r\n    center,\r\n    class: className = \"\",\r\n    sections,\r\n    onchange,\r\n    oninteraction,\r\n  }: {\r\n    label: string;\r\n    title?: string;\r\n    min?: number;\r\n    max: number;\r\n    value: number;\r\n    resetValue: number;\r\n    disabled?: boolean;\r\n    dial?: boolean;\r\n    center?: number;\r\n    class?: string;\r\n    sections?: readonly ControlColorSection[];\r\n    onchange: (value: number) => void;\r\n    oninteraction?: () => void;\r\n  } = $props()",
+    "source": "packages/ui-rachana/src/UiValueControl.svelte",
+    "usage": "<UiValueControl label=\"Volume\" {value} max={100} resetValue={75} {disabled} onchange={number} /><UiValueControl label=\"Dial\" {value} max={100} resetValue={75} dial {disabled} onchange={number} />"
+  },
+  {
+    "id": "rachana/UiWheelButton",
+    "variant": "rachana",
+    "name": "UiWheelButton",
+    "family": "selection",
+    "importPath": "@karatala/ui-rachana/UiWheelButton.svelte",
+    "props": "let {\r\n    label,\r\n    value,\r\n    options,\r\n    direction = \"vertical\",\r\n    wheel = false,\r\n    centerText,\r\n    caption,\r\n    loop = false,\r\n    stepMultiplier = 1,\r\n    dragMultiplier = 1,\r\n    toolbar = false,\r\n    disabled = false,\r\n    actions,\r\n    class: className = \"\",\r\n    onchange,\r\n  }: {\r\n    label: string;\r\n    value: string;\r\n    options: readonly ComboButtonOption[];\r\n    direction?: \"horizontal\" | \"vertical\";\r\n    wheel?: boolean;\r\n    centerText?: string;\r\n    caption?: string;\r\n    loop?: boolean;\r\n    stepMultiplier?: number;\r\n    dragMultiplier?: number;\r\n    toolbar?: boolean;\r\n    disabled?: boolean;\r\n    actions?: WheelCommandActions;\r\n    class?: string;\r\n    onchange: (value: string) => void;\r\n  } = $props()",
+    "source": "packages/ui-rachana/src/UiWheelButton.svelte",
+    "usage": "<UiWheelButton label=\"Scope wheel\" value={choice} {options} wheel {disabled} onchange={select} />"
+  },
+  {
+    "id": "rachana/UiZoomSelect",
+    "variant": "rachana",
+    "name": "UiZoomSelect",
+    "family": "numbers",
+    "importPath": "@karatala/ui-rachana/UiZoomSelect.svelte",
+    "props": "let { label, value, path, values, decimalPlaces = 0, limittovalues = false, disabled = false, onchange }: { label: string; value: number; path?: string; values?: readonly number[]; decimalPlaces?: number; limittovalues?: boolean; disabled?: boolean; onchange: (value: number) => void } = $props()",
+    "source": "packages/ui-rachana/src/UiZoomSelect.svelte",
+    "usage": "<UiZoomSelect label=\"Zoom\" {value} {disabled} onchange={number} />"
+  },
+  {
+    "id": "komandir/Button",
+    "variant": "komandir",
+    "name": "Button",
+    "family": "buttons",
+    "importPath": "@karatala/ui-komandir/Button.svelte",
+    "props": "interface Props extends HTMLButtonAttributes {\r\n    plain?: boolean;\r\n    tone?: \"default\" | \"primary\" | \"danger\";\r\n  }\n\nlet { type = \"button\", children, class: className = \"\", plain = false, tone = \"default\", ...attributes }: Props = $props()",
+    "source": "packages/ui-komandir/src/Button.svelte",
+    "usage": "<Button {disabled} onclick={()=>status=\"Default clicked\"}>Default</Button><Button tone=\"primary\" {disabled} onclick={()=>status=\"Saved\"}>Save</Button><Button tone=\"danger\" {disabled}>Remove</Button>"
+  },
+  {
+    "id": "komandir/CheckButton",
+    "variant": "komandir",
+    "name": "CheckButton",
+    "family": "checks",
+    "importPath": "@karatala/ui-komandir/CheckButton.svelte",
+    "props": "let { checked, label, title, disabled = false, onChange }: { checked: boolean; label: string; title?: string; disabled?: boolean; onChange(checked: boolean): void } = $props()",
+    "source": "packages/ui-komandir/src/CheckButton.svelte",
+    "usage": "<CheckButton label=\"Include folders\" {checked} {disabled} onChange={next=>checked=next} />"
+  },
+  {
+    "id": "komandir/CheckMark",
+    "variant": "komandir",
+    "name": "CheckMark",
+    "family": "checks",
+    "importPath": "@karatala/ui-komandir/CheckMark.svelte",
+    "props": "let { checked, size = 16 }: { checked: boolean; size?: 12 | 16 } = $props()",
+    "source": "packages/ui-komandir/src/CheckMark.svelte",
+    "usage": "<CheckMark checked={false} /><CheckMark checked /><CheckMark checked size={12} />"
+  },
+  {
+    "id": "komandir/ColorPicker",
+    "variant": "komandir",
+    "name": "ColorPicker",
+    "family": "colors",
+    "importPath": "@karatala/ui-komandir/ColorPicker.svelte",
+    "props": "let { value, label, class: className = \"\", onChange }: { value: string; label: string; class?: string; onChange(value: string): void } = $props()",
+    "source": "packages/ui-komandir/src/ColorPicker.svelte",
+    "usage": "<ColorPicker label=\"Item color\" value={color} onChange={next=>{color=next;status=\"Committed color: \"+next;}} />"
+  },
+  {
+    "id": "komandir/ColumnHeader",
+    "variant": "komandir",
+    "name": "ColumnHeader",
+    "family": "tables",
+    "importPath": "@karatala/ui-komandir/ColumnHeader.svelte",
+    "props": "let { label, accessibleLabel, sorted, onSort, onResize, width = null, minimum = 40, resizeFromStart = false, onReset, onAutoSize }: { label: string; accessibleLabel?: string; sorted?: \"ascending\" | \"descending\"; onSort(): void; onResize?(width: number): void; width?: number | null; minimum?: number; resizeFromStart?: boolean; onReset?(): void; onAutoSize?(): void } = $props()",
+    "source": "packages/ui-komandir/src/ColumnHeader.svelte",
+    "usage": "<DataTable role=\"table\" aria-label=\"Sample records\" style={\"--table-columns:\"+width+\"px 70px;--table-min-width:220px\"}><div class=\"ui-table-header\" role=\"row\"><ColumnHeader label=\"Name\" sorted={ascending?\"ascending\":\"descending\"} {width} onSort={()=>ascending=!ascending} onResize={next=>width=next} onReset={()=>width=180} /><span role=\"columnheader\">Size</span></div>{#each [{name:\"Alpha.txt\",size:10},{name:\"Beta.txt\",size:20}] as row,idx}<TableRow active={idx===1} selected={idx===0}><span role=\"cell\">{row.name}</span><span role=\"cell\">{row.size}</span></TableRow>{/each}</DataTable>"
+  },
+  {
+    "id": "komandir/ConfirmPopover",
+    "variant": "komandir",
+    "name": "ConfirmPopover",
+    "family": "windows",
+    "importPath": "@karatala/ui-komandir/ConfirmPopover.svelte",
+    "props": "let { label, message, confirmLabel, cancelLabel, left, top, trigger, pending, error, onConfirm, onClose, onFocusReturn }: { label: string; message: string; confirmLabel: string; cancelLabel: string; left: number; top: number; trigger: HTMLElement | null; pending: boolean; error: string; onConfirm(): void; onClose(): void; onFocusReturn(): void } = $props()",
+    "source": "packages/ui-komandir/src/ConfirmPopover.svelte",
+    "usage": "<Button {disabled} onclick={launch}>Confirm action</Button>{#if open}<ConfirmPopover label=\"Confirm sample\" message=\"Apply this memory-only action?\" confirmLabel=\"Apply\" cancelLabel=\"Cancel\" left={20} top={75} {trigger} pending={false} error=\"\" onConfirm={()=>{status=\"Applied\";close();}} onClose={close} onFocusReturn={focusReturn} />{/if}"
+  },
+  {
+    "id": "komandir/ContextAction",
+    "variant": "komandir",
+    "name": "ContextAction",
+    "family": "menus",
+    "importPath": "@karatala/ui-komandir/ContextAction.svelte",
+    "props": "let { label, caption = label, disabled = false, tone, children, onclick }: {\n    label: string; caption?: string; disabled?: boolean; tone?: \"danger\"; children: Snippet; onclick(event: MouseEvent & { currentTarget: HTMLButtonElement }): void;\n  } = $props()",
+    "source": "packages/ui-komandir/src/ContextAction.svelte",
+    "usage": "<Button {disabled} onclick={launch}>Open actions</Button>{#if open}<ContextMenu label=\"Sample actions\" {trigger} onClose={close} onFocusReturn={focusReturn}><Button role=\"menuitem\" onclick={()=>{status=\"Open requested\";close();}}>Open</Button><ContextAction label=\"Copy sample\" onclick={()=>{status=\"Copy requested\";close();}}><Icon name=\"sharedControls.check\" /></ContextAction><ContextSubmenu label=\"More\"><Button role=\"menuitem\" onclick={()=>{status=\"Details requested\";close();}}>Details</Button></ContextSubmenu></ContextMenu>{/if}"
+  },
+  {
+    "id": "komandir/ContextMenu",
+    "variant": "komandir",
+    "name": "ContextMenu",
+    "family": "menus",
+    "importPath": "@karatala/ui-komandir/ContextMenu.svelte",
+    "props": "interface Props {\r\n    label: string;\r\n    left?: number;\r\n    top?: number;\r\n    trigger?: HTMLElement | null;\r\n    anchor?: HTMLElement | null;\r\n    align?: \"start\" | \"end\";\r\n    ignoreOutside?: (target: Element) => boolean;\r\n    class?: string;\r\n    initialShift?: boolean;\r\n    initialItem?: string;\r\n    leading?: Snippet<[boolean]>;\r\n    actions?: Snippet<[boolean]>;\r\n    children: Snippet<[boolean]>;\r\n    onClose(): void;\r\n    onFocusReturn(): void;\r\n  }\n\nlet { label, left = 0, top = 0, trigger, anchor, align = \"start\", ignoreOutside, leading, actions, children, initialShift = false, initialItem, class: className = \"\", onClose, onFocusReturn }: Props = $props()",
+    "source": "packages/ui-komandir/src/ContextMenu.svelte",
+    "usage": "<Button {disabled} onclick={launch}>Open actions</Button>{#if open}<ContextMenu label=\"Sample actions\" {trigger} onClose={close} onFocusReturn={focusReturn}><Button role=\"menuitem\" onclick={()=>{status=\"Open requested\";close();}}>Open</Button><ContextAction label=\"Copy sample\" onclick={()=>{status=\"Copy requested\";close();}}><Icon name=\"sharedControls.check\" /></ContextAction><ContextSubmenu label=\"More\"><Button role=\"menuitem\" onclick={()=>{status=\"Details requested\";close();}}>Details</Button></ContextSubmenu></ContextMenu>{/if}"
+  },
+  {
+    "id": "komandir/ContextSubmenu",
+    "variant": "komandir",
+    "name": "ContextSubmenu",
+    "family": "menus",
+    "importPath": "@karatala/ui-komandir/ContextSubmenu.svelte",
+    "props": "let { label, caption, children, disabled = false, command }: { label: string; caption?: Snippet; children: Snippet; disabled?: boolean; command?: string } = $props()",
+    "source": "packages/ui-komandir/src/ContextSubmenu.svelte",
+    "usage": "<Button {disabled} onclick={launch}>Open actions</Button>{#if open}<ContextMenu label=\"Sample actions\" {trigger} onClose={close} onFocusReturn={focusReturn}><Button role=\"menuitem\" onclick={()=>{status=\"Open requested\";close();}}>Open</Button><ContextAction label=\"Copy sample\" onclick={()=>{status=\"Copy requested\";close();}}><Icon name=\"sharedControls.check\" /></ContextAction><ContextSubmenu label=\"More\"><Button role=\"menuitem\" onclick={()=>{status=\"Details requested\";close();}}>Details</Button></ContextSubmenu></ContextMenu>{/if}"
+  },
+  {
+    "id": "komandir/DataTable",
+    "variant": "komandir",
+    "name": "DataTable",
+    "family": "tables",
+    "importPath": "@karatala/ui-komandir/DataTable.svelte",
+    "props": "interface Props extends HTMLAttributes<HTMLDivElement> {\n    element?: HTMLDivElement | null;\n  }\n\nlet { element = $bindable(null), children, class: className = \"\", role = \"presentation\", ...attributes }: Props = $props()",
+    "source": "packages/ui-komandir/src/DataTable.svelte",
+    "usage": "<DataTable role=\"table\" aria-label=\"Sample records\" style={\"--table-columns:\"+width+\"px 70px;--table-min-width:220px\"}><div class=\"ui-table-header\" role=\"row\"><ColumnHeader label=\"Name\" sorted={ascending?\"ascending\":\"descending\"} {width} onSort={()=>ascending=!ascending} onResize={next=>width=next} onReset={()=>width=180} /><span role=\"columnheader\">Size</span></div>{#each [{name:\"Alpha.txt\",size:10},{name:\"Beta.txt\",size:20}] as row,idx}<TableRow active={idx===1} selected={idx===0}><span role=\"cell\">{row.name}</span><span role=\"cell\">{row.size}</span></TableRow>{/each}</DataTable>"
+  },
+  {
+    "id": "komandir/Dialog",
+    "variant": "komandir",
+    "name": "Dialog",
+    "family": "windows",
+    "importPath": "@karatala/ui-komandir/Dialog.svelte",
+    "props": "interface Props extends Pick<HTMLAttributes<HTMLDivElement>, \"class\" | \"style\" | \"aria-label\" | \"aria-labelledby\" | \"onmousedown\"> {\r\n    children: Snippet;\r\n    onClose(): void;\r\n    initialFocus?: string;\r\n    interactiveBackground?: boolean;\r\n    onFocusReturn(): void;\r\n  }\n\nlet { children, onClose, initialFocus, interactiveBackground = false, onFocusReturn, ...attributes }: Props = $props()",
+    "source": "packages/ui-komandir/src/Dialog.svelte",
+    "usage": "<Button {disabled} onclick={launch}>Open {name}</Button>{#if open}<Portal>{#if name===\"Dialog\"}<Dialog class=\"demo-overlay\" aria-label=\"Memory dialog\" onClose={close} onFocusReturn={focusReturn}><p>Modal focus and Escape owner</p><input aria-label=\"Dialog text\" value=\"Sample\" /><Button onclick={close}>Close dialog</Button></Dialog>{:else}<Popover class=\"demo-overlay\" aria-label=\"Memory popover\" onClose={close} onFocusReturn={focusReturn}><p>Nonmodal popover</p><Button onclick={close}>Close popover</Button></Popover>{/if}</Portal>{/if}"
+  },
+  {
+    "id": "komandir/Dropdown",
+    "variant": "komandir",
+    "name": "Dropdown",
+    "family": "selection",
+    "importPath": "@karatala/ui-komandir/Dropdown.svelte",
+    "props": "let { label, value, options, disabled = false, placeholder = \"\", onChange }: {\r\n    label: string;\r\n    value: Value | \"\";\r\n    options: readonly { value: Value; label: string; disabled?: boolean }[];\r\n    disabled?: boolean;\r\n    placeholder?: string;\r\n    onChange(value: Value): void;\r\n  } = $props()",
+    "source": "packages/ui-komandir/src/Dropdown.svelte",
+    "usage": "<div style=\"width:240px;max-width:100%\"><Dropdown label=\"File scope\" {value} {options} {disabled} onChange={select} /></div>"
+  },
+  {
+    "id": "komandir/FileDate",
+    "variant": "komandir",
+    "name": "FileDate",
+    "family": "tables",
+    "importPath": "@karatala/ui-komandir/FileDate.svelte",
+    "props": "let { date, comparison, changedClass, commonClass, title = date.full }: {\r\n    date: FormattedFileDate;\r\n    comparison?: FormattedFileDate | null;\r\n    changedClass?: string;\r\n    commonClass?: string;\r\n    title?: string;\r\n  } = $props()",
+    "source": "packages/ui-komandir/src/FileDate.svelte",
+    "usage": "<FileDate {date} />"
+  },
+  {
+    "id": "komandir/HelpButton",
+    "variant": "komandir",
+    "name": "HelpButton",
+    "family": "help",
+    "importPath": "@karatala/ui-komandir/HelpButton.svelte",
+    "props": "let { message }: { message: string } = $props()",
+    "source": "packages/ui-komandir/src/HelpButton.svelte",
+    "usage": "<HelpButton message=\"A real pinned help tooltip. First Escape closes help.\" />"
+  },
+  {
+    "id": "komandir/Icon",
+    "variant": "komandir",
+    "name": "Icon",
+    "family": "icons",
+    "importPath": "@karatala/ui-komandir/Icon.svelte",
+    "props": "let { name, value, themeKey, reference, applicationUrl, size, lazy = false, centerArtwork = false, themed = themeEnabled, class: className = \"\" }: { name?: IconName; value?: string; themeKey?: string; reference?: CommandIconReference; applicationUrl?: string; size?: number; lazy?: boolean; centerArtwork?: boolean; themed?: boolean; class?: string } = $props()",
+    "source": "packages/ui-komandir/src/Icon.svelte",
+    "usage": "<Icon name=\"sharedControls.check\" /><Icon name=\"sharedControls.remove\" /><Icon name=\"sharedControls.dropdown\" />"
+  },
+  {
+    "id": "komandir/IconButton",
+    "variant": "komandir",
+    "name": "IconButton",
+    "family": "buttons",
+    "importPath": "@karatala/ui-komandir/IconButton.svelte",
+    "props": "interface Props extends Omit<HTMLButtonAttributes, \"aria-label\"> {\r\n    label: string;\r\n    plain?: boolean;\r\n    tone?: \"default\" | \"primary\" | \"danger\";\r\n    ghost?: boolean;\r\n  }\n\nlet { label, children, ghost = false, class: className = \"\", ...attributes }: Props = $props()",
+    "source": "packages/ui-komandir/src/IconButton.svelte",
+    "usage": "<IconButton label=\"Close example\" {disabled} onclick={()=>status=\"Close requested\"}><Icon name=\"sharedControls.remove\" /></IconButton>"
+  },
+  {
+    "id": "komandir/Keycap",
+    "variant": "komandir",
+    "name": "Keycap",
+    "family": "help",
+    "importPath": "@karatala/ui-komandir/Keycap.svelte",
+    "props": "let { text, tone = \"light\", pulsing = false }: { text: string; tone?: \"light\" | \"gray\" | \"red\"; pulsing?: boolean } = $props()",
+    "source": "packages/ui-komandir/src/Keycap.svelte",
+    "usage": "<Keycap text=\"Ctrl\" /><Keycap text=\"Enter\" tone=\"gray\" /><Keycap text=\"Esc\" tone=\"red\" />"
+  },
+  {
+    "id": "komandir/MessageBar",
+    "variant": "komandir",
+    "name": "MessageBar",
+    "family": "layout",
+    "importPath": "@karatala/ui-komandir/MessageBar.svelte",
+    "props": "interface Props extends Omit<HTMLAttributes<HTMLDivElement>, \"children\" | \"role\"> {\r\n    message: string;\r\n    role: \"alert\" | \"status\";\r\n  }\n\nlet { message, ...attributes }: Props = $props()",
+    "source": "packages/ui-komandir/src/MessageBar.svelte",
+    "usage": "<MessageBar role=\"status\" message=\"The memory sample is ready.\" />"
+  },
+  {
+    "id": "komandir/MiniPopup",
+    "variant": "komandir",
+    "name": "MiniPopup",
+    "family": "windows",
+    "importPath": "@karatala/ui-komandir/MiniPopup.svelte",
+    "props": "let { title, trigger, side = \"bottom\", pending = false, initialFocus, children, onClose, onFocusReturn }: { title: string; trigger: HTMLElement | null; side?: \"bottom\" | \"right\"; pending?: boolean; initialFocus?: string; children: Snippet; onClose(): void; onFocusReturn(): void } = $props()",
+    "source": "packages/ui-komandir/src/MiniPopup.svelte",
+    "usage": "<Button {disabled} onclick={launch}>Open popup</Button>{#if open}<MiniPopup title=\"Memory popup\" {trigger} onClose={close} onFocusReturn={focusReturn}><input aria-label=\"Popup name\" value=\"Sample\" /><Button onclick={close}>Close</Button></MiniPopup>{/if}"
+  },
+  {
+    "id": "komandir/Notification",
+    "variant": "komandir",
+    "name": "Notification",
+    "family": "layout",
+    "importPath": "@karatala/ui-komandir/Notification.svelte",
+    "props": "let { text, role = \"alert\", pending = false, link, action, onRetry, onClose }: { text: string; role?: \"alert\" | \"status\"; pending?: boolean; link?: { href: string; label: string; onOpen?(): void }; action?: { label: string; run(): void }; onRetry?(): void; onClose(): void } = $props()",
+    "source": "packages/ui-komandir/src/Notification.svelte",
+    "usage": "<Button {disabled} onclick={launch}>Show notification</Button>{#if open}<Notification text=\"The sample action is complete.\" role=\"status\" action={{label:\"Undo\",run:()=>status=\"Undo requested\"}} onClose={close} />{/if}"
+  },
+  {
+    "id": "komandir/PathLabel",
+    "variant": "komandir",
+    "name": "PathLabel",
+    "family": "tables",
+    "importPath": "@karatala/ui-komandir/PathLabel.svelte",
+    "props": "let { value, children }: { value: string; children?: Snippet<[string]> } = $props()",
+    "source": "packages/ui-komandir/src/PathLabel.svelte",
+    "usage": "<div style=\"width:240px;max-width:100%\"><PathLabel value=\"/Documents/Projects/Archive/Long folder/recording.wav\" /></div>"
+  },
+  {
+    "id": "komandir/Popover",
+    "variant": "komandir",
+    "name": "Popover",
+    "family": "windows",
+    "importPath": "@karatala/ui-komandir/Popover.svelte",
+    "props": "interface Props extends Pick<HTMLAttributes<HTMLDivElement>, \"class\" | \"style\" | \"tabindex\" | \"aria-label\" | \"aria-labelledby\" | \"aria-busy\" | \"onpointerdown\" | \"oncontextmenu\"> {\r\n    id?: string;\r\n    children: Snippet;\r\n    onClose(): void;\r\n    onFocusReturn(): void;\r\n    autoFocus?: boolean;\r\n  }\n\nlet { children, onClose, onFocusReturn, autoFocus = true, ...attributes }: Props = $props()",
+    "source": "packages/ui-komandir/src/Popover.svelte",
+    "usage": "<Button {disabled} onclick={launch}>Open {name}</Button>{#if open}<Portal>{#if name===\"Dialog\"}<Dialog class=\"demo-overlay\" aria-label=\"Memory dialog\" onClose={close} onFocusReturn={focusReturn}><p>Modal focus and Escape owner</p><input aria-label=\"Dialog text\" value=\"Sample\" /><Button onclick={close}>Close dialog</Button></Dialog>{:else}<Popover class=\"demo-overlay\" aria-label=\"Memory popover\" onClose={close} onFocusReturn={focusReturn}><p>Nonmodal popover</p><Button onclick={close}>Close popover</Button></Popover>{/if}</Portal>{/if}"
+  },
+  {
+    "id": "komandir/Portal",
+    "variant": "komandir",
+    "name": "Portal",
+    "family": "windows",
+    "importPath": "@karatala/ui-komandir/Portal.svelte",
+    "props": "let { children, to = \"body\" }: { children: Snippet; to?: string } = $props()",
+    "source": "packages/ui-komandir/src/Portal.svelte",
+    "usage": "<Button {disabled} onclick={launch}>Show portalled content</Button>{#if open}<Portal><div class=\"demo-overlay\"><p>Rendered through Portal into this document.</p><Button onclick={close}>Close portal</Button></div></Portal>{/if}"
+  },
+  {
+    "id": "komandir/RowSweepHandle",
+    "variant": "komandir",
+    "name": "RowSweepHandle",
+    "family": "tables",
+    "importPath": "@karatala/ui-komandir/RowSweepHandle.svelte",
+    "props": "let { label, pressed, onclick }: { label: string; pressed: boolean; onclick(): void } = $props()",
+    "source": "packages/ui-komandir/src/RowSweepHandle.svelte",
+    "usage": "<RowSweepHandle label=\"Mark sample row\" pressed={checked} onclick={()=>checked=!checked} />"
+  },
+  {
+    "id": "komandir/SegmentedControl",
+    "variant": "komandir",
+    "name": "SegmentedControl",
+    "family": "selection",
+    "importPath": "@karatala/ui-komandir/SegmentedControl.svelte",
+    "props": "let { label, value, options, disabled = false, onChange }: { label: string; value: Value; options: SegmentOption<Value>[]; disabled?: boolean; onChange(value: Value): void } = $props()",
+    "source": "packages/ui-komandir/src/SegmentedControl.svelte",
+    "usage": "<SegmentedControl label=\"File scope\" {value} {options} {disabled} onChange={select} />"
+  },
+  {
+    "id": "komandir/ShortcutHint",
+    "variant": "komandir",
+    "name": "ShortcutHint",
+    "family": "help",
+    "importPath": "@karatala/ui-komandir/ShortcutHint.svelte",
+    "props": "let { bindings, tone = \"light\" }: { bindings: KeyboardShortcut[]; tone?: \"light\" | \"red\" } = $props()",
+    "source": "packages/ui-komandir/src/ShortcutHint.svelte",
+    "usage": "<ShortcutHint bindings={[{ctrl:true,key:\"s\"},{meta:true,key:\"s\"}]} />"
+  },
+  {
+    "id": "komandir/SplitButton",
+    "variant": "komandir",
+    "name": "SplitButton",
+    "family": "buttons",
+    "importPath": "@karatala/ui-komandir/SplitButton.svelte",
+    "props": "interface Props {\r\n    label: string;\r\n    menuLabel: string;\r\n    tooltip?: string;\r\n    shortcutCommand?: string;\r\n    children: Snippet;\r\n    class?: string;\r\n    pressed?: boolean;\r\n    expanded: boolean;\r\n    disabled?: boolean;\r\n    menuDisabled?: boolean;\r\n    onAction(trigger: HTMLButtonElement): void;\r\n    onMenu(trigger: HTMLButtonElement): void;\r\n  }\n\nlet { label, menuLabel, tooltip, shortcutCommand, children, class: className = \"\", pressed, expanded, disabled = false, menuDisabled = false, onAction, onMenu }: Props = $props()",
+    "source": "packages/ui-komandir/src/SplitButton.svelte",
+    "usage": "<SplitButton label=\"Save\" menuLabel=\"More save actions\" expanded={open} {disabled} onAction={()=>status=\"Saved\"} onMenu={element=>{trigger=element;open=!open;}}>Save</SplitButton>{#if open}<ContextMenu label=\"Save actions\" {trigger} onClose={close} onFocusReturn={focusReturn}><Button role=\"menuitem\" onclick={()=>{status=\"Save as requested\";close();}}>Save as</Button></ContextMenu>{/if}"
+  },
+  {
+    "id": "komandir/SvgIcon",
+    "variant": "komandir",
+    "name": "SvgIcon",
+    "family": "icons",
+    "importPath": "@karatala/ui-komandir/SvgIcon.svelte",
+    "props": "let { url, viewBox, lazy = false, centerArtwork = false, onError }: { url: string; viewBox: string; lazy?: boolean; centerArtwork?: boolean; onError(): void } = $props()",
+    "source": "packages/ui-komandir/src/SvgIcon.svelte",
+    "usage": "<div style=\"width:36px;height:36px\"><SvgIcon url=\"/sample-icon.svg\" viewBox=\"0 0 24 24\" onError={()=>status=\"Could not load the sample icon. Reload this example.\"} /></div>"
+  },
+  {
+    "id": "komandir/Switch",
+    "variant": "komandir",
+    "name": "Switch",
+    "family": "checks",
+    "importPath": "@karatala/ui-komandir/Switch.svelte",
+    "props": "type Props = Omit<HTMLButtonAttributes, \"type\" | \"role\" | \"aria-checked\" | \"onclick\" | \"children\"> & { checked: boolean; label: string; description?: string; compact?: boolean; onChange(checked: boolean): void };\r\n\nlet { checked, label, description, compact = false, class: className = \"\", title, onChange, ...attributes }: Props = $props()",
+    "source": "packages/ui-komandir/src/Switch.svelte",
+    "usage": "<Switch label=\"Automatic mode\" {checked} {disabled} onChange={next=>checked=next} />"
+  },
+  {
+    "id": "komandir/TabSurface",
+    "variant": "komandir",
+    "name": "TabSurface",
+    "family": "selection",
+    "importPath": "@karatala/ui-komandir/TabSurface.svelte",
+    "props": "interface Props extends HTMLAttributes<HTMLDivElement> {\n    selected: boolean;\n    accented?: boolean;\n  }\n\nlet { selected, accented = true, children, class: className = \"\", role = \"presentation\", ...attributes }: Props = $props()",
+    "source": "packages/ui-komandir/src/TabSurface.svelte",
+    "usage": "<TabSurface selected={checked} role=\"tab\" aria-selected={checked}><Button {disabled} onclick={()=>checked=!checked}>Workspace tab</Button></TabSurface>"
+  },
+  {
+    "id": "komandir/TableRow",
+    "variant": "komandir",
+    "name": "TableRow",
+    "family": "tables",
+    "importPath": "@karatala/ui-komandir/TableRow.svelte",
+    "props": "interface Props extends HTMLAttributes<HTMLDivElement> {\n    active?: boolean;\n    selected?: boolean;\n  }\n\nlet { active = false, selected = false, children, class: className = \"\", role = \"row\", ...attributes }: Props = $props()",
+    "source": "packages/ui-komandir/src/TableRow.svelte",
+    "usage": "<DataTable role=\"table\" aria-label=\"Sample records\" style={\"--table-columns:\"+width+\"px 70px;--table-min-width:220px\"}><div class=\"ui-table-header\" role=\"row\"><ColumnHeader label=\"Name\" sorted={ascending?\"ascending\":\"descending\"} {width} onSort={()=>ascending=!ascending} onResize={next=>width=next} onReset={()=>width=180} /><span role=\"columnheader\">Size</span></div>{#each [{name:\"Alpha.txt\",size:10},{name:\"Beta.txt\",size:20}] as row,idx}<TableRow active={idx===1} selected={idx===0}><span role=\"cell\">{row.name}</span><span role=\"cell\">{row.size}</span></TableRow>{/each}</DataTable>"
+  },
+  {
+    "id": "komandir/Tooltip",
+    "variant": "komandir",
+    "name": "Tooltip",
+    "family": "help",
+    "importPath": "@karatala/ui-komandir/Tooltip.svelte",
+    "props": "let { bindings, defaults, commands, ready, validate, onAssign }: { bindings: ShortcutBindings; defaults: ShortcutBindings; commands: readonly ShortcutCommandId[]; ready: boolean; validate(command: ShortcutCommandId, shortcuts: KeyboardShortcut[]): string; onAssign(command: ShortcutCommandId, shortcuts: KeyboardShortcut[]): Promise<void> } = $props()",
+    "source": "packages/ui-komandir/src/Tooltip.svelte",
+    "usage": "<Button title=\"Save the memory sample\" data-shortcut-command=\"sample.save\" {disabled} onclick={()=>status=\"Save clicked\"}>Hover or focus to assign shortcut</Button>"
+  },
+  {
+    "id": "komandir/WindowDialog",
+    "variant": "komandir",
+    "name": "WindowDialog",
+    "family": "windows",
+    "importPath": "@karatala/ui-komandir/WindowDialog.svelte",
+    "props": "let { title, titleContent, titleActions, titleButtons, stateKey, initialSize, layer = 0, nonModal = false, blocked = false, closeDisabled = false, topmost = true, toolbarEditing = false, children, onClose, onOpenWindow, onFocusReturn, onActivate, onMoveEnd }: { title: string; titleContent?: Snippet; titleActions?: Snippet; titleButtons?: Snippet; stateKey?: string; initialSize?: { width: number; height: number }; layer?: number; nonModal?: boolean; blocked?: boolean; closeDisabled?: boolean; topmost?: boolean; toolbarEditing?: boolean; children: Snippet; onClose(): void; onOpenWindow?(): void; onFocusReturn?(): void; onActivate?(): void; onMoveEnd?(event: PointerEvent): void } = $props()",
+    "source": "packages/ui-komandir/src/WindowDialog.svelte",
+    "usage": "<Button {disabled} onclick={launch}>Open window</Button>{#if open}<WindowDialog title=\"Memory window\" initialSize={{width:480,height:300}} onClose={close} onFocusReturn={focusReturn}><div class=\"demo-window-content\"><label>Name<input aria-label=\"Window name\" value=\"Sample\" /></label><ColorPicker label=\"Window color\" value={color} onChange={next=>color=next} /><HelpButton message=\"Help inside the window. Escape closes help first.\" /><div class=\"window-actions\"><Button onclick={()=>{status=\"Saved\";close();}}>Save</Button><Button onclick={close}>Cancel</Button></div></div></WindowDialog>{/if}"
+  },
+  {
+    "id": "komandir/WindowTitleBar",
+    "variant": "komandir",
+    "name": "WindowTitleBar",
+    "family": "windows",
+    "importPath": "@karatala/ui-komandir/WindowTitleBar.svelte",
+    "props": "let { heading, center, actions, trailingDrag, children }: { heading: Snippet; center?: Snippet; actions?: Snippet; trailingDrag?: Snippet; children: Snippet } = $props()",
+    "source": "packages/ui-komandir/src/WindowTitleBar.svelte",
+    "usage": "<div class=\"title-stage\"><WindowTitleBar>{#snippet heading()}<strong>Memory window</strong>{/snippet}<IconButton label=\"Close title example\" onclick={()=>status=\"Close requested\"}><Icon name=\"sharedControls.remove\" /></IconButton></WindowTitleBar></div>"
+  }
+]

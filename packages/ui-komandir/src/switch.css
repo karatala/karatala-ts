@@ -1,0 +1,11 @@
+.ui-switch { display: flex; align-items: center; justify-content: space-between; gap: 16px; width: 100%; min-width: 0; min-height: 36px; padding: 9px 0; border: 0; border-radius: 4px; color: var(--theme-workbench-foreground); background: transparent; font: inherit; text-align: left; cursor: pointer; }
+.ui-switch-copy { display: grid; gap: 3px; min-width: 0; }
+.ui-switch-copy small { color: var(--theme-workbench-muted); font-size: var(--ui-font-small); line-height: 1.4; }
+.ui-switch-track { display: block; flex: 0 0 32px; width: 32px; height: 19px; padding: 2px; border-radius: 12px; background: color-mix(in srgb, var(--theme-workbench-muted) 40%, var(--theme-workbench-raised)); transition: background .12s; }
+.ui-switch-track > span { display: block; width: 15px; height: 15px; border-radius: 50%; background: var(--theme-workbench-foreground); transition: transform .12s; }
+.ui-switch[aria-checked="true"] .ui-switch-track { background: var(--theme-workbench-accent); }
+.ui-switch[aria-checked="true"] .ui-switch-track > span { transform: translateX(13px); background: var(--theme-workbench-background); }
+.ui-switch:focus-visible { outline: 2px solid var(--theme-workbench-accent); outline-offset: 2px; }
+.ui-switch:disabled { opacity: .4; cursor: default; }
+.ui-switch.compact { width: auto; min-height: 24px; padding: 2px; }
+@media (prefers-reduced-motion: reduce) { .ui-switch-track, .ui-switch-track > span { transition: none; } }

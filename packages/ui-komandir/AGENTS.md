@@ -7,6 +7,7 @@
 ## Ownership
 
 - package.json lists explicit component, CSS and helper exports. README.md records provenance and integration limits.
+- host.ts owns translation, icon-service and window-state callback contracts. The original Icon renderer and WindowDialog call these ports; the application supplies file/theme requests and persistence. shortcut-codec.ts retains key functions with caller-owned command IDs and validation. IconPicker remains application-owned pending a focused loading port.
 
 ## Local Contracts
 

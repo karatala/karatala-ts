@@ -1,0 +1,5 @@
+.ui-confirm-popover { position: fixed; z-index: 1450; width: min(280px, calc(100vw - 8px)); padding: 10px; border: 0; border-radius: 7px; color: var(--theme-workbench-foreground); background: var(--theme-workbench-surface); box-shadow: var(--ui-popup-shadow); }
+.ui-confirm-popover form { display: grid; gap: 9px; }
+.ui-confirm-popover strong { font-weight: var(--ui-weight-strong); overflow-wrap: anywhere; }
+.ui-confirm-popover p { margin: 0; line-height: 1.4; overflow-wrap: anywhere; }
+.ui-confirm-popover form > div:last-child { display: flex; justify-content: flex-end; gap: 6px; }

@@ -1,0 +1,652 @@
+[
+  {
+    "package": "ui-rachana",
+    "file": "ModalDialog.svelte",
+    "sourceRepository": "karatala/Komprohit",
+    "sourceRevision": "02e63ce9827dc1d267e1a13758901f83da87f72a",
+    "sourcePath": "src/frontend/dialogs/ModalDialog.svelte",
+    "sourceSha256": "df521870dee46c3ea5846841e72c78ea9ba5553f77609ac688ff37b8e600fade",
+    "unchangedBytes": false,
+    "adaptation": "application import boundary or icon metadata/geometry types; source styles and interaction code retained"
+  },
+  {
+    "package": "ui-rachana",
+    "file": "TimelineFlag.svelte",
+    "sourceRepository": "karatala/Komprohit",
+    "sourceRevision": "02e63ce9827dc1d267e1a13758901f83da87f72a",
+    "sourcePath": "src/frontend/ui/TimelineFlag.svelte",
+    "sourceSha256": "2a3c3dae75bfcad8561ee5e8dd560b375aebb98c43a1ea4e08d64eda3471860b",
+    "unchangedBytes": true,
+    "adaptation": "none"
+  },
+  {
+    "package": "ui-rachana",
+    "file": "TimelineMarkerName.svelte",
+    "sourceRepository": "karatala/Komprohit",
+    "sourceRevision": "02e63ce9827dc1d267e1a13758901f83da87f72a",
+    "sourcePath": "src/frontend/ui/TimelineMarkerName.svelte",
+    "sourceSha256": "54f7c0e7594875c8a271567e69509610aacb4c05875c5b0a8bced9c91e472817",
+    "unchangedBytes": false,
+    "adaptation": "application import boundary or icon metadata/geometry types; source styles and interaction code retained"
+  },
+  {
+    "package": "ui-rachana",
+    "file": "UiButton.svelte",
+    "sourceRepository": "karatala/Komprohit",
+    "sourceRevision": "02e63ce9827dc1d267e1a13758901f83da87f72a",
+    "sourcePath": "src/frontend/ui/UiButton.svelte",
+    "sourceSha256": "deff274c227951724cde047ec3e317fa2fb5dd57ec7705802c3d30cfa82e3202",
+    "unchangedBytes": true,
+    "adaptation": "none"
+  },
+  {
+    "package": "ui-rachana",
+    "file": "UiCheckboxButton.svelte",
+    "sourceRepository": "karatala/Komprohit",
+    "sourceRevision": "02e63ce9827dc1d267e1a13758901f83da87f72a",
+    "sourcePath": "src/frontend/ui/UiCheckboxButton.svelte",
+    "sourceSha256": "93112713e1ecf541b16fc829f128e6ca196c2755299a0cc44b448d4bc04edce1",
+    "unchangedBytes": true,
+    "adaptation": "none"
+  },
+  {
+    "package": "ui-rachana",
+    "file": "UiComboButton.svelte",
+    "sourceRepository": "karatala/Komprohit",
+    "sourceRevision": "02e63ce9827dc1d267e1a13758901f83da87f72a",
+    "sourcePath": "src/frontend/ui/UiComboButton.svelte",
+    "sourceSha256": "4bb2237dcb6dad921f3f3755f953c39a63d83f6c1b6b7fac82d7ee697f9a09c0",
+    "unchangedBytes": true,
+    "adaptation": "none"
+  },
+  {
+    "package": "ui-rachana",
+    "file": "UiContextMenu.svelte",
+    "sourceRepository": "karatala/Komprohit",
+    "sourceRevision": "02e63ce9827dc1d267e1a13758901f83da87f72a",
+    "sourcePath": "src/frontend/ui/UiContextMenu.svelte",
+    "sourceSha256": "984761bfacbaa15560361302f5a455e0e306524fc4a35a6bba5eee9c1d28c621",
+    "unchangedBytes": true,
+    "adaptation": "none"
+  },
+  {
+    "package": "ui-rachana",
+    "file": "UiFavoriteButton.svelte",
+    "sourceRepository": "karatala/Komprohit",
+    "sourceRevision": "02e63ce9827dc1d267e1a13758901f83da87f72a",
+    "sourcePath": "src/frontend/ui/UiFavoriteButton.svelte",
+    "sourceSha256": "3b7f6ebc05396d674f280bba8e1d7be0dce99c85854015ad0531b0153b19d5ce",
+    "unchangedBytes": true,
+    "adaptation": "none"
+  },
+  {
+    "package": "ui-rachana",
+    "file": "UiField.svelte",
+    "sourceRepository": "karatala/Komprohit",
+    "sourceRevision": "02e63ce9827dc1d267e1a13758901f83da87f72a",
+    "sourcePath": "src/frontend/ui/UiField.svelte",
+    "sourceSha256": "439fc25efc5fa85435530c9bb40cb190864c9bb566e073d4adcb54609578eb80",
+    "unchangedBytes": true,
+    "adaptation": "none"
+  },
+  {
+    "package": "ui-rachana",
+    "file": "UiFloatingToolbar.svelte",
+    "sourceRepository": "karatala/Komprohit",
+    "sourceRevision": "02e63ce9827dc1d267e1a13758901f83da87f72a",
+    "sourcePath": "src/frontend/ui/UiFloatingToolbar.svelte",
+    "sourceSha256": "64af3ccc6e84dd14bb045c32868c53cccf90bb3f5a4936b190a430c33339a01f",
+    "unchangedBytes": true,
+    "adaptation": "none"
+  },
+  {
+    "package": "ui-rachana",
+    "file": "UiHelp.svelte",
+    "sourceRepository": "karatala/Komprohit",
+    "sourceRevision": "02e63ce9827dc1d267e1a13758901f83da87f72a",
+    "sourcePath": "src/frontend/ui/UiHelp.svelte",
+    "sourceSha256": "6b5327cdb62f6aecdda362b887712b0c6d2e142d1f847d5cccd34006ff79bef5",
+    "unchangedBytes": true,
+    "adaptation": "none"
+  },
+  {
+    "package": "ui-rachana",
+    "file": "UiIcon.svelte",
+    "sourceRepository": "karatala/Komprohit",
+    "sourceRevision": "02e63ce9827dc1d267e1a13758901f83da87f72a",
+    "sourcePath": "src/frontend/ui/UiIcon.svelte",
+    "sourceSha256": "e3af9e6fb50a887a36d64035f4c0084f03a5433e698d2a8bec5f12b32bf84d19",
+    "unchangedBytes": false,
+    "adaptation": "application import boundary or icon metadata/geometry types; source styles and interaction code retained"
+  },
+  {
+    "package": "ui-rachana",
+    "file": "UiKeycap.svelte",
+    "sourceRepository": "karatala/Komprohit",
+    "sourceRevision": "02e63ce9827dc1d267e1a13758901f83da87f72a",
+    "sourcePath": "src/frontend/ui/UiKeycap.svelte",
+    "sourceSha256": "ed2ec1f4075876f97e6cc7675e2fd85dd4e0ce6809df5418049d375d0f0b906a",
+    "unchangedBytes": true,
+    "adaptation": "none"
+  },
+  {
+    "package": "ui-rachana",
+    "file": "UiLoading.svelte",
+    "sourceRepository": "karatala/Komprohit",
+    "sourceRevision": "02e63ce9827dc1d267e1a13758901f83da87f72a",
+    "sourcePath": "src/frontend/ui/UiLoading.svelte",
+    "sourceSha256": "6267220d642c1d95e993c7d2a2f50fdd86a1aa87e2ac4c4fc8db2748ced5ee77",
+    "unchangedBytes": true,
+    "adaptation": "none"
+  },
+  {
+    "package": "ui-rachana",
+    "file": "UiMiniPopup.svelte",
+    "sourceRepository": "karatala/Komprohit",
+    "sourceRevision": "02e63ce9827dc1d267e1a13758901f83da87f72a",
+    "sourcePath": "src/frontend/ui/UiMiniPopup.svelte",
+    "sourceSha256": "e67f62897c6084bc8174bfcfa544fc5513b7136cd2a9d4b30ddaa6dde71fc5bd",
+    "unchangedBytes": true,
+    "adaptation": "none"
+  },
+  {
+    "package": "ui-rachana",
+    "file": "UiNumberStepper.svelte",
+    "sourceRepository": "karatala/Komprohit",
+    "sourceRevision": "02e63ce9827dc1d267e1a13758901f83da87f72a",
+    "sourcePath": "src/frontend/ui/UiNumberStepper.svelte",
+    "sourceSha256": "822b83ad1975e6f658c024f59374fc40dfa63d5d09ce9d422aa49e3edb057b45",
+    "unchangedBytes": false,
+    "adaptation": "application import boundary or icon metadata/geometry types; source styles and interaction code retained"
+  },
+  {
+    "package": "ui-rachana",
+    "file": "UiPickerFilter.svelte",
+    "sourceRepository": "karatala/Komprohit",
+    "sourceRevision": "02e63ce9827dc1d267e1a13758901f83da87f72a",
+    "sourcePath": "src/frontend/ui/UiPickerFilter.svelte",
+    "sourceSha256": "a8b3b80c48d3829fd14e97ff82c68f614b2d27b7e42772f92b0fe0c577b56b53",
+    "unchangedBytes": false,
+    "adaptation": "application import boundary or icon metadata/geometry types; source styles and interaction code retained"
+  },
+  {
+    "package": "ui-rachana",
+    "file": "UiPositionSlider.svelte",
+    "sourceRepository": "karatala/Komprohit",
+    "sourceRevision": "02e63ce9827dc1d267e1a13758901f83da87f72a",
+    "sourcePath": "src/frontend/ui/UiPositionSlider.svelte",
+    "sourceSha256": "fed773a85a281cd78993f5f5899070ffa0ffedf6e072da87cef5b87e1963adb6",
+    "unchangedBytes": true,
+    "adaptation": "none"
+  },
+  {
+    "package": "ui-rachana",
+    "file": "UiResizeHandle.svelte",
+    "sourceRepository": "karatala/Komprohit",
+    "sourceRevision": "02e63ce9827dc1d267e1a13758901f83da87f72a",
+    "sourcePath": "src/frontend/ui/UiResizeHandle.svelte",
+    "sourceSha256": "6a054a2ef50ed0a8e3cab45e62867266e169e0f0604632a5a2a794ca1bbeb1ef",
+    "unchangedBytes": true,
+    "adaptation": "none"
+  },
+  {
+    "package": "ui-rachana",
+    "file": "UiSegmentedButton.svelte",
+    "sourceRepository": "karatala/Komprohit",
+    "sourceRevision": "02e63ce9827dc1d267e1a13758901f83da87f72a",
+    "sourcePath": "src/frontend/ui/UiSegmentedButton.svelte",
+    "sourceSha256": "5b20fd3201a5d41b7cd348dc2f85f0fa213b85de249d9850f298f033f23f721a",
+    "unchangedBytes": true,
+    "adaptation": "none"
+  },
+  {
+    "package": "ui-rachana",
+    "file": "UiSegmentedControl.svelte",
+    "sourceRepository": "karatala/Komprohit",
+    "sourceRevision": "02e63ce9827dc1d267e1a13758901f83da87f72a",
+    "sourcePath": "src/frontend/ui/UiSegmentedControl.svelte",
+    "sourceSha256": "ef69b446ccdd4143efe562f77c3a82ad1a720801a915b505f970d9c99d0e732b",
+    "unchangedBytes": true,
+    "adaptation": "none"
+  },
+  {
+    "package": "ui-rachana",
+    "file": "UiSegmentedGroup.svelte",
+    "sourceRepository": "karatala/Komprohit",
+    "sourceRevision": "02e63ce9827dc1d267e1a13758901f83da87f72a",
+    "sourcePath": "src/frontend/ui/UiSegmentedGroup.svelte",
+    "sourceSha256": "b8f1dc0d640ec5e67f449fe29c9e9ed97840e030b6f88079dacae885c7a557a0",
+    "unchangedBytes": true,
+    "adaptation": "none"
+  },
+  {
+    "package": "ui-rachana",
+    "file": "UiSelect.svelte",
+    "sourceRepository": "karatala/Komprohit",
+    "sourceRevision": "02e63ce9827dc1d267e1a13758901f83da87f72a",
+    "sourcePath": "src/frontend/ui/UiSelect.svelte",
+    "sourceSha256": "dd3115fc53a9bda3c0e65d8228c2763636dd8cd09db30cfd3f0e4af74d91e1db",
+    "unchangedBytes": true,
+    "adaptation": "none"
+  },
+  {
+    "package": "ui-rachana",
+    "file": "UiShortcutHint.svelte",
+    "sourceRepository": "karatala/Komprohit",
+    "sourceRevision": "02e63ce9827dc1d267e1a13758901f83da87f72a",
+    "sourcePath": "src/frontend/ui/UiShortcutHint.svelte",
+    "sourceSha256": "2ec7c34d5bc04b0bf951daf926d1ed54857bddc031460710f70fb713a34028ca",
+    "unchangedBytes": true,
+    "adaptation": "none"
+  },
+  {
+    "package": "ui-rachana",
+    "file": "UiStepControl.svelte",
+    "sourceRepository": "karatala/Komprohit",
+    "sourceRevision": "02e63ce9827dc1d267e1a13758901f83da87f72a",
+    "sourcePath": "src/frontend/ui/UiStepControl.svelte",
+    "sourceSha256": "4fd59f9f1e1754b89c5f6ef1afe03559b795e436742857675fbbd8c4c28d1b2f",
+    "unchangedBytes": true,
+    "adaptation": "none"
+  },
+  {
+    "package": "ui-rachana",
+    "file": "UiSwitch.svelte",
+    "sourceRepository": "karatala/Komprohit",
+    "sourceRevision": "02e63ce9827dc1d267e1a13758901f83da87f72a",
+    "sourcePath": "src/frontend/ui/UiSwitch.svelte",
+    "sourceSha256": "ec7606d5a939ba4f22b94ecaa4043fa5bb0343e40c37da58900f5986c7660e6c",
+    "unchangedBytes": true,
+    "adaptation": "none"
+  },
+  {
+    "package": "ui-rachana",
+    "file": "UiTextInput.svelte",
+    "sourceRepository": "karatala/Komprohit",
+    "sourceRevision": "02e63ce9827dc1d267e1a13758901f83da87f72a",
+    "sourcePath": "src/frontend/ui/UiTextInput.svelte",
+    "sourceSha256": "95a5d90cd710b375440ad9e2eeb17932f885dabac4a71f441f736390359c1339",
+    "unchangedBytes": true,
+    "adaptation": "none"
+  },
+  {
+    "package": "ui-rachana",
+    "file": "UiTooltip.svelte",
+    "sourceRepository": "karatala/Komprohit",
+    "sourceRevision": "02e63ce9827dc1d267e1a13758901f83da87f72a",
+    "sourcePath": "src/frontend/ui/UiTooltip.svelte",
+    "sourceSha256": "645f7f6f54a59c643f87fcf7a29846f94d83f6732bd4be696003c1aa0596f058",
+    "unchangedBytes": true,
+    "adaptation": "none"
+  },
+  {
+    "package": "ui-rachana",
+    "file": "UiValueControl.svelte",
+    "sourceRepository": "karatala/Komprohit",
+    "sourceRevision": "02e63ce9827dc1d267e1a13758901f83da87f72a",
+    "sourcePath": "src/frontend/ui/UiValueControl.svelte",
+    "sourceSha256": "47b01b40be9259770b02a31f53ac1ed3504717f82095df31987d4378188d3f18",
+    "unchangedBytes": true,
+    "adaptation": "none"
+  },
+  {
+    "package": "ui-rachana",
+    "file": "UiWheelButton.svelte",
+    "sourceRepository": "karatala/Komprohit",
+    "sourceRevision": "02e63ce9827dc1d267e1a13758901f83da87f72a",
+    "sourcePath": "src/frontend/ui/UiWheelButton.svelte",
+    "sourceSha256": "82afb23b42a35e6cd72475a1ea6e42f73fe7961b5ed7613d6611e13fcb7e2bea",
+    "unchangedBytes": true,
+    "adaptation": "none"
+  },
+  {
+    "package": "ui-rachana",
+    "file": "UiZoomSelect.svelte",
+    "sourceRepository": "karatala/Komprohit",
+    "sourceRevision": "02e63ce9827dc1d267e1a13758901f83da87f72a",
+    "sourcePath": "src/frontend/ui/UiZoomSelect.svelte",
+    "sourceSha256": "620582eefab86d20debb5f17b2bb8a4d8b4e670df054a4a315730bfa1b044942",
+    "unchangedBytes": true,
+    "adaptation": "none"
+  },
+  {
+    "package": "ui-komandir",
+    "file": "Button.svelte",
+    "sourceRepository": "KoMandir Bun utilities repository",
+    "sourceRevision": "ffb699e5b5d31007932ebe912dc5e20d3d77cad4",
+    "sourcePath": "folder-sync/src/web/ui/Button.svelte",
+    "sourceSha256": "1ddfd8aad3595b30b0ba26fbe8b6a53b17c5363c51f77ce16b5f654abc3b8f7b",
+    "unchangedBytes": true,
+    "adaptation": "none"
+  },
+  {
+    "package": "ui-komandir",
+    "file": "CheckButton.svelte",
+    "sourceRepository": "KoMandir Bun utilities repository",
+    "sourceRevision": "ffb699e5b5d31007932ebe912dc5e20d3d77cad4",
+    "sourcePath": "folder-sync/src/web/ui/CheckButton.svelte",
+    "sourceSha256": "1ccac368676058fce852bb80e1b8bf04a992851649d572434eac54e368298a11",
+    "unchangedBytes": true,
+    "adaptation": "none"
+  },
+  {
+    "package": "ui-komandir",
+    "file": "CheckMark.svelte",
+    "sourceRepository": "KoMandir Bun utilities repository",
+    "sourceRevision": "ffb699e5b5d31007932ebe912dc5e20d3d77cad4",
+    "sourcePath": "folder-sync/src/web/ui/CheckMark.svelte",
+    "sourceSha256": "6ddf698e1f46023612b255b9f335d986c6ccef48e70812b0ed8f5570fcde7fad",
+    "unchangedBytes": true,
+    "adaptation": "none"
+  },
+  {
+    "package": "ui-komandir",
+    "file": "ColorPicker.svelte",
+    "sourceRepository": "KoMandir Bun utilities repository",
+    "sourceRevision": "ffb699e5b5d31007932ebe912dc5e20d3d77cad4",
+    "sourcePath": "folder-sync/src/web/ui/ColorPicker.svelte",
+    "sourceSha256": "0bfe1dea03caa94a1fcacd4b883d037d44bed44bd8e6efef7c7a7cf9aea06724",
+    "unchangedBytes": false,
+    "adaptation": "application import boundary or icon metadata/geometry types; source styles and interaction code retained"
+  },
+  {
+    "package": "ui-komandir",
+    "file": "ColumnHeader.svelte",
+    "sourceRepository": "KoMandir Bun utilities repository",
+    "sourceRevision": "ffb699e5b5d31007932ebe912dc5e20d3d77cad4",
+    "sourcePath": "folder-sync/src/web/ui/ColumnHeader.svelte",
+    "sourceSha256": "1ae23d9d547653837bcaf48722c176931b6e48764171ef5c1ed436a92773fe80",
+    "unchangedBytes": false,
+    "adaptation": "application import boundary or icon metadata/geometry types; source styles and interaction code retained"
+  },
+  {
+    "package": "ui-komandir",
+    "file": "ConfirmPopover.svelte",
+    "sourceRepository": "KoMandir Bun utilities repository",
+    "sourceRevision": "ffb699e5b5d31007932ebe912dc5e20d3d77cad4",
+    "sourcePath": "folder-sync/src/web/ui/ConfirmPopover.svelte",
+    "sourceSha256": "ed7ed32b6edab9fc6e13c8b23054ca31c4a97a6158f4cef23258f0cd140f52e9",
+    "unchangedBytes": true,
+    "adaptation": "none"
+  },
+  {
+    "package": "ui-komandir",
+    "file": "ContextAction.svelte",
+    "sourceRepository": "KoMandir Bun utilities repository",
+    "sourceRevision": "ffb699e5b5d31007932ebe912dc5e20d3d77cad4",
+    "sourcePath": "folder-sync/src/web/ui/ContextAction.svelte",
+    "sourceSha256": "ca83ffbcfe360bec419bd274d8a23f4f20a77642cc0579da2d23151ccbb91150",
+    "unchangedBytes": true,
+    "adaptation": "none"
+  },
+  {
+    "package": "ui-komandir",
+    "file": "ContextMenu.svelte",
+    "sourceRepository": "KoMandir Bun utilities repository",
+    "sourceRevision": "ffb699e5b5d31007932ebe912dc5e20d3d77cad4",
+    "sourcePath": "folder-sync/src/web/ui/ContextMenu.svelte",
+    "sourceSha256": "1de232bb79615e5dd2f9a60457be61aadfa56603ea0cdf7bfb4a93cfa637ffe8",
+    "unchangedBytes": false,
+    "adaptation": "application import boundary or icon metadata/geometry types; source styles and interaction code retained"
+  },
+  {
+    "package": "ui-komandir",
+    "file": "ContextSubmenu.svelte",
+    "sourceRepository": "KoMandir Bun utilities repository",
+    "sourceRevision": "ffb699e5b5d31007932ebe912dc5e20d3d77cad4",
+    "sourcePath": "folder-sync/src/web/ui/ContextSubmenu.svelte",
+    "sourceSha256": "3aa12bc1dde62dc435eefb931ec57a7ff0048ac1a47b1ec63032688199adda28",
+    "unchangedBytes": true,
+    "adaptation": "none"
+  },
+  {
+    "package": "ui-komandir",
+    "file": "DataTable.svelte",
+    "sourceRepository": "KoMandir Bun utilities repository",
+    "sourceRevision": "ffb699e5b5d31007932ebe912dc5e20d3d77cad4",
+    "sourcePath": "folder-sync/src/web/ui/DataTable.svelte",
+    "sourceSha256": "64136efc3ee1ce43f0ca8bab23a0e94633b81a346f2f3b654a0026b4ad46d47e",
+    "unchangedBytes": true,
+    "adaptation": "none"
+  },
+  {
+    "package": "ui-komandir",
+    "file": "Dialog.svelte",
+    "sourceRepository": "KoMandir Bun utilities repository",
+    "sourceRevision": "ffb699e5b5d31007932ebe912dc5e20d3d77cad4",
+    "sourcePath": "folder-sync/src/web/ui/Dialog.svelte",
+    "sourceSha256": "6072b7ddd7d647f7d8e8129af4468b47fc3fd40badca093a0823751466028c01",
+    "unchangedBytes": true,
+    "adaptation": "none"
+  },
+  {
+    "package": "ui-komandir",
+    "file": "Dropdown.svelte",
+    "sourceRepository": "KoMandir Bun utilities repository",
+    "sourceRevision": "ffb699e5b5d31007932ebe912dc5e20d3d77cad4",
+    "sourcePath": "folder-sync/src/web/ui/Dropdown.svelte",
+    "sourceSha256": "78f867c44aa664b6c90c94aa14d00f92bc38ce6139d3744d6bdf1925e9187733",
+    "unchangedBytes": true,
+    "adaptation": "none"
+  },
+  {
+    "package": "ui-komandir",
+    "file": "FileDate.svelte",
+    "sourceRepository": "KoMandir Bun utilities repository",
+    "sourceRevision": "ffb699e5b5d31007932ebe912dc5e20d3d77cad4",
+    "sourcePath": "folder-sync/src/web/ui/FileDate.svelte",
+    "sourceSha256": "c9bafe9210d988790de07a133dfe416b00b779ed5c4907b71ca2a2658dd0fc18",
+    "unchangedBytes": false,
+    "adaptation": "application import boundary or icon metadata/geometry types; source styles and interaction code retained"
+  },
+  {
+    "package": "ui-komandir",
+    "file": "HelpButton.svelte",
+    "sourceRepository": "KoMandir Bun utilities repository",
+    "sourceRevision": "ffb699e5b5d31007932ebe912dc5e20d3d77cad4",
+    "sourcePath": "folder-sync/src/web/ui/HelpButton.svelte",
+    "sourceSha256": "5056ae4037700bf296b2d581e182010e55d227ff174d577ce5271682876adc65",
+    "unchangedBytes": false,
+    "adaptation": "application import boundary or icon metadata/geometry types; source styles and interaction code retained"
+  },
+  {
+    "package": "ui-komandir",
+    "file": "Icon.svelte",
+    "sourceRepository": "KoMandir Bun utilities repository",
+    "sourceRevision": "ffb699e5b5d31007932ebe912dc5e20d3d77cad4",
+    "sourcePath": "folder-sync/src/web/ui/Icon.svelte",
+    "sourceSha256": "d60639f820dab48fcc4ceca5560c0cf9d486beb970bb8be2aba9c53d9c9e2679",
+    "unchangedBytes": false,
+    "adaptation": "application import boundary or icon metadata/geometry types; source styles and interaction code retained"
+  },
+  {
+    "package": "ui-komandir",
+    "file": "IconButton.svelte",
+    "sourceRepository": "KoMandir Bun utilities repository",
+    "sourceRevision": "ffb699e5b5d31007932ebe912dc5e20d3d77cad4",
+    "sourcePath": "folder-sync/src/web/ui/IconButton.svelte",
+    "sourceSha256": "affe6d670b1f23405bf27f829a673de5ff2b10fab35b6ba53a4be1af98163e5c",
+    "unchangedBytes": true,
+    "adaptation": "none"
+  },
+  {
+    "package": "ui-komandir",
+    "file": "Keycap.svelte",
+    "sourceRepository": "KoMandir Bun utilities repository",
+    "sourceRevision": "ffb699e5b5d31007932ebe912dc5e20d3d77cad4",
+    "sourcePath": "folder-sync/src/web/ui/Keycap.svelte",
+    "sourceSha256": "05cdf48fd7a2a161b08628d95ee945d90455532f5de6abb39c5da38ec7f1e310",
+    "unchangedBytes": true,
+    "adaptation": "none"
+  },
+  {
+    "package": "ui-komandir",
+    "file": "MessageBar.svelte",
+    "sourceRepository": "KoMandir Bun utilities repository",
+    "sourceRevision": "ffb699e5b5d31007932ebe912dc5e20d3d77cad4",
+    "sourcePath": "folder-sync/src/web/ui/MessageBar.svelte",
+    "sourceSha256": "3c2f9409f1f68f90addf411924f8253b1eb464b767c1336869aee1d83da36a7e",
+    "unchangedBytes": true,
+    "adaptation": "none"
+  },
+  {
+    "package": "ui-komandir",
+    "file": "MiniPopup.svelte",
+    "sourceRepository": "KoMandir Bun utilities repository",
+    "sourceRevision": "ffb699e5b5d31007932ebe912dc5e20d3d77cad4",
+    "sourcePath": "folder-sync/src/web/ui/MiniPopup.svelte",
+    "sourceSha256": "fbdbfbf6b802214ab4e719ba576d5760d9b0418c4c714cf99190d60fd316e43b",
+    "unchangedBytes": false,
+    "adaptation": "application import boundary or icon metadata/geometry types; source styles and interaction code retained"
+  },
+  {
+    "package": "ui-komandir",
+    "file": "Notification.svelte",
+    "sourceRepository": "KoMandir Bun utilities repository",
+    "sourceRevision": "ffb699e5b5d31007932ebe912dc5e20d3d77cad4",
+    "sourcePath": "folder-sync/src/web/ui/Notification.svelte",
+    "sourceSha256": "965e151ed3e6aac328232bc3b0f7cb135dac195a7b3d8bf5a6a66e8629491345",
+    "unchangedBytes": false,
+    "adaptation": "application import boundary or icon metadata/geometry types; source styles and interaction code retained"
+  },
+  {
+    "package": "ui-komandir",
+    "file": "PathLabel.svelte",
+    "sourceRepository": "KoMandir Bun utilities repository",
+    "sourceRevision": "ffb699e5b5d31007932ebe912dc5e20d3d77cad4",
+    "sourcePath": "folder-sync/src/web/ui/PathLabel.svelte",
+    "sourceSha256": "2ab8eb6eacdff975c05467b2a863852c7154c12c23d9011b2a39c3265fb1a9f7",
+    "unchangedBytes": true,
+    "adaptation": "none"
+  },
+  {
+    "package": "ui-komandir",
+    "file": "Popover.svelte",
+    "sourceRepository": "KoMandir Bun utilities repository",
+    "sourceRevision": "ffb699e5b5d31007932ebe912dc5e20d3d77cad4",
+    "sourcePath": "folder-sync/src/web/ui/Popover.svelte",
+    "sourceSha256": "532e81a4cdfd791f5b1e37a97d6c85f179c8ed08d8577a66621f3a085a3d35e1",
+    "unchangedBytes": true,
+    "adaptation": "none"
+  },
+  {
+    "package": "ui-komandir",
+    "file": "Portal.svelte",
+    "sourceRepository": "KoMandir Bun utilities repository",
+    "sourceRevision": "ffb699e5b5d31007932ebe912dc5e20d3d77cad4",
+    "sourcePath": "folder-sync/src/web/ui/Portal.svelte",
+    "sourceSha256": "eee1d941088762e29572a03465d8dee1d527edf149af267ce109aee55b1e0ef4",
+    "unchangedBytes": true,
+    "adaptation": "none"
+  },
+  {
+    "package": "ui-komandir",
+    "file": "RowSweepHandle.svelte",
+    "sourceRepository": "KoMandir Bun utilities repository",
+    "sourceRevision": "ffb699e5b5d31007932ebe912dc5e20d3d77cad4",
+    "sourcePath": "folder-sync/src/web/ui/RowSweepHandle.svelte",
+    "sourceSha256": "056540e95c877f33adb366e9fcdc34b71557bd628de33768034d62008fa95d8b",
+    "unchangedBytes": false,
+    "adaptation": "application import boundary or icon metadata/geometry types; source styles and interaction code retained"
+  },
+  {
+    "package": "ui-komandir",
+    "file": "SegmentedControl.svelte",
+    "sourceRepository": "KoMandir Bun utilities repository",
+    "sourceRevision": "ffb699e5b5d31007932ebe912dc5e20d3d77cad4",
+    "sourcePath": "folder-sync/src/web/ui/SegmentedControl.svelte",
+    "sourceSha256": "6472d7a2936e9c2fcfa94c4824ea74bc1e6b4386a59b2ee0970809669a4be5d0",
+    "unchangedBytes": false,
+    "adaptation": "application import boundary or icon metadata/geometry types; source styles and interaction code retained"
+  },
+  {
+    "package": "ui-komandir",
+    "file": "ShortcutHint.svelte",
+    "sourceRepository": "KoMandir Bun utilities repository",
+    "sourceRevision": "ffb699e5b5d31007932ebe912dc5e20d3d77cad4",
+    "sourcePath": "folder-sync/src/web/ui/ShortcutHint.svelte",
+    "sourceSha256": "6cc170e35862440f720247b107cf3714f192039291b8d0580ed27bf37ddf78e3",
+    "unchangedBytes": false,
+    "adaptation": "application import boundary or icon metadata/geometry types; source styles and interaction code retained"
+  },
+  {
+    "package": "ui-komandir",
+    "file": "SplitButton.svelte",
+    "sourceRepository": "KoMandir Bun utilities repository",
+    "sourceRevision": "ffb699e5b5d31007932ebe912dc5e20d3d77cad4",
+    "sourcePath": "folder-sync/src/web/ui/SplitButton.svelte",
+    "sourceSha256": "d8cbe7056128171cfb12f48ee4de9a00244e35f786daa01a17c6b0bd308263f7",
+    "unchangedBytes": true,
+    "adaptation": "none"
+  },
+  {
+    "package": "ui-komandir",
+    "file": "SvgIcon.svelte",
+    "sourceRepository": "KoMandir Bun utilities repository",
+    "sourceRevision": "ffb699e5b5d31007932ebe912dc5e20d3d77cad4",
+    "sourcePath": "folder-sync/src/web/ui/SvgIcon.svelte",
+    "sourceSha256": "606b1a99cbadfd102d837b3877ab525427192200f33d763b8e195ad29a9f33a2",
+    "unchangedBytes": false,
+    "adaptation": "application import boundary or icon metadata/geometry types; source styles and interaction code retained"
+  },
+  {
+    "package": "ui-komandir",
+    "file": "Switch.svelte",
+    "sourceRepository": "KoMandir Bun utilities repository",
+    "sourceRevision": "ffb699e5b5d31007932ebe912dc5e20d3d77cad4",
+    "sourcePath": "folder-sync/src/web/ui/Switch.svelte",
+    "sourceSha256": "a17a56f8bb349c0de2ff159c6a48e9c40db0376e5475dd3efe2e95279314ae03",
+    "unchangedBytes": true,
+    "adaptation": "none"
+  },
+  {
+    "package": "ui-komandir",
+    "file": "TableRow.svelte",
+    "sourceRepository": "KoMandir Bun utilities repository",
+    "sourceRevision": "ffb699e5b5d31007932ebe912dc5e20d3d77cad4",
+    "sourcePath": "folder-sync/src/web/ui/TableRow.svelte",
+    "sourceSha256": "337424bbe5e8f7abde75b6434f2209f749177d3f1dd182ddfe6e9f59946c4b71",
+    "unchangedBytes": true,
+    "adaptation": "none"
+  },
+  {
+    "package": "ui-komandir",
+    "file": "TabSurface.svelte",
+    "sourceRepository": "KoMandir Bun utilities repository",
+    "sourceRevision": "ffb699e5b5d31007932ebe912dc5e20d3d77cad4",
+    "sourcePath": "folder-sync/src/web/ui/TabSurface.svelte",
+    "sourceSha256": "098f7efa2ef2935699aeaf2971747c3a8cb09e69a773edd745b5620ebc053348",
+    "unchangedBytes": true,
+    "adaptation": "none"
+  },
+  {
+    "package": "ui-komandir",
+    "file": "Tooltip.svelte",
+    "sourceRepository": "KoMandir Bun utilities repository",
+    "sourceRevision": "ffb699e5b5d31007932ebe912dc5e20d3d77cad4",
+    "sourcePath": "folder-sync/src/web/ui/Tooltip.svelte",
+    "sourceSha256": "2808ea01643ba3bc46e197d2be31f38d46f535158c33c2276e89f864f14b9d6c",
+    "unchangedBytes": false,
+    "adaptation": "application import boundary or icon metadata/geometry types; source styles and interaction code retained"
+  },
+  {
+    "package": "ui-komandir",
+    "file": "WindowDialog.svelte",
+    "sourceRepository": "KoMandir Bun utilities repository",
+    "sourceRevision": "ffb699e5b5d31007932ebe912dc5e20d3d77cad4",
+    "sourcePath": "folder-sync/src/web/ui/WindowDialog.svelte",
+    "sourceSha256": "92445b57a8a30565e9b31678c7621fa4edea3b26ea8bbf737b6e18bcb058e798",
+    "unchangedBytes": false,
+    "adaptation": "application import boundary or icon metadata/geometry types; source styles and interaction code retained"
+  },
+  {
+    "package": "ui-komandir",
+    "file": "WindowTitleBar.svelte",
+    "sourceRepository": "KoMandir Bun utilities repository",
+    "sourceRevision": "ffb699e5b5d31007932ebe912dc5e20d3d77cad4",
+    "sourcePath": "folder-sync/src/web/ui/WindowTitleBar.svelte",
+    "sourceSha256": "2b4a53a3219596b44cd495a34fb1c52b35676ec23194c8fbc95873e0a6f80f65",
+    "unchangedBytes": true,
+    "adaptation": "none"
+  }
+]

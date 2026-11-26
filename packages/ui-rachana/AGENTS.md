@@ -7,6 +7,7 @@
 ## Ownership
 
 - The explicit exports in package.json and README.md form this package's current catalog. Source provenance is in README.md.
+- host.ts owns only translation, icon geometry and optional window-layout callbacks. It does not import the application language service or icon catalog. styles/legacy.css retains the existing UI rules in source cascade order.
 
 ## Local Contracts
 

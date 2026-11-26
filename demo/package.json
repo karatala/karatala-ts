@@ -1,0 +1,22 @@
+{
+  "name": "@karatala/demo",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1 --port 3212 --strictPort",
+    "check": "svelte-check --tsconfig ./tsconfig.json"
+  },
+  "dependencies": {
+    "@karatala/dom-input": "workspace:*",
+    "@karatala/ui-rachana": "workspace:*",
+    "@karatala/ui-komandir": "workspace:*",
+    "svelte": "5.57.3"
+  },
+  "devDependencies": {
+    "vite": "8.3.0",
+    "@sveltejs/vite-plugin-svelte": "7.3.1",
+    "svelte-check": "4.7.8",
+    "typescript": "6.0.3",
+    "@types/node": "26.6.2"
+  }
+}

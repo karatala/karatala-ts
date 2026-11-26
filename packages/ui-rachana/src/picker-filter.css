@@ -1,0 +1,11 @@
+/* Shared picker source/favorite row and search layout. */
+.instrument-search { display: flex; min-width: 0; flex: 0 0 auto; align-items: center; gap: 6px; }
+.instrument-search input { flex: 1; width: 0; }
+.instrument-source-filter { display: flex; flex: 0 0 auto; gap: 5px; align-items: center; min-width: 0; }
+.instrument-source-filter .ui-select { flex: 1; width: 0; }
+.instrument-source-filter .ui-segmented-control { min-width: 0; }
+.modal-dialog .instrument-source-filter { justify-content: center; }
+.modal-dialog .instrument-source-filter .ui-segmented-control { width: fit-content; max-width: 100%; min-width: 0; }
+[data-appearance="rachana-dark"] .instrument-source-filter .ui-segmented-control { display: flex; min-width: 0; gap: 0; }
+[data-appearance="rachana-dark"] .instrument-source-filter .ui-segmented-control { flex: 1; flex-wrap: wrap; }
+[data-appearance="rachana-dark"] .instrument-source-filter > .ui-segmented-group { flex: 1 1 auto; }

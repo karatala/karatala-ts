@@ -1,0 +1,14 @@
+{
+  "name": "karatala-ts",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "packages/*",
+    "demo"
+  ],
+  "scripts": {
+    "demo": "bun run --cwd demo dev",
+    "check:demo": "bun run --cwd demo check",
+    "catalog:update": "bun scripts/update-catalog.ts"
+  }
+}

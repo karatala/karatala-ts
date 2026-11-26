@@ -1,21 +1,29 @@
 # KoMandir UI variants
 
-Existing controls and local helpers with their original props, behavior and CSS.
+34 existing controls from KoMandir's src/web/ui with their props, interaction code, styles and local helper closure. IconPicker remains application-owned until its icon-library loading operations have a focused host contract. It is not listed as an extracted component.
 
 ```ts
-import Button from "@karatala/ui-komandir/Button.svelte";
-import DataTable from "@karatala/ui-komandir/DataTable.svelte";
-import TableRow from "@karatala/ui-komandir/TableRow.svelte";
+import CheckButton from "@karatala/ui-komandir/CheckButton.svelte";
+import ColorPicker from "@karatala/ui-komandir/ColorPicker.svelte";
+import WindowDialog from "@karatala/ui-komandir/WindowDialog.svelte";
 ```
 
-Also exported: MessageBar, PathLabel, Portal, Dialog and Popover, plus their CSS and path/portal/overlay helpers. The package has only a Svelte 5 peer and no installation/build hooks. The application compiles the source and supplies the existing `--theme-workbench-*`, `--theme-list-*` and `--ui-*` roles. Imported CSS retains the source selectors, including controls.css global field rules. MessageBar is semantic markup; Dialog/Popover provide behavior and accept caller-owned classes/styles. They do not create a new window design.
+Svelte 5 is the only peer runtime. CSS keeps existing --theme-workbench-*, --theme-list-* and --ui-* roles. Imported controls.css retains its original global field selectors; use the source application's theme adapter when reconnecting it. There are no install/build hooks, requests on import or native dependencies.
 
-Adopt Portal, Dialog, Popover, portal.ts and overlay-focus.ts as one group with all related callers. Their shared stack must not coexist with a second local overlay stack in the same document. File-table commands, selection ownership, path access and persisted window geometry remain application responsibilities.
+## Host boundary
 
-Source: KoMandir in the Bun utilities repository, revision `ffb699e5b5d31007932ebe912dc5e20d3d77cad4`, `folder-sync/src/web/ui/`: Button, DataTable, TableRow, MessageBar, PathLabel, Portal, Dialog, Popover, controls.css, data-table.css, table-row.css, path-label.ts, portal.ts and overlay-focus.ts. All fourteen files are copied byte for byte. GPL v3 license text and original notices are retained.
+provideKomandirUiHost in host.ts accepts the application's existing message formatter, icon lookup/theme/file-reference functions, command-icon URL provider and window-state load/save callbacks. It stores callbacks in Svelte context per shell. The copied Icon renderer retains its mask/SVG/native-image layers, error paths, size and authored viewBox behavior. The copied WindowDialog retains its optional stateKey branch and lifecycle. Only the service imports are replaced by host callbacks.
 
-- ✅ Extracted eight controls and their six local CSS/helper files.
-- [ ] Deliver the shared commit and connect consumers. Current application imports still use local implementations.
-- [ ] Verify consumer resolution and behavior after connection.
+Defaults provide bundled semantic icons and English parameter interpolation. File/command icons, theme loading and persisted geometry require the corresponding host callbacks. Unconfigured required capabilities report an explicit error. Omit stateKey for a memory-only window. The demo uses these memory-only defaults and performs no application requests. Bundled artwork and attribution are recorded in builtin-icons.json and ICON-LICENSES.md.
 
-The next group includes the preferred check controls, close controls and ColorPicker. Their common icon/translation dependencies need a small application boundary; copying the current Icon component would also copy icon-theme requests and file-command dependencies. This is a transfer dependency, not a requirement for an exhaustive UI comparison.
+Tooltip/ShortcutHint use the existing key capture/signature/format functions in shortcut-codec.ts. Command IDs are strings supplied by the consumer, with binding/default maps and validate/onAssign callbacks. The source recorder still assigns on key release; this is not a new universal shortcut policy. Product command catalogs and conflict scopes remain in the application.
+
+## Integration and status
+
+Adopt Portal, Dialog, Popover, portal.ts and overlay-focus.ts together with their callers so one document has one stack. Table selection/commands, path authorization and persisted window policy stay with callers. See ../../docs/ui-provenance.json for every source path/hash and ../../docs/UI_TRANSFER_STATUS.md for checks. Source revision: ffb699e5b5d31007932ebe912dc5e20d3d77cad4 in the KoMandir Bun utilities repository.
+
+- ✅ Extracted 34 components and local CSS/helpers with host boundaries for translations, icons and window storage.
+- ✅ Shared demo type/Svelte check, all preview mounts and representative actions completed.
+- [ ] Deliver the new shared commit, connect KoMandir's real host callbacks and replace local imports.
+- [ ] Transfer IconPicker after separating its application loading operations.
+- [ ] Consumer/native-device acceptance after reconnection.

@@ -1,0 +1,18 @@
+/* Native table presentation. Features own columns, data and interactions. */
+.ui-table-scroll { min-width: 0; min-height: 0; overflow: auto; overscroll-behavior: contain; touch-action: pan-x pan-y; }
+table.ui-data-table { width: 100%; border-collapse: separate; border-spacing: 0; table-layout: fixed; color: var(--ui-table-text, inherit); font: inherit; font-size: var(--ui-table-font-size, 12px); }
+.ui-data-table :is(th, td) { box-sizing: border-box; height: var(--ui-table-row-height, 24px); padding: var(--ui-table-cell-padding-block, 1px) var(--ui-table-cell-padding-inline, 4px); text-align: start; font: inherit; }
+.ui-data-table thead { position: sticky; top: 0; z-index: 3; color: var(--ui-table-muted, inherit); background: var(--ui-table-surface, Canvas); }
+.ui-data-table th { font-weight: 500; }
+.ui-table-cell-content { display: flex; align-items: center; gap: var(--ui-table-content-gap, 3px); min-width: 0; }
+.ui-table-value { display: block; flex: 1; min-width: 0; overflow: hidden; text-align: inherit; text-overflow: ellipsis; white-space: nowrap; }
+table.ui-data-table .ui-table-cell-control { box-sizing: border-box; display: flex; align-items: center; justify-content: flex-start; gap: var(--ui-table-content-gap, 3px); width: 100%; min-width: 0; height: 100%; min-height: 0; padding: 0; border: none; border-radius: 0; color: inherit; background: transparent; font: inherit; text-align: inherit; white-space: nowrap; }
+.ui-table-cell-control > span { min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+.ui-data-table .ui-button.is-icon { width: var(--ui-table-icon-size, 22px); min-width: var(--ui-table-icon-size, 22px); height: var(--ui-table-icon-size, 22px); min-height: 0; padding: 0; }
+.ui-data-table [data-align="end"] { text-align: end; }
+.ui-data-table [data-align="end"] :is(.ui-table-cell-content, .ui-table-cell-control) { justify-content: flex-end; }
+.ui-data-table .ui-table-pin-start { position: sticky; inset-inline-start: 0; z-index: 1; background: var(--ui-table-row-surface, var(--ui-table-surface, Canvas)); }
+.ui-data-table thead .ui-table-pin-start { z-index: 2; background: var(--ui-table-surface, Canvas); }
+.ui-data-table tbody tr[aria-selected="true"] { --ui-table-row-surface: var(--ui-table-selected-surface, Highlight); color: var(--ui-table-selected-text, HighlightText); background: var(--ui-table-row-surface); }
+.ui-data-table tbody tr[data-ui-row-interactive]:hover:where([data-ui-hover="true"] *):not([aria-selected="true"]) { --ui-table-row-surface: var(--ui-table-hover-surface, Canvas); background: var(--ui-table-row-surface); }
+.ui-data-table thead [aria-pressed="true"] { color: var(--ui-table-sort-color, Highlight); }

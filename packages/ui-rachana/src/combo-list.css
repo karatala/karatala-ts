@@ -1,0 +1,6 @@
+/* Labelled value menus keep readable rows instead of narrow grid captions. */
+[data-appearance="rachana-dark"] .ui-combo-options.is-list .ui-combo-items { display: flex; flex-direction: column; gap: 3px; }
+[data-appearance="rachana-dark"] .ui-combo-options.is-list .ui-combo-option { text-align: left; font-size: 12px; }
+[data-appearance="rachana-dark"] .ui-combo-options.is-list .ui-combo-option-content { flex-direction: row; justify-content: flex-start; gap: 8px; overflow-wrap: normal; }
+[data-appearance="rachana-dark"] .ui-combo-chevron { flex: 0 0 auto; font-size: 10px; opacity: .75; }
+[data-appearance="rachana-dark"] .ui-combo-button.is-list .ui-combo-trigger.ui-button { display: flex; min-width: 34px; width: auto; gap: 5px; padding-inline: 6px; }

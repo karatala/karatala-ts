@@ -1,0 +1,28 @@
+.ui-context-surface { width: max-content; max-width: min(300px, 100%); padding: 4px; border-radius: var(--ui-corner-radius, 6px); color: var(--theme-workbench-foreground); background: var(--theme-workbench-surface); font-size: var(--ui-font-normal); }
+.ui-context-menu { position: fixed; z-index: 1400; max-width: min(300px, calc(100vw - 8px)); max-height: calc(100dvh - 8px); overflow: auto; box-shadow: var(--ui-popup-shadow); }
+.ui-context-content { display: grid; align-content: start; grid-template-columns: minmax(0, 1fr); min-width: 0; gap: 1px; outline: none; }
+.ui-context-surface .ui-button.ui-button.ui-button { justify-content: flex-start; gap: 6px; width: 100%; min-width: 0; height: var(--ui-menu-row-height, 27px); min-height: max(var(--ui-menu-row-height, 27px), 1em + 4px); padding: 0 8px; border-radius: var(--ui-corner-radius, 6px); background: transparent; text-align: left; }
+.ui-context-surface .ui-context-subitem.ui-button.ui-button.ui-button { padding-inline-start: 28px; }
+.ui-context-menu .ui-context-heading { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; padding: 5px 8px; color: var(--theme-workbench-muted); font-size: var(--ui-font-small); font-weight: var(--ui-weight-normal); }
+.ui-context-surface .ui-context-separator, .ui-context-strip:has(> .ui-context-action-group)::before, .ui-context-strip:has(> .ui-context-action-group)::after { height: 1px; margin: 4px 3px; background: var(--chrome-border); }
+.ui-context-surface .ui-menu-caption, .ui-context-action-label { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ui-context-flyout { z-index: 1401; width: min(244px, calc(100vw - 8px)); }
+.ui-context-surface .ui-context-chevron { margin-inline-start: auto; font-size: 1.35em; }
+.ui-context-menu .ui-context-status { padding: 4px 8px; color: var(--theme-workbench-muted); font-size: var(--ui-font-small); }
+.ui-context-menu img.ui-context-native-icon { flex: 0 0 16px; object-fit: contain; }
+.ui-context-check { display: grid; place-items: center; flex: 0 0 14px; height: 14px; border-radius: 3px; }
+.ui-context-surface [aria-checked="false"] > .ui-context-check { background: var(--theme-workbench-hover); }
+.ui-context-surface .ui-button[role="menuitemcheckbox"][aria-disabled="true"] { opacity: .6; }
+
+.ui-context-strip, .ui-context-action-group { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); gap: 1px; min-width: 0; }
+.ui-context-edit-row { grid-template-columns: minmax(0, 1fr) var(--ui-menu-row-height, 27px); }
+.ui-context-surface .ui-context-edit-row > .ui-icon-button.ui-button.ui-button { justify-content: center; padding: 0; }
+.ui-context-strip:has(> .ui-context-action-group) { grid-auto-flow: row; grid-template-columns: minmax(0, 1fr); }
+.ui-context-strip:has(> .ui-context-action-group):not(:first-child)::before, .ui-context-strip:has(> .ui-context-action-group):not(:last-child)::after { content: ""; }
+.ui-context-action-group + .ui-context-action-group { position: relative; margin-block-start: 10px; }
+.ui-context-action-group + .ui-context-action-group::before { position: absolute; inset: -5px 3px auto; height: 1px; background: var(--chrome-border); content: ""; }
+.ui-context-action-label { font-size: var(--ui-font-small); line-height: 1.15; }
+.ui-context-surface .ui-button.ui-button.ui-button:is(:hover:not(:disabled), [aria-expanded="true"]) { background: var(--theme-workbench-hover); }
+.ui-context-surface .ui-button.ui-button.ui-button:is(:focus-visible, [aria-pressed="true"]), .ui-context-surface .keyboard .ui-button.ui-button.ui-button:focus { color: var(--theme-list-selection-foreground); background: var(--theme-list-selection-background); outline: none; }
+.ui-context-surface .ui-context-danger.ui-button.ui-button.ui-button { color: var(--delete); }
+.ui-context-surface .ui-context-danger.ui-button.ui-button.ui-button:is(:focus-visible, [aria-pressed="true"]), .ui-context-surface .keyboard .ui-context-danger.ui-button.ui-button.ui-button:focus { background: color-mix(in srgb, var(--delete) 15%, var(--theme-workbench-surface)); }
