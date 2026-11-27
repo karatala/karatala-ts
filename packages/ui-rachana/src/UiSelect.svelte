@@ -34,7 +34,8 @@
 <style>
   .ui-select { display: grid; width: 100%; min-width: 0; color: var(--ui-text); }
   .ui-select :global(.ui-combo-button) { min-width: 0; width: 100%; }
-  .ui-select :global(.ui-combo-button.ui-select-control .ui-combo-trigger.ui-button) { box-sizing: border-box; justify-content: flex-start; width: 100%; min-width: 0; height: var(--ui-tab-button-height, 26px); min-height: var(--ui-tab-button-height, 26px); padding: 3px 7px; border: none; border-radius: 4px; background: var(--ui-field-surface, var(--ui-control-surface)); color: var(--ui-text); font: inherit; text-align: start; }
+  .ui-select :global(.ui-combo-button.ui-select-control .ui-combo-trigger.ui-button) { box-sizing: border-box; justify-content: flex-start; width: 100%; min-width: 0; height: var(--ui-tab-button-height, 26px); min-height: var(--ui-tab-button-height, 26px); padding: 3px 7px; border: 0; border-bottom: 2px solid transparent; outline: none; border-radius: 4px; background: var(--ui-field-surface, var(--ui-control-surface)); color: var(--ui-text); font: inherit; text-align: start; }
+  .ui-select :global(.ui-combo-button.ui-select-control .ui-combo-trigger.ui-button:focus-visible) { border-bottom-color: var(--ui-accent); outline: none; }
   .ui-select :global(.ui-combo-trigger > span:first-child) { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   .ui-select.is-toolbar :global(.ui-combo-button.ui-select-control .ui-combo-trigger.ui-button) { background: var(--ui-segment-surface); }
 </style>

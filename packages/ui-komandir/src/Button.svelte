@@ -1,5 +1,6 @@
 <script lang="ts">
   import "./controls.css";
+  import ButtonBody from "./internal/Button.svelte";
   import type { HTMLButtonAttributes } from "svelte/elements";
 
   interface Props extends HTMLButtonAttributes {
@@ -9,6 +10,6 @@
   let { type = "button", children, class: className = "", plain = false, tone = "default", ...attributes }: Props = $props();
 </script>
 
-<button {...attributes} {type} class={`${plain ? "" : "ui-button"} ${className}`} data-tone={tone === "default" ? undefined : tone}>
+<ButtonBody {...attributes} {type} {plain} {tone} class={className}>
   {@render children?.()}
-</button>
+</ButtonBody>

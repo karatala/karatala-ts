@@ -159,9 +159,11 @@
 <style>
   .ui-number-stepper { display: inline-flex; align-items: center; min-width: 108px; max-width: 100%; height: 26px; background: var(--ui-segment-surface); border-radius: 4px; overflow: hidden; }
   .ui-number-stepper.is-form-field { min-width: min(100%, 84px); }
-  .ui-number-stepper.is-form-field input:focus-visible { outline: 2px solid var(--ui-accent); outline-offset: -2px; }
+  .ui-number-stepper input { box-sizing: border-box; border: 0; border-bottom: 2px solid transparent; outline: none; }
+  .ui-number-stepper input:focus-visible { outline: none; border-bottom-color: var(--ui-accent); }
   :global([data-appearance] .ui-number-stepper .ui-button.is-text) { flex: 0 0 26px; width: 26px; min-width: 26px; height: 26px; min-height: 26px; padding: 2px; border-radius: 0; }
-  :global(:root[data-ui-theme] .ui-number-stepper input) { box-sizing: border-box; flex: 1 1 36px; width: 36px; min-width: 0; height: 26px; min-height: 0; margin: 0; padding: 2px; text-align: center; font-variant-numeric: tabular-nums; color: var(--ui-text); appearance: textfield; background: transparent; border: none; border-radius: 0; }
+  :global(:root[data-ui-theme] .ui-number-stepper input) { box-sizing: border-box; flex: 1 1 36px; width: 36px; min-width: 0; height: 26px; min-height: 0; margin: 0; padding: 2px; text-align: center; font-variant-numeric: tabular-nums; color: var(--ui-text); appearance: textfield; background: transparent; border: 0; border-bottom: 2px solid transparent; border-radius: 0; }
+  :global(:root[data-ui-theme] .ui-number-stepper input:focus-visible) { outline: none; border-bottom-color: var(--ui-accent); }
   .stepper-center { position: relative; display: flex; flex: 1 1 56px; min-width: 0; height: 26px; }
   .stepper-arrow { position: absolute; top: 50%; transform: translateY(-50%); pointer-events: none; color: var(--ui-text-muted); font-size: 8px; line-height: 1; }
   .is-left { left: 3px; }

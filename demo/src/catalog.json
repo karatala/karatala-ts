@@ -50,6 +50,16 @@
     "usage": "<UiCheckboxButton label=\"Enabled option\" {checked} {disabled} onchange={next=>checked=next} /><UiCheckboxButton compact label=\"Icon-only option\" text=\"\" {checked} {disabled} onchange={next=>checked=next} /><UiCheckboxButton compact label=\"Mixed state\" checked={false} mixed {disabled} onchange={next=>checked=next} />"
   },
   {
+    "id": "rachana/UiColorPicker",
+    "variant": "rachana",
+    "name": "UiColorPicker",
+    "family": "colors",
+    "importPath": "@karatala/ui-rachana/UiColorPicker.svelte",
+    "props": "let { value, label, class: className = \"\", onchange }: { value: string; label: string; class?: string; onchange(value: string): void } = $props()",
+    "source": "packages/ui-rachana/src/UiColorPicker.svelte",
+    "usage": "<UiColorPicker label=\"Item color\" value={text.startsWith(\"#\") ? text : \"#4e7aff\"} onchange={next => { text = next; status = \"Committed color: \" + next; }} />"
+  },
+  {
     "id": "rachana/UiComboButton",
     "variant": "rachana",
     "name": "UiComboButton",
@@ -145,9 +155,9 @@
     "name": "UiMiniPopup",
     "family": "windows",
     "importPath": "@karatala/ui-rachana/UiMiniPopup.svelte",
-    "props": "let { children, trigger, anchorElement, anchorPoint, label, open = $bindable(false), onopenchange, class: className = \"\", width = 288, align = \"end\", side = \"bottom\", sideOffset = 6, viewportPadding = 12 }: {\r\n    children: Snippet;\r\n    trigger?: Snippet<[{ onclick: (event: MouseEvent) => void; \"aria-haspopup\": \"dialog\"; \"aria-expanded\": boolean; \"aria-controls\": string | undefined }]>;\r\n    anchorElement?: HTMLElement;\r\n    anchorPoint?: { x: number; y: number };\r\n    label?: string;\r\n    open?: boolean;\r\n    onopenchange?: (open: boolean, returnFocus?: boolean) => void;\r\n    class?: string;\r\n    width?: number;\r\n    align?: \"start\" | \"center\" | \"end\";\r\n    side?: \"top\" | \"bottom\" | \"left\" | \"right\";\r\n    sideOffset?: number;\r\n    viewportPadding?: number;\r\n  } = $props()",
+    "props": "let { children, trigger, anchorElement, anchorPoint, label, initialFocus, restoreFocus = true, open = $bindable(false), onopenchange, class: className = \"\", width = 288, align = \"end\", side = \"bottom\", sideOffset = 6, viewportPadding = 12 }: {\r\n    children: Snippet;\r\n    trigger?: Snippet<[{ onclick: (event: MouseEvent) => void; \"aria-haspopup\": \"dialog\"; \"aria-expanded\": boolean; \"aria-controls\": string | undefined }]>;\r\n    anchorElement?: HTMLElement;\r\n    anchorPoint?: { x: number; y: number };\r\n    label?: string;\r\n    initialFocus?: string;\r\n    restoreFocus?: boolean;\r\n    open?: boolean;\r\n    onopenchange?: (open: boolean, returnFocus?: boolean) => void;\r\n    class?: string;\r\n    width?: number;\r\n    align?: \"start\" | \"center\" | \"end\";\r\n    side?: \"top\" | \"bottom\" | \"left\" | \"right\";\r\n    sideOffset?: number;\r\n    viewportPadding?: number;\r\n  } = $props()",
     "source": "packages/ui-rachana/src/UiMiniPopup.svelte",
-    "usage": "<UiMiniPopup bind:open label=\"Memory popup\">{#snippet trigger(attributes)}<UiButton {...attributes} label=\"Open popup\" text=\"Open popup\" {disabled} />{/snippet}<UiTextInput aria-label=\"Popup text\" bind:value={text} /><UiButton label=\"Close popup\" text=\"Close\" onclick={()=>open=false} /></UiMiniPopup>"
+    "usage": "<UiMiniPopup bind:open label=\"Memory popup\">{#snippet trigger(attributes)}<UiButton {...attributes} label=\"Open popup\" text=\"Open popup\" {disabled} />{/snippet}<UiTextInput aria-label=\"Popup text\" bind:value={text} /><UiColorPicker label=\"Popup item color\" value={text.startsWith(\"#\") ? text : \"#4e7aff\"} onchange={next => { text = next; status = \"Committed color: \" + next; }} /><UiButton label=\"Close popup\" text=\"Close\" onclick={()=>open=false} /></UiMiniPopup>"
   },
   {
     "id": "rachana/UiNumberStepper",
@@ -515,7 +525,7 @@
     "name": "MiniPopup",
     "family": "windows",
     "importPath": "@karatala/ui-komandir/MiniPopup.svelte",
-    "props": "let { title, trigger, side = \"bottom\", pending = false, initialFocus, children, onClose, onFocusReturn }: { title: string; trigger: HTMLElement | null; side?: \"bottom\" | \"right\"; pending?: boolean; initialFocus?: string; children: Snippet; onClose(): void; onFocusReturn(): void } = $props()",
+    "props": "let { title, trigger, side = \"bottom\", pending = false, initialFocus, class: className = \"\", children, onClose, onFocusReturn }: { title: string; trigger: HTMLElement | null; side?: \"bottom\" | \"right\"; pending?: boolean; initialFocus?: string; class?: string; children: Snippet; onClose(): void; onFocusReturn(): void } = $props()",
     "source": "packages/ui-komandir/src/MiniPopup.svelte",
     "usage": "<Button {disabled} onclick={launch}>Open popup</Button>{#if open}<MiniPopup title=\"Memory popup\" {trigger} onClose={close} onFocusReturn={focusReturn}><input aria-label=\"Popup name\" value=\"Sample\" /><Button onclick={close}>Close</Button></MiniPopup>{/if}"
   },

@@ -10,7 +10,7 @@ Shared TypeScript packages for Rachana, KoMandir, Shravanam and future applicati
 | [@karatala/offline-shell](packages/offline-shell/README.md) | Standalone worker generators with three preserved cache policies | Connected to Rachana and Shravanam; no worker registration on import |
 | [@karatala/browser-files](packages/browser-files/README.md) | Read-only browser picker and drop capture | Connected to Shravanam with caller-owned media filters |
 | [@karatala/dom-input](packages/dom-input/README.md) | Pointer focus release and document hover ownership | Connected to Rachana and Shravanam; portable checks passed, device coverage remains separate |
-| [@karatala/ui-rachana](packages/ui-rachana/README.md) | Existing Rachana UI variants | 32 components extracted with local helpers/styles and host callbacks |
+| [@karatala/ui-rachana](packages/ui-rachana/README.md) | Existing Rachana UI variants | 33 components, including the common KoMandir color editor in a Rachana shell |
 | [@karatala/ui-komandir](packages/ui-komandir/README.md) | Existing KoMandir UI variants | All 35 components extracted with local helpers/styles and host callbacks |
 
 Consumers use a pinned Git submodule at `vendor/shared` and depend only on the required package folders. There is no umbrella runtime entry or root installation script. UI variants retain their existing props, behavior, theme roles and source names. Extraction does not wait for exhaustive comparison; unify variants only when a common replacement is selected. Common palette generation, remaining updater hosts, development tooling and platform adapters remain future work.

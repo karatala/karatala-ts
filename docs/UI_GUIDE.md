@@ -20,14 +20,17 @@ New features use a listed control and its existing props, size, spacing, icon sc
 | Window or popup | ModalDialog, UiMiniPopup; WindowDialog, Dialog, MiniPopup, Popover, ConfirmPopover | Modal/nonmodal focus, nested Escape, trigger return and optional application geometry |
 | Context menu | UiContextMenu; ContextMenu, ContextSubmenu, ContextAction | Application commands, one overlay stack and keyboard opening |
 | Help and key hints | UiHelp, UiTooltip, UiKeycap, UiShortcutHint; HelpButton, Tooltip, Keycap, ShortcutHint | Automatic hint, explicit longer help and the correct shortcut save policy |
-| Color or icon | ColorPicker, IconPicker; UiIcon/Icon/SvgIcon | Commit/cancel, authored viewBox, catalog and cancellable loaders |
+| Color or icon | KoMandir ColorPicker; UiColorPicker for a Rachana host; IconPicker; UiIcon/Icon/SvgIcon | Commit/cancel, authored viewBox, catalog and cancellable loaders |
 | Table or list | Existing data-table/menu-list/presentation CSS; DataTable, TableRow, ColumnHeader, RowSweepHandle, PathLabel, FileDate | Selection, sorting, row commands, permissions and content remain application-owned |
 | Loading, notice or emergency UI | UiLoading; MessageBar/Notification; ui-bootstrap | Lifecycle, reserved status space and recovery independent of Svelte when needed |
 
 Other prepared layout, favorite, filter, resize and timeline controls remain listed on /guide. Compositions that depend on music, playback, file operations or editor state stay in their application until a concrete reusable boundary exists.
 
+Use the KoMandir color editor for new color fields and replacements of native/system color pickers. UiColorPicker uses the same editor with the Rachana overlay shell. Both use a local draft and Apply/Cancel; applications own the committed value and persistence. Do not add another native color input.
+
 ## Text and layout
 
+- Editable fields have no full color outline or surrounding border. Use the reserved bottom line for keyboard focus and a distinct field surface in popups. Keep existing functional focus indicators on buttons, sliders and color-wheel handles.
 - Use short labels. Give icon-only buttons accessible action names. Put long explanations in Help.
 - Errors say what failed, quote an invalid value when useful, give a valid example and explain recovery. Keep parser positions and diagnostic codes in developer logs.
 - Numeric units follow the number inside the control, for example 75 % or 120 BPM. Avoid repeating the unit in the visible field label.

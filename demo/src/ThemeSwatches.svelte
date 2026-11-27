@@ -1,5 +1,5 @@
 <script lang="ts">
-  const roles = ["background", "control", "control-hover", "field", "popup", "text", "muted", "accent", "on-accent", "focus", "selection", "on-selection"];
+  const roles = ["background", "control", "control-hover", "field", "popup", "popup-field", "text", "muted", "accent", "on-accent", "focus", "selection", "on-selection"];
 </script>
 
 <details><summary>Resolved shared color roles</summary>

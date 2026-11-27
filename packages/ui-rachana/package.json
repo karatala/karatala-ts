@@ -56,12 +56,14 @@
     "./UiWheelButton.svelte": "./src/UiWheelButton.svelte",
     "./UiZoomSelect.svelte": "./src/UiZoomSelect.svelte",
     "./wheel-command-actions.ts": "./src/wheel-command-actions.ts",
-    "./styles.css": "./styles/legacy.css"
+    "./styles.css": "./styles/legacy.css",
+    "./UiColorPicker.svelte": "./src/UiColorPicker.svelte"
   },
   "peerDependencies": {
     "svelte": "^5.46.4"
   },
   "dependencies": {
-    "@karatala/dom-input": "file:../dom-input"
+    "@karatala/dom-input": "file:../dom-input",
+    "@karatala/ui-komandir": "file:../ui-komandir"
   }
 }

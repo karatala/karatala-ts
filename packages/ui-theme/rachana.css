@@ -5,6 +5,7 @@
   --karatala-color-control-hover: var(--ui-control-hover);
   --karatala-color-field: var(--ui-field-surface, var(--ui-control-surface));
   --karatala-color-popup: var(--ui-menu-surface);
+  --karatala-color-popup-field: color-mix(in srgb, var(--ui-menu-surface), var(--ui-menu-text) 24%);
   --karatala-color-text: var(--ui-text);
   --karatala-color-muted: var(--ui-text-muted);
   --karatala-color-accent: var(--ui-accent-fill);

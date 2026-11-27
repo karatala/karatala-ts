@@ -11,7 +11,7 @@
 
 ## Local Contracts
 
-- Keep these variants separate from KoMandir controls. A shared repository does not require equal behavior or appearance.
+- Keep these variants separate from KoMandir controls except the selected common ColorPicker core. A shared repository does not require equal behavior or appearance.
 - Accept data and callbacks; do not import application source, translation providers or the editor.
 - Preserve the existing theme-role names for now. Consumers supply their theme values and compile Svelte with one peer runtime.
 - Copy the complete local dependency closure when adding a component. Isolate a host dependency only when required for that transfer.
@@ -20,6 +20,8 @@
 - UiStepControl preserves vertical arrow actions and the Rachana horizontal/child composition. UiWheelButton lets mouse and keyboard context actions on an action-enabled trigger reach its application command card; touch context and the open value popup retain their own behavior.
 - Compare two variants only when choosing a common replacement or changing a contract. Exhaustive cross-project comparison is not a prerequisite for extraction.
 - UiContextMenu sizes its intrinsic content before edge placement. Bound its border box by the visual viewport, root content box and root zoom. Correct measured placement for the fixed containing-block origin, including scrollbar gutters; a trigger near an edge must not compress action labels or overflow the viewport.
+
+- UiColorPicker adapts the selected KoMandir core to UiButton/UiMiniPopup. Import no full KoMandir stylesheet. Apply publishes one value; Cancel/Escape keeps the committed color. UiMiniPopup initialFocus and restoreFocus default to existing behavior; the picker distinguishes pointer and keyboard opening. Editable fields use only a bottom focus line. Popup/window shells supply a distinct local field surface.
 
 ## Verification
 

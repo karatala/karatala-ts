@@ -65,7 +65,8 @@
     "./icon-references.ts": "./src/icon-references.ts",
     "./IconPicker.svelte": "./src/IconPicker.svelte",
     "./icon-picker-host.ts": "./src/icon-picker-host.ts",
-    "./icon-theme-search.ts": "./src/icon-theme-search.ts"
+    "./icon-theme-search.ts": "./src/icon-theme-search.ts",
+    "./color-picker-core.svelte": "./src/internal/ColorPickerCore.svelte"
   },
   "peerDependencies": {
     "svelte": "^5.46.4"

@@ -8,6 +8,7 @@
   import TimelineFlag from "@karatala/ui-rachana/TimelineFlag.svelte";
   import TimelineMarkerName from "@karatala/ui-rachana/TimelineMarkerName.svelte";
   import UiButton from "@karatala/ui-rachana/UiButton.svelte";
+  import UiColorPicker from "@karatala/ui-rachana/UiColorPicker.svelte";
   import UiCheckboxButton from "@karatala/ui-rachana/UiCheckboxButton.svelte";
   import UiComboButton from "@karatala/ui-rachana/UiComboButton.svelte";
   import UiContextMenu from "@karatala/ui-rachana/UiContextMenu.svelte";
@@ -50,6 +51,7 @@
   {#if name === "UiButton"}
     <UiButton label="Default action" text="Default" {disabled} onclick={()=>status="Default clicked"} /><UiButton label="Save" text="Save" tone="primary" {disabled} onclick={()=>status="Saved"} /><UiButton label="Remove" text="Remove" tone="danger" {disabled} onclick={()=>status="Removed"} /><UiButton label="Close" variant="icon" tone="close" path={uiIcons.close} {disabled} />
   {:else if name === "UiTextInput"}<UiTextInput aria-label="Sample text" bind:value={text} {disabled} /><UiTextInput aria-label="Schedule time" type="time" value="22:30" {disabled} />
+  {:else if name === "UiColorPicker"}<UiColorPicker label="Item color" value={text.startsWith("#") ? text : "#4e7aff"} onchange={next => { text = next; status = "Committed color: " + next; }} />
   {:else if name === "UiTextArea"}<UiTextArea aria-label="Sample multiline text" bind:value={text} rows={4} maxlength={1000} {disabled} />
   {:else if name === "UiField"}<UiField label="Name"><UiTextInput aria-label="Name" bind:value={text} {disabled} /></UiField>
   {:else if name === "UiLoading"}<UiLoading label="Loading sample" />
@@ -76,7 +78,7 @@
   {:else if name === "UiKeycap"}<UiKeycap text="Ctrl" /><UiKeycap text="Enter" tone="gray" /><UiKeycap text="Esc" tone="red" />
   {:else if name === "UiShortcutHint"}<UiShortcutHint value="Save: Ctrl+S / Meta+S" />
   {:else if name === "UiContextMenu"}<UiContextMenu label="Sample actions" actionsFor={()=>[{label:"Open",run:()=>status="Open requested"},{label:"Copy",run:()=>status="Copy requested"}]}><UiButton label="Context menu target" text="Right-click or Shift+F10" {disabled} /></UiContextMenu>
-  {:else if name === "UiMiniPopup"}<UiMiniPopup bind:open label="Memory popup">{#snippet trigger(attributes)}<UiButton {...attributes} label="Open popup" text="Open popup" {disabled} />{/snippet}<UiTextInput aria-label="Popup text" bind:value={text} /><UiButton label="Close popup" text="Close" onclick={()=>open=false} /></UiMiniPopup>
+  {:else if name === "UiMiniPopup"}<UiMiniPopup bind:open label="Memory popup">{#snippet trigger(attributes)}<UiButton {...attributes} label="Open popup" text="Open popup" {disabled} />{/snippet}<UiTextInput aria-label="Popup text" bind:value={text} /><UiColorPicker label="Popup item color" value={text.startsWith("#") ? text : "#4e7aff"} onchange={next => { text = next; status = "Committed color: " + next; }} /><UiButton label="Close popup" text="Close" onclick={()=>open=false} /></UiMiniPopup>
   {:else if name === "ModalDialog"}<UiButton label="Open window" text="Open window" {disabled} onclick={()=>open=true} />{#if open}<ModalDialog title="Memory window" layoutKey="demo" onclose={()=>open=false}><UiTextInput aria-label="Window text" bind:value={text} /><UiHelp label="Window help" sections={[{title:"Help",text:"First Escape closes help, second closes this window."}]} />{#snippet actions()}<UiButton label="Save window" text="Save" onclick={()=>{status="Saved: "+text;open=false;}} /><UiButton label="Cancel window" text="Cancel" onclick={()=>open=false} />{/snippet}</ModalDialog>{/if}
   {:else if name === "TimelineFlag"}<TimelineFlag label="Section marker" text="Verse" color="#e08040" onclick={()=>status="Marker selected"} />
   {:else if name === "TimelineMarkerName"}<TimelineMarkerName label="Section" bind:value={text} />

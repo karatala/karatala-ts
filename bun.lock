@@ -60,6 +60,7 @@
       "version": "0.1.0",
       "dependencies": {
         "@karatala/dom-input": "file:../dom-input",
+        "@karatala/ui-komandir": "file:../ui-komandir",
       },
       "peerDependencies": {
         "svelte": "^5.46.4",
@@ -274,6 +275,8 @@
     "zimmerframe": ["zimmerframe@1.1.5", "", {}, "sha512-msJxIvYDYcoNL+PJsu+7qmpDWsYmAxTY+2TNYXXF0hzBzBk0BMecOqDOG/EckUoKCuKwObfbugIl8QpqHDXeFA=="],
 
     "@karatala/ui-bootstrap/@karatala/dom-input": ["@karatala/dom-input@file:packages/dom-input", { "devDependencies": { "happy-dom": "20.14.5" } }],
+
+    "@karatala/ui-rachana/@karatala/ui-komandir": ["@karatala/ui-komandir@file:packages/ui-komandir", { "peerDependencies": { "svelte": "^5.46.4" } }],
 
     "svelte/magic-string": ["magic-string@0.30.21", "", { "dependencies": { "@jridgewell/sourcemap-codec": "^1.5.5" } }, "sha512-vd2F4YUyEXKGcLHoq+TEyCjxueSeHnFxyyjNp80yg0XV4vUhnDer/lvvlqM/arB5bXQN5K2/3oinyCRyx8T2CQ=="],
   }

@@ -146,8 +146,8 @@
     "sourceRevision": "02e63ce9827dc1d267e1a13758901f83da87f72a",
     "sourcePath": "src/frontend/ui/UiMiniPopup.svelte",
     "sourceSha256": "e67f62897c6084bc8174bfcfa544fc5513b7136cd2a9d4b30ddaa6dde71fc5bd",
-    "unchangedBytes": true,
-    "adaptation": "none"
+    "unchangedBytes": false,
+    "adaptation": "host translation boundary, optional initialFocus/restoreFocus with unchanged defaults, and distinct local popup field surface"
   },
   {
     "package": "ui-rachana",
@@ -157,7 +157,7 @@
     "sourcePath": "src/frontend/ui/UiNumberStepper.svelte",
     "sourceSha256": "822b83ad1975e6f658c024f59374fc40dfa63d5d09ce9d422aa49e3edb057b45",
     "unchangedBytes": false,
-    "adaptation": "application import boundary or icon metadata/geometry types; source styles and interaction code retained"
+    "adaptation": "host translation boundary and reserved bottom focus line; existing value/drag/commit behavior retained"
   },
   {
     "package": "ui-rachana",
@@ -226,8 +226,8 @@
     "sourceRevision": "02e63ce9827dc1d267e1a13758901f83da87f72a",
     "sourcePath": "src/frontend/ui/UiSelect.svelte",
     "sourceSha256": "dd3115fc53a9bda3c0e65d8228c2763636dd8cd09db30cfd3f0e4af74d91e1db",
-    "unchangedBytes": true,
-    "adaptation": "none"
+    "unchangedBytes": false,
+    "adaptation": "native dropdown adapter with the existing application menu and a reserved bottom focus line without a surrounding border or full outline"
   },
   {
     "package": "ui-rachana",
@@ -267,7 +267,7 @@
     "sourcePath": "src/frontend/ui/UiTextInput.svelte",
     "sourceSha256": "95a5d90cd710b375440ad9e2eeb17932f885dabac4a71f441f736390359c1339",
     "unchangedBytes": false,
-    "adaptation": "added the native time input type; existing rendering and input behavior retained"
+    "adaptation": "native time type and a reserved bottom focus line without a surrounding border or full outline"
   },
   {
     "package": "ui-rachana",
@@ -316,8 +316,8 @@
     "sourceRevision": "ffb699e5b5d31007932ebe912dc5e20d3d77cad4",
     "sourcePath": "folder-sync/src/web/ui/Button.svelte",
     "sourceSha256": "1ddfd8aad3595b30b0ba26fbe8b6a53b17c5363c51f77ce16b5f654abc3b8f7b",
-    "unchangedBytes": true,
-    "adaptation": "none"
+    "unchangedBytes": false,
+    "adaptation": "public wrapper over the same private native renderer; document controls stylesheet remains with the public entry"
   },
   {
     "package": "ui-komandir",
@@ -347,7 +347,7 @@
     "sourcePath": "folder-sync/src/web/ui/ColorPicker.svelte",
     "sourceSha256": "0bfe1dea03caa94a1fcacd4b883d037d44bed44bd8e6efef7c7a7cf9aea06724",
     "unchangedBytes": false,
-    "adaptation": "application import boundary or icon metadata/geometry types; source styles and interaction code retained"
+    "adaptation": "one shared KoMandir state/rendering core with required host trigger/popup snippets; bounded body scrolling, fixed actions and pointer/keyboard initial focus"
   },
   {
     "package": "ui-komandir",
@@ -497,7 +497,7 @@
     "sourcePath": "folder-sync/src/web/ui/MiniPopup.svelte",
     "sourceSha256": "fbdbfbf6b802214ab4e719ba576d5760d9b0418c4c714cf99190d60fd316e43b",
     "unchangedBytes": false,
-    "adaptation": "application import boundary or icon metadata/geometry types; source styles and interaction code retained"
+    "adaptation": "optional class for the color layout; distinct local field surface, existing geometry and overlay behavior retained"
   },
   {
     "package": "ui-komandir",
@@ -557,7 +557,7 @@
     "sourcePath": "folder-sync/src/web/ui/SegmentedControl.svelte",
     "sourceSha256": "6472d7a2936e9c2fcfa94c4824ea74bc1e6b4386a59b2ee0970809669a4be5d0",
     "unchangedBytes": false,
-    "adaptation": "application import boundary or icon metadata/geometry types; source styles and interaction code retained"
+    "adaptation": "public wrapper over the same private keyboard/native renderer; document controls stylesheet remains with the public entry"
   },
   {
     "package": "ui-komandir",
@@ -637,7 +637,7 @@
     "sourcePath": "folder-sync/src/web/ui/WindowDialog.svelte",
     "sourceSha256": "92445b57a8a30565e9b31678c7621fa4edea3b26ea8bbf737b6e18bcb058e798",
     "unchangedBytes": false,
-    "adaptation": "application import boundary or icon metadata/geometry types; source styles and interaction code retained"
+    "adaptation": "application window-state host boundary and distinct local field surface; existing geometry and commands retained"
   },
   {
     "package": "ui-komandir",
@@ -667,7 +667,7 @@
     "sourcePath": "src/frontend/editor/BeatTextEditor.svelte",
     "sourceSha256": "9efe7a069d1ead86aa0267f0807c57ec690cbdc053361f940b47179cabc61fce",
     "unchangedBytes": false,
-    "adaptation": "extracted the native bound textarea from BeatTextEditor; reusable attribute/ref boundary follows UiTextInput; field styling comes from dialogs.css with shared disabled/focus states and native rows instead of feature-specific minimum height",
+    "adaptation": "native multiline field derived from BeatTextEditor/dialogs.css; forwarded props/events and a reserved bottom focus line",
     "additionalSources": [
       {
         "sourcePath": "src/themes/dialogs.css",
@@ -714,5 +714,45 @@
     "sourceSha256": "6730315f66d1d9cf7e54ab3ed9254c8219b57c847e7817f69c6e676402d2e52d",
     "unchangedBytes": false,
     "adaptation": "Framework-independent extraction: escaped static markup, explicit labels/actions, namespaced source styles and MDI paths, sticky error lifecycle, background inert state and focus containment. Copy/reload geometry also derives from src/app/startup-error.ts."
+  },
+  {
+    "package": "ui-komandir",
+    "file": "internal/Button.svelte",
+    "sourceRepository": "KoMandir Bun utilities repository",
+    "sourceRevision": "ffb699e5b5d31007932ebe912dc5e20d3d77cad4",
+    "sourcePath": "folder-sync/src/web/ui/Button.svelte",
+    "sourceSha256": "1ddfd8aad3595b30b0ba26fbe8b6a53b17c5363c51f77ce16b5f654abc3b8f7b",
+    "unchangedBytes": false,
+    "adaptation": "private renderer/core derived from the recorded KoMandir source; no document-wide controls stylesheet; shared by public wrappers"
+  },
+  {
+    "package": "ui-komandir",
+    "file": "internal/SegmentedControl.svelte",
+    "sourceRepository": "KoMandir Bun utilities repository",
+    "sourceRevision": "ffb699e5b5d31007932ebe912dc5e20d3d77cad4",
+    "sourcePath": "folder-sync/src/web/ui/SegmentedControl.svelte",
+    "sourceSha256": "6472d7a2936e9c2fcfa94c4824ea74bc1e6b4386a59b2ee0970809669a4be5d0",
+    "unchangedBytes": false,
+    "adaptation": "private renderer/core derived from the recorded KoMandir source; no document-wide controls stylesheet; shared by public wrappers"
+  },
+  {
+    "package": "ui-komandir",
+    "file": "internal/ColorPickerCore.svelte",
+    "sourceRepository": "KoMandir Bun utilities repository",
+    "sourceRevision": "ffb699e5b5d31007932ebe912dc5e20d3d77cad4",
+    "sourcePath": "folder-sync/src/web/ui/ColorPicker.svelte",
+    "sourceSha256": "0bfe1dea03caa94a1fcacd4b883d037d44bed44bd8e6efef7c7a7cf9aea06724",
+    "unchangedBytes": false,
+    "adaptation": "private renderer/core derived from the recorded KoMandir source; no document-wide controls stylesheet; shared by public wrappers"
+  },
+  {
+    "package": "ui-rachana",
+    "file": "UiColorPicker.svelte",
+    "sourceRepository": "KoMandir Bun utilities repository",
+    "sourceRevision": "ffb699e5b5d31007932ebe912dc5e20d3d77cad4",
+    "sourcePath": "folder-sync/src/web/ui/ColorPicker.svelte",
+    "sourceSha256": "0bfe1dea03caa94a1fcacd4b883d037d44bed44bd8e6efef7c7a7cf9aea06724",
+    "unchangedBytes": false,
+    "adaptation": "Rachana UiButton/UiMiniPopup adapter over the shared KoMandir color core; local theme-token bridge, explicit Apply/Cancel and native Rachana overlay ownership"
   }
 ]

@@ -18,6 +18,7 @@ New shared presentation can use background: var(--karatala-color-background) and
 | control-hover | --ui-control-hover | --theme-workbench-hover |
 | field | --ui-field-surface, then --ui-control-surface | --theme-workbench-input |
 | popup | --ui-menu-surface | --theme-workbench-surface |
+| popup-field | popup mixed with --ui-menu-text at 24% | popup mixed with --theme-workbench-foreground at 24% |
 | text | --ui-text | --theme-workbench-foreground |
 | muted | --ui-text-muted | --theme-workbench-muted |
 | accent | --ui-accent-fill | --theme-workbench-accent |
@@ -25,6 +26,8 @@ New shared presentation can use background: var(--karatala-color-background) and
 | focus | --ui-accent | --theme-workbench-accent |
 | selection | --ui-table-selected-surface, then system Highlight | --theme-list-selectionBackground |
 | on-selection | --ui-table-selected-text, then system HighlightText | --theme-list-selectionForeground |
+
+Popup shells use popup-field locally to separate editable fields from their background. They restate the field alias at that boundary. This derived color never reads field, so the local mapping has no variable cycle. Windows with a different shell background derive the same 24% mix from that background.
 
 The popup role describes the MiniPopup shell. KoMandir uses workbench-surface for that shell and workbench-raised for default controls and Dropdown lists. Focus and accent share a source; primary button text uses the workbench background. Rachana can use different focus/accent/on-accent values. Selection and accent remain distinct roles. The /themes demo shows these contracts, with explicit preview adjustments that keep buttons visible against popup surfaces.
 

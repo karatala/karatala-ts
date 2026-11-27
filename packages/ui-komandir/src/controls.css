@@ -98,12 +98,12 @@
 
 .ui-dropdown {
   display: flex; align-items: center; justify-content: space-between; gap: 8px; width: 100%; min-width: 0; min-height: 27px;
-  padding: 4px 7px; border: 0; border-radius: var(--ui-corner-radius, 6px); background: var(--theme-workbench-input); color: var(--theme-workbench-foreground);
+  padding: 4px 7px; border: 0; border-bottom: 2px solid transparent; border-radius: var(--ui-corner-radius, 6px); background: var(--theme-workbench-input); color: var(--theme-workbench-foreground);
   font: inherit; font-size: var(--ui-font-normal); text-align: left; cursor: pointer;
 }
 .ui-dropdown > span:first-child { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .ui-dropdown:disabled { opacity: .45; cursor: default; }
-.ui-dropdown:focus-visible { outline: 1px solid var(--theme-workbench-accent); outline-offset: -1px; }
+.ui-dropdown:focus-visible { outline: none; border-bottom-color: var(--theme-workbench-accent); }
 .ui-dropdown-options {
   position: relative; z-index: 2100; min-width: var(--ui-dropdown-anchor-width); max-width: var(--ui-dropdown-available-width);
   max-height: min(320px, var(--ui-dropdown-available-height)); overflow: auto; padding: 3px; border-radius: var(--ui-corner-radius, 6px);
@@ -118,15 +118,17 @@
   min-width: 0;
   min-height: 26px;
   padding: 4px 7px;
-  border: 1px solid transparent;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  outline: none;
   border-radius: var(--ui-corner-radius, 6px);
   color: var(--theme-workbench-foreground);
   background: var(--theme-workbench-input);
 }
 
-:root :is(input, select, textarea):not(.monaco-editor *):focus-visible {
-  outline: 2px solid var(--theme-workbench-accent);
-  outline-offset: -1px;
+:root :is(input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="color"]), select, textarea):not(.monaco-editor *):focus-visible {
+  outline: none;
+  border-bottom-color: var(--theme-workbench-accent);
 }
 
 :root :is(input, select, textarea)[aria-invalid="true"] {

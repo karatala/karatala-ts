@@ -10,6 +10,10 @@ import WindowDialog from "@karatala/ui-komandir/WindowDialog.svelte";
 
 Svelte 5 is the only peer runtime. CSS keeps existing --theme-workbench-*, --theme-list-* and --ui-* roles. Imported controls.css retains its original global field selectors; use the source application's theme adapter when reconnecting it. There are no install/build hooks, requests on import or native dependencies.
 
+## Common color editor
+
+ColorPicker retains its public props, RGB/OKLCH logic and explicit Apply/Cancel. Its private state/rendering core is also used by Rachana UiColorPicker through the explicit color-picker-core.svelte helper export. That helper requires trigger/popup snippets and is not a standalone approved control. Button and SegmentedControl public wrappers keep their existing APIs and global style entry; private renderers let the picker use them without loading controls.css into Rachana. The color popup has one bounded body scroller, with the heading and actions outside it. Editable fields use a bottom focus line and popup/window fields use a distinct local surface.
+
 ## Host boundary
 
 provideKomandirUiHost in host.ts accepts the application's existing message formatter, icon lookup/theme/file-reference functions, command-icon URL provider and window-state load/save callbacks. It stores callbacks in Svelte context per shell. The copied Icon renderer retains its mask/SVG/native-image layers, error paths, size and authored viewBox behavior. The copied WindowDialog retains its optional stateKey branch and lifecycle. Only the service imports are replaced by host callbacks.

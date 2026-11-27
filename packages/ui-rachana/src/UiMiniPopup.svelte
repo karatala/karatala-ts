@@ -3,12 +3,14 @@
   import { portal, popupContains } from "./portal";
   import { focusMenuItem, hasEscapePriorityOwner } from "./menu-keyboard";
 
-  let { children, trigger, anchorElement, anchorPoint, label, open = $bindable(false), onopenchange, class: className = "", width = 288, align = "end", side = "bottom", sideOffset = 6, viewportPadding = 12 }: {
+  let { children, trigger, anchorElement, anchorPoint, label, initialFocus, restoreFocus = true, open = $bindable(false), onopenchange, class: className = "", width = 288, align = "end", side = "bottom", sideOffset = 6, viewportPadding = 12 }: {
     children: Snippet;
     trigger?: Snippet<[{ onclick: (event: MouseEvent) => void; "aria-haspopup": "dialog"; "aria-expanded": boolean; "aria-controls": string | undefined }]>;
     anchorElement?: HTMLElement;
     anchorPoint?: { x: number; y: number };
     label?: string;
+    initialFocus?: string;
+    restoreFocus?: boolean;
     open?: boolean;
     onopenchange?: (open: boolean, returnFocus?: boolean) => void;
     class?: string;
@@ -30,11 +32,11 @@
   let shortcut = $state<string | undefined>();
   const actionSelector = 'button:not(:disabled, [tabindex="-1"], [role="slider"], [role="combobox"], [aria-haspopup="listbox"])';
 
-  function close(restoreFocus = false) {
+  function close(restoreToAnchor = false) {
     if (!open) return;
     open = false;
-    onopenchange?.(false, restoreFocus && !openedWithPointer);
-    if (restoreFocus && !openedWithPointer) anchor?.focus({ preventScroll: true });
+    onopenchange?.(false, restoreToAnchor && restoreFocus && !openedWithPointer);
+    if (restoreToAnchor && restoreFocus && !openedWithPointer) anchor?.focus({ preventScroll: true });
   }
 
   async function toggle(event: MouseEvent) {
@@ -91,7 +93,11 @@
   });
 
   $effect(() => {
-    if (open && anchorElement && panel) {
+    if (open && panel && initialFocus) {
+      const field = panel.querySelector<HTMLElement>(initialFocus);
+      field?.focus({ preventScroll: true });
+      if (field instanceof HTMLInputElement) field.select();
+    } else if (open && anchorElement && panel) {
       (panel.querySelector<HTMLInputElement>('input:not([readonly]):not(:disabled), textarea:not(:disabled)') ?? panel).focus({ preventScroll: true });
     }
   });
@@ -145,7 +151,7 @@
 {/if}
 
 <style>
-  :global(.ui-mini-popup.shell-menu), :global([data-appearance] .ui-mini-popup.shell-menu) { z-index: 120; display: grid; box-sizing: border-box; max-width: var(--mini-popup-max-width, calc(100vw - 24px)); max-height: calc(100dvh - 24px); gap: var(--popup-gap, 6px); padding: var(--popup-inset, 8px); overflow: auto; color: var(--ui-menu-text); background: var(--ui-menu-surface); border: none; border-radius: 6px; box-shadow: 0 8px 28px rgb(0 0 0 / 45%); font: 12px/1.45 Tahoma, "Segoe UI", sans-serif; }
+  :global(.ui-mini-popup.shell-menu), :global([data-appearance] .ui-mini-popup.shell-menu) { z-index: 120; display: grid; box-sizing: border-box; max-width: var(--mini-popup-max-width, calc(100vw - 24px)); max-height: calc(100dvh - 24px); gap: var(--popup-gap, 6px); padding: var(--popup-inset, 8px); overflow: auto; --ui-field-surface: var(--karatala-color-popup-field, color-mix(in srgb, var(--ui-menu-surface), var(--ui-menu-text) 24%)); --karatala-color-field: var(--ui-field-surface); color: var(--ui-menu-text); background: var(--ui-menu-surface); border: none; border-radius: 6px; box-shadow: 0 8px 28px rgb(0 0 0 / 45%); font: 12px/1.45 Tahoma, "Segoe UI", sans-serif; }
   :global(.ui-mini-popup.shell-menu > :is(h2, h3)) { margin: 0; font-size: 12px; font-weight: 600; line-height: 16px; }
   :global(.ui-mini-popup.shell-menu .ui-field-row) { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, auto); align-items: center; gap: 6px 12px; min-width: 0; }
   :global(.ui-mini-popup.shell-menu .ui-field-row > span) { min-width: 0; white-space: normal; }

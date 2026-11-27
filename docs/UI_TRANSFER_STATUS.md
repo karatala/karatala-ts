@@ -43,7 +43,7 @@ Owner: karatala-ts. This is a source transfer and demo record. Existing Rachana 
 
 ## Demo
 
-- ✅ 68 component pages, each with a real shared-package example, import/usage markup, props/defaults and source information.
+- ✅ 69 component pages, each with a real shared-package example, import/usage markup, props/defaults and source information.
 - ✅ Shared family pages put existing variants beside each other for later comparison. No behavior is normalized for the demo.
 - ✅ Preview documents isolate legacy CSS and overlay stacks. Examples use memory-only values, bundled icons and no persisted window keys.
 - ✅ Catalog update script rejects a public component without a live example branch.
@@ -61,3 +61,10 @@ Owner: karatala-ts. This is a source transfer and demo record. Existing Rachana 
 
 - Consumer owners pin delivered shared commits and refresh only the packages they use. Keep host contracts and acceptance records with each application. Archive superseded source only after its callers use the shared implementation.
 - [ ] Extend the catalog when another ready component is extracted. Reuse approved controls for new features; keep distinct existing variants focused rather than adding flags to one universal control.
+
+## Selected common color editor, 2026-11-27
+
+- ✅ The user selected KoMandir ColorPicker to replace other color pickers. Its RGB/OKLCH editor, canvas and Apply/Cancel now have one core; UiColorPicker adapts it to the Rachana shell and overlay stack. Private native-control renderers avoid importing KoMandir document CSS into Rachana. Public Button/SegmentedControl APIs retain their behavior.
+- ✅ Added the 69th public component page and a nested-picker example in UiMiniPopup. The colors family shows both host wrappers of the same editor. Provenance records retain the original source revisions/hashes and name these adaptations.
+- [ ] Publish the prepared shared commit before changing application pins. Replace Rachana native color inputs in SettingsDialog, TrackSettings and FileUiPlayground with UiColorPicker. Theme changes will publish on Apply rather than native live input. KoMandir already uses ColorPicker; no competing picker was found in Shravanam. Keep application callbacks, validation, theme persistence and settings search targets.
+- [ ] Refresh local file dependencies and verify consumer styles after publication. Rachana and Shravanam have their own theme focus rules; check them when connecting the prepared field styles.

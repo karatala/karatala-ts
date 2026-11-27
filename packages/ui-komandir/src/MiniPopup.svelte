@@ -8,7 +8,7 @@
   import { useKomandirUiHost } from "./host";
   const { message } = useKomandirUiHost();
 
-  let { title, trigger, side = "bottom", pending = false, initialFocus, children, onClose, onFocusReturn }: { title: string; trigger: HTMLElement | null; side?: "bottom" | "right"; pending?: boolean; initialFocus?: string; children: Snippet; onClose(): void; onFocusReturn(): void } = $props();
+  let { title, trigger, side = "bottom", pending = false, initialFocus, class: className = "", children, onClose, onFocusReturn }: { title: string; trigger: HTMLElement | null; side?: "bottom" | "right"; pending?: boolean; initialFocus?: string; class?: string; children: Snippet; onClose(): void; onFocusReturn(): void } = $props();
   const popupId = $props.id();
   let left = $state(0);
   let top = $state(0);
@@ -84,7 +84,7 @@
 <Portal to="body">
   <Popover
     id={popupId}
-    class="ui-mini-popup"
+    class={`ui-mini-popup ${className}`}
     aria-labelledby={`${popupId}-title`}
     aria-busy={pending}
     tabindex={-1}
@@ -103,7 +103,7 @@
 </Portal>
 
 <style>
-  :global(.ui-mini-popup) { position: fixed; z-index: 1450; display: grid; box-sizing: border-box; width: 320px; max-width: calc(100vw - 24px); max-height: calc(100dvh - 24px); gap: 9px; padding: 8px; overflow: auto; border: 0; border-radius: var(--ui-corner-radius, 6px); color: var(--theme-workbench-foreground); background: var(--theme-workbench-surface); box-shadow: var(--ui-popup-shadow); font-size: var(--ui-font-normal); line-height: 1.35; }
+  :global(.ui-mini-popup) { position: fixed; z-index: 1450; display: grid; box-sizing: border-box; width: 320px; max-width: calc(100vw - 24px); max-height: calc(100dvh - 24px); gap: 9px; padding: 8px; overflow: auto; --theme-workbench-input: var(--karatala-color-popup-field, color-mix(in srgb, var(--theme-workbench-surface), var(--theme-workbench-foreground) 24%)); --karatala-color-field: var(--theme-workbench-input); border: 0; border-radius: var(--ui-corner-radius, 6px); color: var(--theme-workbench-foreground); background: var(--theme-workbench-surface); box-shadow: var(--ui-popup-shadow); font-size: var(--ui-font-normal); line-height: 1.35; }
   .mini-popup-heading { display: flex; align-items: center; gap: 8px; min-width: 0; }
   .mini-popup-heading strong { flex: 1; min-width: 0; overflow-wrap: anywhere; font-weight: var(--ui-weight-strong); }
   .mini-popup-heading :global(.mini-popup-close.ui-button) { width: 24px; min-width: 24px; min-height: 24px; padding: 2px; background: transparent; }

@@ -199,7 +199,7 @@
 <style>
   .window-layer { position: fixed; inset: 0; pointer-events: none; }
   .window-shade { position: absolute; inset: 0; background: rgb(0 0 0 / 25%); pointer-events: auto; }
-  :global(.window-dialog) { position: fixed; display: flex; flex-direction: column; min-width: 0; min-height: 0; overflow: hidden; border: 0; border-radius: var(--ui-corner-radius, 6px); color: var(--theme-workbench-foreground); background: var(--theme-workbench-background); box-shadow: var(--ui-popup-shadow); pointer-events: auto; }
+  :global(.window-dialog) { --theme-workbench-input: color-mix(in srgb, var(--theme-workbench-background), var(--theme-workbench-foreground) 24%); --karatala-color-field: var(--theme-workbench-input); position: fixed; display: flex; flex-direction: column; min-width: 0; min-height: 0; overflow: hidden; border: 0; border-radius: var(--ui-corner-radius, 6px); color: var(--theme-workbench-foreground); background: var(--theme-workbench-background); box-shadow: var(--ui-popup-shadow); pointer-events: auto; }
   .window-move { flex: 1; align-self: stretch; justify-content: flex-start; min-width: 0; padding: 0 6px; overflow: hidden; border: 0; color: inherit; background: transparent; cursor: move; touch-action: none; user-select: none; }
   div.window-move { padding: 0; }
   .window-move:focus-visible { outline: none; color: var(--theme-workbench-accent); }

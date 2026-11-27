@@ -19,10 +19,12 @@
 - IconPicker requires provideIconPickerHost before mounting. The application owns its icon catalog, allowed values, loaders, revision cache and active theme. Keep original request cancellation, debounce, batching and explicit commit behavior. Imports must not start a load.
 - Tooltip requires an array in bindings and defaults for every ID in commands, including an empty array when unassigned. Retain this caller contract when checking the string-keyed maps under noUncheckedIndexedAccess.
 
+- ColorPicker is the selected common color editor. Its private core owns drafts, RGB/OKLCH, canvas and Apply/Cancel. The Rachana wrapper supplies its native popup cluster through required snippets. Keep controls.css out of that helper import graph. MiniPopup and windows supply a distinct local field surface. Editable fields use a bottom focus line, without a full outline or surrounding border.
+
 ## Verification
 
 - Distinguish source extraction, application connection and runtime checks. Run install/build/device checks only when requested.
 
 ## Child DOX Index
 
-- No child scopes.
+- `src/internal/AGENTS.md`: shared picker state and private native-control renderers without document styles.
