@@ -4,10 +4,10 @@ Owner: karatala-ts owns source, public contracts, provenance and portable checks
 
 | Module | Found/matched | Extracted | Consumer connection | Verified |
 | --- | --- | --- | --- | --- |
-| M02 release discovery/orchestration | ✅ Rachana independent core | ✅ @karatala/web-updater root, byte-identical source | [ ] Applications retain their existing integration; Rachana remains on hold | ✅ Release/runtime/save-order checks passed |
-| M03 Bun/ZIP and optional Capacitor | ✅ Rachana independent host entries | ✅ Explicit /bun, /zip, /capacitor entries, byte-identical source | [ ] Requires immutable build metadata, whole-map serving, readiness/watchdog, runtime/data compatibility and app save/flush | ✅ ZIP/Bun recovery checks passed; [ ] Capacitor/native checks separate |
-| M04 offline shell | ✅ Three existing policies retained | ✅ @karatala/offline-shell source generators | [ ] Shravanam connection prepared; Rachana source unchanged | ✅ Generated-script memory checks passed; [ ] consumer/browser acceptance pending |
-| M07 browser picker/drop | ✅ Shravanam filter boundary identified | ✅ @karatala/browser-files with caller options | [ ] Shravanam media adapter prepared | ✅ Memory capture/cancel/fallback checks passed; [ ] OS picker/grants separate |
+| M02 release discovery/orchestration | ✅ Rachana independent core | ✅ @karatala/web-updater root, byte-identical source | ✅ Rachana imports the public core; [ ] KoMandir and Shravanam | ✅ Release/runtime/save-order checks and Rachana consumer checks passed |
+| M03 Bun/ZIP and optional Capacitor | ✅ Rachana independent host entries | ✅ Explicit /bun, /zip, /capacitor entries, byte-identical source | ✅ Rachana connects build metadata, host entries, readiness/watchdog and save/flush; [ ] other applications | ✅ Rachana package types and Bun/ZIP recovery checks passed; [ ] native/Capacitor lifecycle acceptance |
+| M04 offline shell | ✅ Three existing policies retained | ✅ @karatala/offline-shell source generators | ✅ Shravanam listed shell; Rachana cached production and network-first development shells | ✅ Generated-script checks and isolated real-worker browser checks in both consumers; [ ] target-device acceptance |
+| M07 browser picker/drop | ✅ Shravanam filter boundary identified | ✅ @karatala/browser-files with caller options | ✅ Shravanam media adapter retains its filters and caller types | ✅ Memory checks and consumer picker callback check passed; [ ] native picker/grants |
 
 ## Transfer boundaries
 
@@ -19,10 +19,10 @@ Owner: karatala-ts owns source, public contracts, provenance and portable checks
 
 ## Delivery and acceptance
 
-Shravanam connection was saved in the named Git stash `prepared shared offline and browser files 20261126`. The user authorized dependencies/checks on continuation. Restore that source for local verification; consumer repositories pin only a shared commit delivered through upstream.
+The initial module set was delivered in 7031990. Rachana connected updater/offline in f37a9993. Shravanam connected offline/browser-files and records its checks in FEATURE_PLAN.md. Existing preparation stashes are retained backups, not pending application connections. Each consumer records its current shared pin in Git; historical transfer commits below are not instructions to move a consumer backwards.
 
 - ✅ Exact source revisions/hashes and adaptations are in module-provenance.json. Package licenses and owning AGENTS files are included.
-- ✅ Authorized shared checks passed: 44 tests, 104 assertions; package type checks passed for browser-files, offline-shell and web-updater core/Bun/ZIP. Source updater files remain byte-identical. Optional Capacitor peers were not installed; its types/native lifecycle remain separate. No application release, package installation or deployment was executed by these tests.
-- [ ] Deliver that commit through upstream before pinning consumer repositories. The agent never pushes.
-- [ ] Record Shravanam source connection and consumer validation in its FEATURE_PLAN.md. Device/native results stay separate from source and memory tests.
-- [ ] Connect updater hosts only after each application's build metadata, startup readiness, watchdog and final save/flush are concrete. An extracted library is not an activated application update feature.
+- ✅ Authorized shared checks passed: 44 tests, 104 assertions; package type checks passed for browser-files, offline-shell and web-updater core/Bun/ZIP. Source updater files remain byte-identical. Rachana's full consumer type check also resolves its existing Capacitor peers. Native lifecycle acceptance remains separate.
+- ✅ Consumer connection and browser checks are recorded by [Rachana](https://github.com/karatala/Komprohit/blob/dev/SHARED_REPOSITORY_PLAN.md) in sections 10-11 and by [Shravanam](https://github.com/karatala/shravanam/blob/dev/FEATURE_PLAN.md) in its shared-module section. Application owners maintain those records.
+- [ ] Connect KoMandir and Shravanam updater hosts only after each application's build metadata, startup readiness, watchdog and final save/flush are concrete. An extracted library is not an activated application update feature.
+- [ ] Native and target-device acceptance remains application-owned. The agent never pushes or runs a release workflow as part of a source transfer.

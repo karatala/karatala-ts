@@ -33,5 +33,5 @@ See ../../docs/ui-provenance.json for every component path, source revision, has
 
 - ✅ Extracted 32 components and their local dependencies.
 - ✅ Shared demo type/Svelte check and browser mounting completed; representative interactions recorded in ../../docs/UI_TRANSFER_STATUS.md.
-- [ ] Deliver the new shared commit, bind the host callbacks in Rachana and replace its local imports. Existing consumers still use local UI implementations.
-- [ ] Consumer/device acceptance after reconnection. Extraction and demo checks do not prove native integration.
+- ✅ Rachana connected the package in 3acb95e7 with application host callbacks and package imports; Shravanam also uses prepared controls. Current consumer records are linked from ../../docs/UI_TRANSFER_STATUS.md.
+- [ ] Native/device acceptance remains application-owned. Extraction, type checks and browser examples do not prove native integration.

@@ -1,18 +1,26 @@
 # UI transfer status
 
+## Current consumer connections, 2026-11-27
+
+- ✅ KoMandir uses all 35 prepared ui-komandir controls and their helpers/styles. Application hosts retain translations, icon catalogs, settings and persisted window state. Its SHARED-REPOSITORY-REVIEW.md owns acceptance.
+- ✅ Rachana connected ui-rachana in 3acb95e7. Its consumers use the package exports; local generic implementations are archived. Live translation/icon providers, the existing window-layout adapter and application theme cascade retain their owners. [Rachana's connection record](https://github.com/karatala/Komprohit/blob/dev/SHARED_REPOSITORY_PLAN.md#rachana-ui-connection) owns browser, type and interaction results.
+- ✅ Shravanam uses the prepared Rachana/KoMandir controls, form extensions and independent bootstrap screen. Its own controls were drafts, not approved library sources. [Shravanam's feature plan](https://github.com/karatala/shravanam/blob/dev/FEATURE_PLAN.md) owns connection and generated-HTML failure checks.
+- ✅ Context-menu fixes f16dd7d and 56f54d6 retain intrinsic label width and account for viewport, root zoom and scrollbar gutters. Provenance records this adaptation separately from the original source revision. Consumer repositories own their pins and local dependency refresh.
+- [ ] Native WebView, touch/pen and platform icon acceptance remain consumer work. Common semantic theme roles and a cross-project style guide remain a later stage; preserved variants are not a merged design.
+
 ## Rachana source refresh, 2026-11-27
 
 - ✅ Refresh UiStepControl and UiWheelButton from the current Rachana source before reconnecting that consumer. Preserve the shared dependency boundary and record exact provenance.
 - ✅ Add horizontal child actions and wheel command-card examples to their existing component pages.
 - ✅ Refresh all 68 catalog pages. Shared demo/package types pass with zero errors and warnings.
-- [ ] Deliver the shared commit before pinning the Rachana consumer; the application owns host and browser acceptance.
+- ✅ Delivered d529733 before Rachana's connection. Application host and browser acceptance are recorded in its connection plan.
 
 ## Independent startup and emergency UI
 
 - ✅ @karatala/ui-bootstrap derives static loading/error presentation, MDI actions and the DOM error field from Rachana. It has no Svelte, Bun or native runtime dependency. Applications supply language, failure text, clipboard/reload/window actions and global exception policy.
 - ✅ Standalone lifecycle supports failure before initialization and after complete; a late complete cannot hide an error. Modal focus, background inert restoration and clipboard fallback are covered by six DOM tests with 29 assertions.
 - ✅ Added the 68th catalog page, bootstrap/StartupScreen, with a separate no-Svelte preview. Browser checks passed for loading/logo, copy, reload, window callback, recovery after complete and denied clipboard/manual selection. The shared type/Svelte check has zero errors and warnings.
-- [ ] Consumer generated-HTML checks must reject the real application graph and exercise late failures. Native desktop/Android window acceptance stays with the application.
+- ✅ Shravanam's generated-HTML checks reject the real application graph and exercise late failures. [ ] Native desktop/Android window acceptance stays with the application.
 
 ## Form extensions for Shravanam
 
@@ -22,14 +30,13 @@
 - ✅ Form extensions were delivered in 9bfe6d8. Consumer repositories own their pins and browser/device acceptance.
 
 
-Owner: karatala-ts. This is a source transfer and demo record, not a merged cross-project design. Existing Rachana R-family and KoMandir K-family catalogs remain the owners of product approval until consumers connect to these packages.
+Owner: karatala-ts. This is a source transfer and demo record. Existing Rachana R-family and KoMandir K-family catalogs remain the owners of product approval. The application plans above own connection and acceptance.
 
 ## Extracted
 
 - ✅ ui-rachana: all 30 components in src/frontend/ui plus ModalDialog, with local helpers and opt-in UI CSS. Application translation, icon metadata and window layout are context inputs.
 - ✅ ui-komandir: all 35 components in src/web/ui, with local helpers/CSS. Icon rendering/service lookup, translation and persisted window state use context callbacks. The existing pure shortcut codec is retained without the product command catalog.
-- ✅ 46 component files are byte-identical; 20 contain import/host-boundary or type changes. Component styles and interaction implementations are retained. Exact source hashes, revisions and paths are in ui-provenance.json.
-- ✅ All 66 component style blocks match the source files. The opt-in Rachana stylesheet keeps the existing UI folder CSS and selected theme rules in source cascade order.
+- ✅ Initial 66-component extraction: 46 component files were byte-identical; 20 contained import/host-boundary or type changes, and all 66 style blocks matched their sources. Later extensions and refreshes are recorded above and in ui-provenance.json. The opt-in Rachana stylesheet retains source cascade order.
 - ✅ IconPicker: extracted with explicit catalog, validation, cache and signal-aware loading callbacks. Original search/grouping helpers and synonyms are retained. Source and consumer mappings are in ui-connection.md.
 - ✅ All 66 components, including IconPicker, are available in 1f1fc62 on origin/dev. The strict Tooltip binding-map annotations added during consumer connection preserve the existing complete-map contract and runtime behavior.
 - Application repositories own connection and acceptance records. Keep consumer pins reproducible; only pin delivered shared code. The agent does not push.
@@ -47,10 +54,10 @@ Owner: karatala-ts. This is a source transfer and demo record, not a merged cros
 - ✅ Browser mounted all 65 standalone preview routes and found the reserved result area on every route. No console errors in that pass.
 - ✅ Representative actions: Rachana 150 percent normalized to 100; KoMandir ColorPicker applied #e08040; KoMandir nested menu ran Details; Rachana window Save returned its memory text; KoMandir window opened/closed. These are smoke checks, not an exhaustive behavior comparison.
 - ✅ Added IconPicker route: Russian search/alias grouping, theme selection, file-resource selection, invalid-input guidance, Escape retaining the committed value and Inherit. Its component page and iframe also opened without console errors. This does not verify native resource decoding or application requests.
-- ✅ Local server runs on 127.0.0.1:3212 with automatic browser opening disabled. Dependency installation used --ignore-scripts; no production build or deploy ran.
+- ✅ Browser checks used the local server on 127.0.0.1:3212 with automatic browser opening disabled. Dependency installation used --ignore-scripts; no production build or deploy ran. This record does not assert that the server is still running.
 - [ ] Native-device regressions and platform icon sources require consumer checks; the catalog does not prove them. Application hosts own keyboard, theme and persisted-geometry acceptance.
 
 ## Next
 
-- Consumer owners deliver a shared code commit before pinning it, connect their hosts and replace imports in groups. Archive superseded local source only after callers use the shared implementation.
+- Consumer owners pin delivered shared commits and refresh only the packages they use. Keep host contracts and acceptance records with each application. Archive superseded source only after its callers use the shared implementation.
 - [ ] Extend the catalog when another ready component is extracted. Reuse approved controls for new features; keep distinct existing variants focused rather than adding flags to one universal control.

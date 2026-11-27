@@ -7,8 +7,8 @@ Owner: karatala-ts. This document owns shared host contracts and connection orde
 - ✅ Initial UI packages are published in ebf477b on origin/dev.
 - ✅ All 32 Rachana and 35 KoMandir components now have shared source and a live memory example.
 - ✅ IconPicker is published in 1f1fc62 on origin/dev. Consumers pin an available commit before connecting a package.
-- [ ] Add only the required file dependency: @karatala/ui-rachana or @karatala/ui-komandir from vendor/shared/packages. Rachana also needs the existing dom-input package. Keep one Svelte peer runtime per consumer.
-- [ ] Refresh each consumer lockfile and check its real host after dependency updates are authorized. No application build or deploy is part of extraction.
+- ✅ Rachana, KoMandir and Shravanam connect their selected packages. Current connections and application-owned acceptance links are in UI_TRANSFER_STATUS.md. Keep one Svelte peer runtime per consumer.
+- For another consumer, add only the required file dependency from vendor/shared/packages, refresh its lockfile when authorized and check its real host. Rachana variants also need dom-input. Application builds and deployment remain separate.
 
 Consumer repositories own their current connection and acceptance records. With the native Svelte type checker, source paths can be mapped in a separate check-only TypeScript config. Keep those aliases out of the runtime config so Bun still resolves one installed Svelte peer. Exclude the shared demo and unused source packages from the consumer's root scan; imported application dependencies still receive their type checks.
 
@@ -25,7 +25,7 @@ The shared components call application functions through Svelte context. Install
 | commandIconUrl | src/web/command-icon-client.ts |
 | loadInterfaceState, saveInterfaceState | src/web/interface-state-client.ts; application retains the write queue and persistence policy |
 
-Export the shared ICON_THEME_ENABLED symbol from the application theme module when migrating. SettingsForm and the memory review currently set the application symbol to false. They must set the same symbol that the shared Icon reads.
+KoMandir re-exports the shared ICON_THEME_ENABLED symbol from its application theme module. SettingsForm, the memory review and the shared Icon must use the same symbol.
 
 IconPicker needs a separate provideIconPickerHost call in the same component context. Its required callbacks map directly to existing functions:
 
@@ -58,11 +58,11 @@ Keep existing application theme CSS active during import migration. The shared o
 
 ## Connection groups
 
-- [ ] Wire each application host before replacing its dependent components. Keep local icon catalogs, commands, settings data and storage services with the application.
-- [ ] Move KoMandir Portal, Dialog, Popover, portal.ts, overlay-focus.ts and their callers together. A document must not have two independent overlay or submenu stacks.
-- [ ] Move Rachana popup/tooltip/dialog components with their portal/menu helpers and callers. Preserve existing Escape and pointer-focus ownership.
-- [ ] Connect the remaining presentation controls in small groups, with current props and callbacks. Use package imports for new features and document a focused extension when a capability is missing.
-- [ ] Check language changes, theme changes, keyboard/pointer focus, nested popups and persisted geometry in each real host. Check native icon loading on supported platforms separately from the memory demo.
-- [ ] After callers and checks use the shared source, move superseded local implementations into .deleted. Preserve unrelated changes and follow the consumer stash rules before reverting temporary work.
+- ✅ Rachana and KoMandir have connected their application hosts, overlay/menu dependency groups and prepared presentation controls. Superseded generic sources are archived. Shravanam uses prepared controls through its application adapters.
+- Keep local icon catalogs, commands, settings data and storage services with the application. A document must have one overlay/submenu stack and retain its Escape and pointer-focus owners.
+- Use package imports for new features and document a focused extension when a capability is missing. Keep current props and callbacks when replacing another caller.
+- ✅ Representative language/theme, keyboard/pointer focus, nested-popup and persisted-geometry checks are recorded by the consumer owners linked in UI_TRANSFER_STATUS.md.
+- [ ] Check native icon loading and device input on supported platforms separately from memory examples and desktop browser checks.
+- For another migration, archive superseded implementations only after callers and checks use the shared source. Preserve unrelated changes and follow the consumer stash rules before reverting temporary work.
 
 These are connection tasks. They do not require choosing one visual or keyboard variant for both applications.
