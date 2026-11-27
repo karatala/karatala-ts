@@ -24,7 +24,8 @@ UiCheckboxButton accepts optional visible text, which defaults to its accessible
 ## Rachana source refresh
 
 UiStepControl includes the existing horizontal/child composition, with vertical arrows unchanged by default. UiWheelButton passes mouse and keyboard context actions on its action-enabled trigger to the application command card. Touch-generated context actions and the open value popup keep their existing handling. Both component pages contain live examples. Exact refreshed source revisions are in ui-provenance.json.
-UiContextMenu measures intrinsic content width before clamping its position, with a visual-viewport and root-zoom bound. Opening at the right edge keeps action labels readable instead of measuring a compressed menu.
+
+UiContextMenu measures intrinsic content width before clamping its position, with visual-viewport, root-content and zoom bounds. Placement accounts for the fixed containing-block origin, including reserved scrollbar gutters. Opening at the right edge keeps action labels readable and inside the viewport.
 
 ## Source and status
 

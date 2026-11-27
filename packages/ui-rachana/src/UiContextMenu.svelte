@@ -22,6 +22,13 @@
 
   function clearHold() { if (hold) clearTimeout(hold.timer); hold = null; }
   function close(restoreFocus = false) { clearHold(); open = false; if (restoreFocus && keyboardOpened) origin?.focus({ preventScroll: true }); }
+  function viewportBounds() {
+    const viewport = window.visualViewport;
+    const root = document.documentElement.getBoundingClientRect();
+    const viewportLeft = viewport?.offsetLeft ?? 0;
+    const viewportTop = viewport?.offsetTop ?? 0;
+    return { left: Math.max(viewportLeft, root.left) + 8, right: Math.min(viewportLeft + (viewport?.width ?? window.innerWidth), root.right) - 8, top: viewportTop + 8, bottom: viewportTop + (viewport?.height ?? window.innerHeight) - 8 };
+  }
   function show(target: Element, clientX: number, clientY: number, keyboard = false) {
     const next = actionsFor?.(target, keyboard ? undefined : clientX) ?? (onselect ? [{ label, run: onselect }] : []);
     if (!next.length) return false;
@@ -31,7 +38,8 @@
     onopen?.();
     actions = next;
     const scale = Number.parseFloat(getComputedStyle(document.documentElement).zoom) || 1;
-    maxWidth = Math.max(1, ((window.visualViewport?.width ?? window.innerWidth) - 16) / scale);
+    const viewport = viewportBounds();
+    maxWidth = Math.max(1, (viewport.right - viewport.left) / scale);
     left = clientX / scale;
     top = clientY / scale;
     open = true;
@@ -46,14 +54,12 @@
 
   function place(clientX: number, clientY: number, scale: number) {
     if (!menu || !open) return;
-    const viewport = window.visualViewport;
-    const leftEdge = (viewport?.offsetLeft ?? 0) + 8;
-    const topEdge = (viewport?.offsetTop ?? 0) + 8;
-    const rightEdge = leftEdge + (viewport?.width ?? window.innerWidth) - 16;
-    const bottomEdge = topEdge + (viewport?.height ?? window.innerHeight) - 16;
+    const viewport = viewportBounds();
     const bounds = menu.getBoundingClientRect();
-    left = Math.max(leftEdge, Math.min(clientX, rightEdge - bounds.width)) / scale;
-    top = Math.max(topEdge, Math.min(clientY, bottomEdge - bounds.height)) / scale;
+    const originLeft = bounds.left - left * scale;
+    const originTop = bounds.top - top * scale;
+    left = (Math.max(viewport.left, Math.min(clientX, viewport.right - bounds.width)) - originLeft) / scale;
+    top = (Math.max(viewport.top, Math.min(clientY, viewport.bottom - bounds.height)) - originTop) / scale;
     menu.querySelector<HTMLButtonElement>("button:not(:disabled)")?.focus({ preventScroll: true });
   }
   function context(event: MouseEvent) {

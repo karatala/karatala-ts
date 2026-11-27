@@ -67,7 +67,7 @@
     "sourcePath": "src/frontend/ui/UiContextMenu.svelte",
     "sourceSha256": "984761bfacbaa15560361302f5a455e0e306524fc4a35a6bba5eee9c1d28c621",
     "unchangedBytes": false,
-    "adaptation": "intrinsic max-content measurement with a visual-viewport and root-zoom width bound before edge placement"
+    "adaptation": "intrinsic max-content measurement with viewport/root/zoom bounds and measured fixed-origin correction for edge placement"
   },
   {
     "package": "ui-rachana",

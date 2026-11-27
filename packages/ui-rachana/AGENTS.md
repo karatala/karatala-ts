@@ -19,7 +19,7 @@
 - UiTextArea derives the bound native field from Rachana BeatTextEditor and dialogs.css; use native rows and forward attributes/events instead of importing editor state. UiTextInput accepts native time fields. UiPositionSlider retains immediate oninput by default; optional oncommit owns a cancellable local draft and emits the native change once. Keep step and reset explicit and preserve existing consumers.
 - UiStepControl preserves vertical arrow actions and the Rachana horizontal/child composition. UiWheelButton lets mouse and keyboard context actions on an action-enabled trigger reach its application command card; touch context and the open value popup retain their own behavior.
 - Compare two variants only when choosing a common replacement or changing a contract. Exhaustive cross-project comparison is not a prerequisite for extraction.
-- UiContextMenu sizes its intrinsic content before edge placement. Bound its border box by the visual viewport and root zoom; a trigger near an edge must not compress action labels into a narrow column.
+- UiContextMenu sizes its intrinsic content before edge placement. Bound its border box by the visual viewport, root content box and root zoom. Correct measured placement for the fixed containing-block origin, including scrollbar gutters; a trigger near an edge must not compress action labels or overflow the viewport.
 
 ## Verification
 
