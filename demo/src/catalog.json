@@ -245,9 +245,9 @@
     "name": "UiStepControl",
     "family": "numbers",
     "importPath": "@karatala/ui-rachana/UiStepControl.svelte",
-    "props": "let { label, caption, upLabel, downLabel, upShortcut, downShortcut, upShortcutId, downShortcutId, disabled = false, upDisabled = false, downDisabled = false, onup, ondown }: { label: string; caption: string; upLabel: string; downLabel: string; upShortcut?: string; downShortcut?: string; upShortcutId?: string; downShortcutId?: string; disabled?: boolean; upDisabled?: boolean; downDisabled?: boolean; onup: () => void; ondown: () => void } = $props()",
+    "props": "let { label, caption, orientation = \"vertical\", ...actions }: { label: string; caption?: string; orientation?: \"vertical\" | \"horizontal\" } & (ArrowPair | { children: Snippet }) = $props()",
     "source": "packages/ui-rachana/src/UiStepControl.svelte",
-    "usage": "<UiStepControl label=\"Step value\" caption={String(value)} upLabel=\"Increase\" downLabel=\"Decrease\" {disabled} onup={()=>number(value+1)} ondown={()=>number(value-1)} />"
+    "usage": "<UiStepControl label=\"Step value\" caption={String(value)} upLabel=\"Increase\" downLabel=\"Decrease\" {disabled} onup={()=>number(value+1)} ondown={()=>number(value-1)} /><UiStepControl label=\"Horizontal actions\" orientation=\"horizontal\" caption=\"Actions\"><UiButton label=\"First action\" text=\"First\" {disabled} onclick={()=>status=\"First action\"} /><UiButton label=\"Second action\" text=\"Second\" {disabled} onclick={()=>status=\"Second action\"} /></UiStepControl>"
   },
   {
     "id": "rachana/UiSwitch",
@@ -307,7 +307,7 @@
     "importPath": "@karatala/ui-rachana/UiWheelButton.svelte",
     "props": "let {\r\n    label,\r\n    value,\r\n    options,\r\n    direction = \"vertical\",\r\n    wheel = false,\r\n    centerText,\r\n    caption,\r\n    loop = false,\r\n    stepMultiplier = 1,\r\n    dragMultiplier = 1,\r\n    toolbar = false,\r\n    disabled = false,\r\n    actions,\r\n    class: className = \"\",\r\n    onchange,\r\n  }: {\r\n    label: string;\r\n    value: string;\r\n    options: readonly ComboButtonOption[];\r\n    direction?: \"horizontal\" | \"vertical\";\r\n    wheel?: boolean;\r\n    centerText?: string;\r\n    caption?: string;\r\n    loop?: boolean;\r\n    stepMultiplier?: number;\r\n    dragMultiplier?: number;\r\n    toolbar?: boolean;\r\n    disabled?: boolean;\r\n    actions?: WheelCommandActions;\r\n    class?: string;\r\n    onchange: (value: string) => void;\r\n  } = $props()",
     "source": "packages/ui-rachana/src/UiWheelButton.svelte",
-    "usage": "<UiWheelButton label=\"Scope wheel\" value={choice} {options} wheel {disabled} onchange={select} />"
+    "usage": "<UiWheelButton label=\"Scope wheel\" value={choice} {options} wheel {disabled} onchange={select} /><UiContextMenu label=\"Wheel command card\" actionsFor={()=>[{label:\"Command details\",run:()=>status=\"Command details\"}]}><UiWheelButton label=\"Wheel with command actions\" value={choice} {options} wheel {disabled} actions={{closeLabel:\"Close\",helpLabel:\"Help\",favoriteLabel:\"Favorite\",favorite:checked,toggleFavorite:()=>{checked=!checked;},closeHelp:()=>{status=\"Help requested\";}}} onchange={select} /></UiContextMenu>"
   },
   {
     "id": "rachana/UiZoomSelect",

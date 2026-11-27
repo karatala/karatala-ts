@@ -243,9 +243,9 @@
     "package": "ui-rachana",
     "file": "UiStepControl.svelte",
     "sourceRepository": "karatala/Komprohit",
-    "sourceRevision": "02e63ce9827dc1d267e1a13758901f83da87f72a",
+    "sourceRevision": "f37a99935c7d473a5e11f37b6ba9a03c66b4eae0",
     "sourcePath": "src/frontend/ui/UiStepControl.svelte",
-    "sourceSha256": "4fd59f9f1e1754b89c5f6ef1afe03559b795e436742857675fbbd8c4c28d1b2f",
+    "sourceSha256": "b3a24abcb6ae6ac3ec5a808a34ca20062d017c0ac8785328a1040406ae9987a8",
     "unchangedBytes": true,
     "adaptation": "none"
   },
@@ -293,9 +293,9 @@
     "package": "ui-rachana",
     "file": "UiWheelButton.svelte",
     "sourceRepository": "karatala/Komprohit",
-    "sourceRevision": "02e63ce9827dc1d267e1a13758901f83da87f72a",
+    "sourceRevision": "f37a99935c7d473a5e11f37b6ba9a03c66b4eae0",
     "sourcePath": "src/frontend/ui/UiWheelButton.svelte",
-    "sourceSha256": "82afb23b42a35e6cd72475a1ea6e42f73fe7961b5ed7613d6611e13fcb7e2bea",
+    "sourceSha256": "663fa2b539c8300baceacee093b8557e1758485c87892eef8d1a73938654c01d",
     "unchangedBytes": true,
     "adaptation": "none"
   },

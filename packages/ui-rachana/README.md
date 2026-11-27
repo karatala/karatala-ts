@@ -21,6 +21,10 @@ UiIcon still accepts path/src and preserves authored geometry supplied by the re
 
 UiCheckboxButton accepts optional visible text, which defaults to its accessible label; empty text keeps labelled selection cells compact. UiTextArea extracts the native bound textarea and field styling from Rachana BeatTextEditor/dialogs.css. It forwards native attributes/events, supports a typed element reference and uses native rows (four by default). UiTextInput also accepts the native time type. UiPositionSlider keeps its original oninput callback by default; optional oncommit holds the local drag value and publishes only the native change event. Escape, pointer cancellation and disabling discard that local draft. step defaults to 1; omit resetValue to disable double-click reset. No application commands or persistence are included.
 
+## Rachana source refresh
+
+UiStepControl includes the existing horizontal/child composition, with vertical arrows unchanged by default. UiWheelButton passes mouse and keyboard context actions on its action-enabled trigger to the application command card. Touch-generated context actions and the open value popup keep their existing handling. Both component pages contain live examples. Exact refreshed source revisions are in ui-provenance.json.
+
 ## Source and status
 
 See ../../docs/ui-provenance.json for every component path, source revision, hash and adaptation status. Source: karatala/Komprohit at 02e63ce9827dc1d267e1a13758901f83da87f72a. Helpers come from src/frontend/ui. UI styling is selected from src/themes/base.css imports in their original order; selectors and declarations are retained in styles/legacy.css. UI fragments that own notation, projects, MIDI or playback remain in Rachana.

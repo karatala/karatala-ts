@@ -305,6 +305,7 @@
   }
 
   function contextMenu(event: MouseEvent) {
+    if (actions && event.target instanceof Node && container.contains(event.target) && (!(event instanceof PointerEvent) || !event.pointerType || event.pointerType === "mouse")) { close(); return; }
     if (event.target instanceof Node && (container.contains(event.target) || panel?.contains(event.target))) {
       event.preventDefault();
       event.stopPropagation();
@@ -315,6 +316,7 @@
 
   function keyDown(event: KeyboardEvent) {
     if ((event.key === "ContextMenu" || event.shiftKey && event.key === "F10") && event.target instanceof Node && (container.contains(event.target) || panel?.contains(event.target))) {
+      if (actions && container.contains(event.target)) { close(); return; }
       event.preventDefault();
       event.stopPropagation();
       return;

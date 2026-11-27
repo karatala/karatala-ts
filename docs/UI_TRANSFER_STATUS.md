@@ -1,5 +1,12 @@
 # UI transfer status
 
+## Rachana source refresh, 2026-11-27
+
+- ✅ Refresh UiStepControl and UiWheelButton from the current Rachana source before reconnecting that consumer. Preserve the shared dependency boundary and record exact provenance.
+- ✅ Add horizontal child actions and wheel command-card examples to their existing component pages.
+- ✅ Refresh all 68 catalog pages. Shared demo/package types pass with zero errors and warnings.
+- [ ] Deliver the shared commit before pinning the Rachana consumer; the application owns host and browser acceptance.
+
 ## Independent startup and emergency UI
 
 - ✅ @karatala/ui-bootstrap derives static loading/error presentation, MDI actions and the DOM error field from Rachana. It has no Svelte, Bun or native runtime dependency. Applications supply language, failure text, clipboard/reload/window actions and global exception policy.
