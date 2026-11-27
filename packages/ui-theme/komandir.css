@@ -1,0 +1,15 @@
+/* Read existing theme values. Keep control/popup and accent/focus coupling. */
+:root[data-karatala-theme="komandir"] {
+  --karatala-color-background: var(--theme-workbench-background);
+  --karatala-color-control: var(--theme-workbench-raised);
+  --karatala-color-control-hover: var(--theme-workbench-hover);
+  --karatala-color-field: var(--theme-workbench-input);
+  --karatala-color-popup: var(--theme-workbench-raised);
+  --karatala-color-text: var(--theme-workbench-foreground);
+  --karatala-color-muted: var(--theme-workbench-muted);
+  --karatala-color-accent: var(--theme-workbench-accent);
+  --karatala-color-on-accent: var(--theme-workbench-background);
+  --karatala-color-focus: var(--theme-workbench-accent);
+  --karatala-color-selection: var(--theme-list-selectionBackground);
+  --karatala-color-on-selection: var(--theme-list-selectionForeground);
+}

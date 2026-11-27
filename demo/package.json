@@ -11,6 +11,7 @@
     "@karatala/ui-bootstrap": "workspace:*",
     "@karatala/ui-rachana": "workspace:*",
     "@karatala/ui-komandir": "workspace:*",
+    "@karatala/ui-theme": "workspace:*",
     "svelte": "5.57.3"
   },
   "devDependencies": {

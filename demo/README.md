@@ -12,6 +12,8 @@ Open http://127.0.0.1:3212/. The server is loopback-only and does not open a bro
 - `/rachana/UiButton`: one page for an individual component.
 - `/komandir/ColorPicker`: another component page.
 - `/compare/buttons`, `/compare/checks`, `/compare/selection`, `/compare/windows`: common pages with independent live variants.
+- `/guide`: common usage rules and the complete prepared list from the existing catalog.
+- `/themes`: live palettes and semantic color roles. The independent `/theme-preview/rachana` and `/theme-preview/komandir` documents use real controls, memory values and source-derived color snapshots. Rachana also previews Shravanam colors. Applications still own their palettes and settings.
 - `/preview/rachana/UiNumberStepper`: a standalone live example, also used inside the documentation iframe.
 
 - `/bootstrap/StartupScreen`: independent loading and recovery UI, with standalone scenarios at `/startup-preview.html?state=loading`, `?state=error`, `?state=late-error`, and `?state=error&clipboard=denied`. The preview imports no Svelte.

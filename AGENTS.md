@@ -8,6 +8,7 @@
 
 - Each package owns its implementation, contract, provenance and checks. Applications own commands, data, persistence, permissions and activation policy.
 - `packages/dom-input/AGENTS.md` owns M01. Other packages are not approved by its presence.
+- `packages/ui-theme/AGENTS.md` owns opt-in color aliases. docs/UI_GUIDE.md owns common usage rules; application catalogs retain product approval. New shared presentation uses aliases; existing variants keep native tokens and behavior.
 - `packages/ui-rachana/AGENTS.md` and `packages/ui-komandir/AGENTS.md` own the preserved UI variants from each application. Extract ready components with their dependency closure; compare variants only when choosing a common replacement or changing behavior.
 - `packages/ui-bootstrap/AGENTS.md` owns the independent static/DOM loading and emergency UI. Applications load its inline connection before their framework graph and own fatal-error policy and platform callbacks.
 - `packages/web-updater/AGENTS.md` owns release discovery, the separate Bun/Capacitor update entries and ZIP checks. `packages/offline-shell/AGENTS.md` owns explicit worker generation and the three preserved cache policies. `packages/browser-files/AGENTS.md` owns read-only picker/drop mechanisms with caller-owned filters.
@@ -30,6 +31,7 @@
 ## Child DOX Index
 
 - `packages/dom-input/AGENTS.md`: DOM focus/hover helpers and their tests.
+- `packages/ui-theme/AGENTS.md`: CSS color aliases, root boundary and palette ownership.
 - `packages/ui-rachana/AGENTS.md`: preserved Rachana component variants.
 - `packages/ui-komandir/AGENTS.md`: preserved KoMandir component variants and overlay cluster.
 - `packages/ui-bootstrap/AGENTS.md`: first-paint and emergency DOM controls without a framework runtime.

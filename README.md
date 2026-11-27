@@ -5,6 +5,7 @@ Shared TypeScript packages for Rachana, KoMandir, Shravanam and future applicati
 | Package | Scope | Status |
 | --- | --- | --- |
 | [@karatala/ui-bootstrap](packages/ui-bootstrap/README.md) | Static loading, emergency and window controls without Svelte | Derived from Rachana DOM startup UI; caller owns language, failures and actions |
+| [@karatala/ui-theme](packages/ui-theme/README.md) | Optional semantic color aliases over existing palettes | CSS only; demo connection, application roots remain separate |
 | [@karatala/web-updater](packages/web-updater/README.md) | Release/core plus explicit Bun/Capacitor/ZIP entries | Connected to Rachana; other consumer hosts and native acceptance remain separate |
 | [@karatala/offline-shell](packages/offline-shell/README.md) | Standalone worker generators with three preserved cache policies | Connected to Rachana and Shravanam; no worker registration on import |
 | [@karatala/browser-files](packages/browser-files/README.md) | Read-only browser picker and drop capture | Connected to Shravanam with caller-owned media filters |
@@ -12,9 +13,11 @@ Shared TypeScript packages for Rachana, KoMandir, Shravanam and future applicati
 | [@karatala/ui-rachana](packages/ui-rachana/README.md) | Existing Rachana UI variants | 32 components extracted with local helpers/styles and host callbacks |
 | [@karatala/ui-komandir](packages/ui-komandir/README.md) | Existing KoMandir UI variants | All 35 components extracted with local helpers/styles and host callbacks |
 
-Consumers use a pinned Git submodule at `vendor/shared` and depend only on the required package folders. There is no umbrella runtime entry or root installation script. UI variants retain their existing props, behavior, theme roles and source names. Extraction does not wait for exhaustive comparison; unify variants only when a common replacement is selected. Common theme normalization, remaining updater hosts, development tooling and platform adapters remain future work.
+Consumers use a pinned Git submodule at `vendor/shared` and depend only on the required package folders. There is no umbrella runtime entry or root installation script. UI variants retain their existing props, behavior, theme roles and source names. Extraction does not wait for exhaustive comparison; unify variants only when a common replacement is selected. Common palette generation, remaining updater hosts, development tooling and platform adapters remain future work.
 
 See [first consumer connection](docs/m01-connection.md). Applications keep commands, storage, permissions and their input policies.
+
+The [component guide](docs/UI_GUIDE.md) defines prepared control use for new features. The [theme contract](packages/ui-theme/README.md) and [status](docs/THEME_STATUS.md) separate color aliases from application palettes. Inspect /guide and /themes in the running demo.
 
 [UI connection](docs/ui-connection.md) maps the application callbacks, mount points and overlay ownership needed by both UI packages. Source transfer and memory examples are complete. Consumer repositories own their current connection and acceptance records.
 

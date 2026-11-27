@@ -1,0 +1,10 @@
+<script lang="ts">
+  const examples = [{ variant: "rachana", title: "Rachana and Shravanam colors" }, { variant: "komandir", title: "KoMandir colors" }];
+</script>
+
+<p class="note">Each example keeps its own component styles and input behavior. Change the palette with the real select control. Change the accent, edit a value, then switch palettes: values and selection stay in memory.</p>
+<div class="example-group is-comparison">
+  {#each examples as example}<article class="example"><div class="example-heading"><h2>{example.title}</h2><a href={`/theme-preview/${example.variant}`} target="_blank" rel="noopener">Open example ↗</a></div><iframe title={`${example.variant} dynamic theme example`} src={`/theme-preview/${example.variant}`} style:height="500px"></iframe></article>{/each}
+</div>
+<details><summary>What to compare</summary><p>In KoMandir, the accent also supplies focus color, and the primary button uses the workbench background for text. Rachana has separate accent-fill, focus and on-accent values. Its example edits fill only to show those independent roles; an application palette may derive them from one setting. KoMandir popup and default-button surfaces share a token. These differences remain visible. Selection is a separate role.</p><p>Expand “Resolved shared color roles” in either example. New shared presentation reads these names; existing controls keep reading their source tokens. Palettes change at the document root so portaled popups inherit the same values.</p></details>
+<details><summary>Connection and limits</summary><pre><code>{'import "@karatala/ui-theme/rachana.css";\ndocument.documentElement.dataset.karatalaTheme = "rachana";\n\n// Keep the existing application palette and control stylesheet.\n// Shared presentation: color: var(--karatala-color-text);'}</code></pre><p>The CSS adapter is optional and does not choose a palette. The examples use source-derived color snapshots, not application settings. Musical colors, file statuses, disabled opacity, dimensions and focus policy stay with their current owners. The application roots have not yet adopted this alias layer.</p></details>

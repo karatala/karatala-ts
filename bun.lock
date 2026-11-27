@@ -12,6 +12,7 @@
         "@karatala/ui-bootstrap": "workspace:*",
         "@karatala/ui-komandir": "workspace:*",
         "@karatala/ui-rachana": "workspace:*",
+        "@karatala/ui-theme": "workspace:*",
         "svelte": "5.57.3",
       },
       "devDependencies": {
@@ -64,6 +65,10 @@
         "svelte": "^5.46.4",
       },
     },
+    "packages/ui-theme": {
+      "name": "@karatala/ui-theme",
+      "version": "0.1.0",
+    },
     "packages/web-updater": {
       "name": "@karatala/web-updater",
       "version": "0.1.0",
@@ -107,6 +112,8 @@
     "@karatala/ui-komandir": ["@karatala/ui-komandir@workspace:packages/ui-komandir"],
 
     "@karatala/ui-rachana": ["@karatala/ui-rachana@workspace:packages/ui-rachana"],
+
+    "@karatala/ui-theme": ["@karatala/ui-theme@workspace:packages/ui-theme"],
 
     "@karatala/web-updater": ["@karatala/web-updater@workspace:packages/web-updater"],
 

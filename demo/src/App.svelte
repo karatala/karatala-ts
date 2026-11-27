@@ -1,8 +1,14 @@
 <script lang="ts">
   import catalog from "./catalog.json";
   import Preview from "./Preview.svelte";
+  import ThemePreview from "./ThemePreview.svelte";
+  import Themes from "./Themes.svelte";
+  import StyleGuide from "./StyleGuide.svelte";
   const pathname = window.location.pathname;
   const preview = pathname.startsWith("/preview/");
+  const themePreview = pathname.startsWith("/theme-preview/");
+  const themes = pathname === "/themes";
+  const guide = pathname === "/guide";
   const route = pathname.replace(/^\/(?:preview\/)?/, "");
   const families: Record<string, string> = { buttons: "Buttons", colors: "Colors", checks: "Checkboxes & switches", numbers: "Numbers & sliders", selection: "Selection & dropdowns", windows: "Windows & overlays", menus: "Menus", help: "Help & shortcuts", tables: "Tables & rows", icons: "Icons", layout: "Fields & layout", startup: "Startup & recovery" };
   const variantLabels: Record<string, string> = { rachana: "Rachana", komandir: "KoMandir", bootstrap: "Independent DOM" };
@@ -23,17 +29,20 @@
   }
   let search = $state("");
   const visible = $derived(catalog.filter(item => `${item.name} ${item.variant}`.toLowerCase().includes(search.toLowerCase())));
-  const title = family ? families[family] : selected?.name ?? "Components";
+  const title = themes ? "Themes & color roles" : guide ? "Component guide" : family ? families[family] : selected?.name ?? "Components";
 </script>
 
-<svelte:head><title>{preview ? "Preview" : title} · Karatala</title></svelte:head>
+<svelte:head><title>{themePreview ? "Theme preview" : preview ? "Preview" : title} · Karatala</title></svelte:head>
 
-{#if preview}
+{#if themePreview}
+  <ThemePreview variant={pathname.split("/")[2]} />
+{:else if preview}
   <Preview id={route} />
 {:else}
   <div class="docs">
     <aside class="sidebar">
       <a class="brand" href="/">karatala<span>Component library</span></a>
+      <nav aria-label="Library guides"><a href="/guide" aria-current={guide ? "page" : undefined}>Component guide</a><a href="/themes" aria-current={themes ? "page" : undefined}>Themes & color roles</a></nav>
       <label class="search">Find a component<input type="search" bind:value={search} placeholder="Button, select, window…" /></label>
       <nav aria-label="Compare component families">
         <h2>Compare variants</h2>
@@ -52,10 +61,12 @@
     </aside>
     <main class="content">
       <header class="page-title"><p>KARATALA / UI CATALOG</p><h1>{title}</h1>
-        <p>{family ? "Existing variants, side by side. Each example keeps its own styles and behavior." : selected ? `${variantLabels[selected.variant]} variant · preserved source component` : "Ready components from Rachana and KoMandir. Pick a component or compare a family."}</p>
+        <p>{themes ? "Live palettes and shared color names, with preserved component variants." : guide ? "Use the prepared controls for new features and keep application behavior with its owner." : family ? "Existing variants, side by side. Each example keeps its own styles and behavior." : selected ? `${variantLabels[selected.variant]} variant · preserved source component` : "Ready components from Rachana and KoMandir. Pick a component or compare a family."}</p>
       </header>
       {#if selected}<p><a href={`/compare/${selected.family}`}>Compare all {families[selected.family].toLowerCase()} →</a></p>{/if}
-      {#if !examples.length}
+      {#if themes}<Themes />
+      {:else if guide}<StyleGuide {families} />
+      {:else if !examples.length}
         <div class="family-grid">
           {#each Object.entries(families) as [key, label]}
             <a class="family-link" href={`/compare/${key}`}><strong>{label}</strong><span>{catalog.filter(item => item.family === key).length} components · compare variants →</span></a>
