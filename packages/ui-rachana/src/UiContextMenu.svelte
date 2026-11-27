@@ -14,6 +14,7 @@
   let open = $state(false);
   let left = $state(0);
   let top = $state(0);
+  let maxWidth = $state(1);
   let origin: HTMLElement | null = null;
   let keyboardOpened = false;
   let hold: { pointerId: number; startX: number; startY: number; timer: ReturnType<typeof setTimeout> } | null = null;
@@ -30,6 +31,7 @@
     onopen?.();
     actions = next;
     const scale = Number.parseFloat(getComputedStyle(document.documentElement).zoom) || 1;
+    maxWidth = Math.max(1, ((window.visualViewport?.width ?? window.innerWidth) - 16) / scale);
     left = clientX / scale;
     top = clientY / scale;
     open = true;
@@ -91,7 +93,7 @@
   {@render children()}
 </div>
 {#if open}
-  <div use:portal bind:this={menu} role="menu" aria-label={label} data-application-menu class={`ui-action-menu ${className}`} style:position="fixed" style:left={`${left}px`} style:top={`${top}px`}>
+  <div use:portal bind:this={menu} role="menu" aria-label={label} data-application-menu class={`ui-action-menu ${className}`} style:position="fixed" style:box-sizing="border-box" style:width="max-content" style:max-width={`${maxWidth}px`} style:left={`${left}px`} style:top={`${top}px`}>
     {#each actions as action (action.label)}
       <UiButton role="menuitem" label={action.label} text={action.label} path={action.path} disabled={action.disabled} onclick={() => { close(true); action.run(); }} />
     {/each}
