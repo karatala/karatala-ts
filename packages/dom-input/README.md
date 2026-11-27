@@ -30,6 +30,6 @@ Repository: https://github.com/karatala/Komprohit.git. The functions also match 
 
 - ✅ Implementation and existing hover checks extracted.
 - ✅ Source equality inspected; this is not a runtime test.
-- [ ] Deliver the shared commit to upstream and connect Rachana/Shravanam.
-- [ ] Install the locked test dependencies and run the transferred checks when authorized. `bun.lock` carries only the relevant resolutions from Rachana; package-manager validation is pending.
-- [ ] Run the consumer focus and hover-style checks, followed by authorized browser/device checks. Do not infer those results from source equality.
+- ✅ M01 was delivered in 794f096 and connected to Rachana and Shravanam. Their pinned submodules and package dependencies own the exact source selection.
+- ✅ Authorized dependency validation and the two transferred hover tests passed. Consumer focus and hover-style checks passed; application plans own their browser results.
+- [ ] Native touch/pen, WebView and cross-platform acceptance remain consumer work. Do not infer those results from source equality or memory checks.

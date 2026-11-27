@@ -28,6 +28,6 @@ Adopt Portal, Dialog, Popover, portal.ts and overlay-focus.ts together with thei
 
 - ✅ Extracted all 35 components and local CSS/helpers with host boundaries for translations, icons, window storage and picker loading.
 - ✅ Shared demo type/Svelte check, all preview mounts and representative actions completed.
-- [ ] Deliver the new shared commit, connect KoMandir's real host callbacks and replace local imports.
+- ✅ KoMandir connects all 35 controls through the package with its application host callbacks. Its SHARED-REPOSITORY-REVIEW.md owns current pins and acceptance.
 - ✅ IconPicker transferred with its source styles and cancellable host callbacks; memory browser checks passed.
-- [ ] Consumer/native-device acceptance after reconnection.
+- [ ] Native/device acceptance remains application-owned. Current consumer records are linked from ../../docs/UI_TRANSFER_STATUS.md.
