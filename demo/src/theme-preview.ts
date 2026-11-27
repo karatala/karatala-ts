@@ -1,4 +1,5 @@
-// Demo snapshots: Rachana application-theme.ts/interface-theme.css and Shravanam theme.css.
+// Source-derived demo colors with explicit popup/control contrast adjustments.
+// Sources: Rachana application-theme.ts/interface-theme.css and Shravanam theme.css.
 // Applications keep their palette functions, settings and system-mode ownership.
 type RachanaPalette = { background: string; panels: string; text: string; accent: string };
 function rachanaColors(colors: RachanaPalette, light: boolean): Record<string, string> {
@@ -15,7 +16,7 @@ function rachanaColors(colors: RachanaPalette, light: boolean): Record<string, s
     "--ui-accent-fill": colors.accent, "--ui-on-accent": "#ffffff",
     "--ui-accent-fill-hover": mix(colors.accent, light ? colors.text : "white", light ? 12 : 16),
     "--ui-accent": mix(colors.accent, colors.text, 28),
-    "--ui-segment-surface": mix(colors.background, colors.text, light ? 16 : 20),
+    "--ui-segment-surface": light ? "#ffffff" : mix(colors.background, colors.text, 20),
     "--ui-segment-group-surface": mix(colors.panels, colors.text, light ? 19 : 27),
     "--ui-segment-hover": mix(colors.background, colors.text, light ? 22 : 28),
     "--ui-table-selected-surface": "var(--ui-accent-fill)", "--ui-table-selected-text": "var(--ui-on-accent)",
@@ -32,7 +33,7 @@ export const rachanaPalettes: Record<string, Record<string, string>> = {
     "--ui-control-surface": "#2b2926", "--ui-control-hover": "#393240", "--ui-field-surface": "var(--ui-control-surface)",
     "--ui-menu-surface": "var(--ui-subtle-surface)", "--ui-accent": "#c4abe8", "--ui-accent-fill": "#8461af", "--ui-on-accent": "#160f20",
     "--ui-accent-fill-hover": "color-mix(in srgb, var(--ui-accent-fill), var(--ui-text) 12%)",
-    "--ui-segment-surface": "var(--ui-control-surface)", "--ui-segment-hover": "var(--ui-control-hover)",
+    "--ui-segment-surface": "color-mix(in srgb, var(--ui-control-surface), var(--ui-text) 10%)", "--ui-segment-hover": "var(--ui-control-hover)",
     "--ui-segment-active-hover": "var(--ui-accent-fill-hover)", "--ui-glow-strength": "0",
   },
 };

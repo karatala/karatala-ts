@@ -1,0 +1,5 @@
+/* Preview roots supply the same text context to controls and document portals. */
+:root:is([data-ui-preview], [data-karatala-theme]) {
+  font: var(--ui-font-normal, 12px)/1.35 var(--ui-font-family, Tahoma, "Segoe UI", sans-serif);
+}
+:root:is([data-ui-preview], [data-karatala-theme]) :is(button, input, select, textarea) { font: inherit; }

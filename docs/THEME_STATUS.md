@@ -18,6 +18,14 @@ Owner: karatala-ts owns the CSS alias contract and memory examples. Application 
 ## Decisions to view before changing components
 
 - [ ] KoMandir couples accent/focus and uses workbench background for primary text. Decide whether independent focus/on-accent values are needed only after viewing /themes.
-- [ ] KoMandir couples popup/control surfaces; Rachana has separate values. Keep both until a replacement is chosen.
+- ✅ Corrected the initial popup/control mapping after checking real shells: KoMandir MiniPopup uses workbench-surface; controls and Dropdown lists use workbench-raised. The popup alias now describes the MiniPopup shell. This corrects the role map without changing those controls.
 - [ ] A common palette generator and saved schema are not selected. This layer reads existing palettes without migrating saved themes.
 - [ ] Native WebView, touch/pen, custom high-contrast palettes, screen-reader and multiwindow acceptance remain application work.
+
+## Popup and menu corrections, 2026-11-27
+
+- ✅ Added the prepared UiTextInput to KoMandir's theme popup with memory binding and local semantic text/field/focus inputs. The full Rachana stylesheet is not loaded there.
+- ✅ Found the oversized Dropdown text: the trigger inherited 12 px from its wrapper, but its body portal inherited the documentation root's 16 px font. Native buttons also kept the browser's Arial default. Preview documents now supply the standard root font and native form inheritance.
+- ✅ Added explicit preview palette adjustments for visible button surfaces in KoMandir, Rachana light and Shravanam colors. Rachana dark source colors remain the reference. These memory-preview adjustments do not migrate application palettes.
+- ✅ Final shared Svelte/type checks: zero errors and warnings. Browser checks passed in all six palettes: popup buttons/fields use 12 px, values survive closing and palette changes, Escape closes the active popup, and KoMandir Save reads the new field. Both standalone Dropdown/UiSelect pages also use 12 px options and publish the selected value.
+- ✅ Checked actual button/popup colors after the preview adjustments. Rachana dark colors match the previous reference. Other default button surfaces are visibly separate from their popup; no borders or decorative shadows were added. These checks do not claim native-device or full accessibility acceptance.

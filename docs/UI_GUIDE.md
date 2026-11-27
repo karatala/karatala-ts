@@ -39,6 +39,7 @@ Other prepared layout, favorite, filter, resize and timeline controls remain lis
 
 - Controls receive data and callbacks. Applications own commands, allowed values, storage, translation, capabilities and permissions. Imports must not start services or request permission.
 - Keep one Svelte peer, a narrow host at every independent mount, and one document overlay/submenu stack. See [host connections](ui-connection.md).
+- Set the standard UI font on the document root and let native form controls inherit it. A font set only on a feature wrapper does not reach menus portaled to body. Check the open menu's computed size, not only its trigger.
 - Use the host's configured control/style variant. Both legacy stylesheets contain global selectors; color aliases do not isolate them. Comparisons use separate documents. Review a mixed application composition before connecting both full stylesheets.
 - Preserve keyboard focus. Pointer use must not trap configured editor shortcuts on toolbar controls. Keep application shortcuts outside text fields, selects, sliders, application menus and open dialogs.
 - Preserve validation, commit, cancel and repeat-selection behavior. KoMandir tooltip shortcut assignment saves on key release; a confirmed settings draft is separate. Color preview and Apply/Cancel also remain distinct.
@@ -51,7 +52,7 @@ Use [semantic color roles](../packages/ui-theme/README.md) for new shared presen
 
 Install the adapter on the document root so portals receive the same theme. Use a separate document or restate aliases for a subtree with local source overrides. Never feed an alias back into its own source token.
 
-Accent, focus and selection are separate roles. KoMandir currently couples accent/focus and popup/control; /themes shows those limits. Notation, playback, track, file-status and syntax colors stay with their applications. Dimensions, opacity and focus policy are not color roles.
+Accent, focus and selection are separate roles. KoMandir couples accent/focus; its MiniPopup uses the panel surface, while default controls and Dropdown lists use the raised surface. /themes shows these differences. Notation, playback, track, file-status and syntax colors stay with their applications. Dimensions, opacity and focus policy are not color roles.
 
 ## Extend a control
 

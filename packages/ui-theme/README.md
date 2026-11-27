@@ -17,7 +17,7 @@ New shared presentation can use background: var(--karatala-color-background) and
 | control | --ui-control-surface | --theme-workbench-raised |
 | control-hover | --ui-control-hover | --theme-workbench-hover |
 | field | --ui-field-surface, then --ui-control-surface | --theme-workbench-input |
-| popup | --ui-menu-surface | --theme-workbench-raised |
+| popup | --ui-menu-surface | --theme-workbench-surface |
 | text | --ui-text | --theme-workbench-foreground |
 | muted | --ui-text-muted | --theme-workbench-muted |
 | accent | --ui-accent-fill | --theme-workbench-accent |
@@ -26,7 +26,7 @@ New shared presentation can use background: var(--karatala-color-background) and
 | selection | --ui-table-selected-surface, then system Highlight | --theme-list-selectionBackground |
 | on-selection | --ui-table-selected-text, then system HighlightText | --theme-list-selectionForeground |
 
-KoMandir uses the same source for popup/control and focus/accent. Its primary button text uses the workbench background. Rachana can use different values for those roles. The /themes demo shows these differences with real controls; this layer does not change those contracts. Selection and accent remain distinct roles.
+The popup role describes the MiniPopup shell. KoMandir uses workbench-surface for that shell and workbench-raised for default controls and Dropdown lists. Focus and accent share a source; primary button text uses the workbench background. Rachana can use different focus/accent/on-accent values. Selection and accent remain distinct roles. The /themes demo shows these contracts, with explicit preview adjustments that keep buttons visible against popup surfaces.
 
 Disabled opacity, active/hover derivation, danger/notice colors, keycaps, icon artwork and popup shadows remain with their existing style owners. Notation, playback, track colors, file comparison status and syntax colors remain application roles. Do not use a generic accent to replace those meanings.
 

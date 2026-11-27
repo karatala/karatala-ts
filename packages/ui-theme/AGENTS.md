@@ -14,7 +14,7 @@
 - This package contains CSS only. Do not add a runtime, automatic theme selection, layout rules or default application colors.
 - Keep mappings one-way from existing tokens to --karatala-color-*. Do not feed aliases back into their source tokens.
 - Select one adapter on document.documentElement. Portals need the same document theme. Recompute aliases on the root where their source values change.
-- Keep accent/focus and control/popup coupling explicit. Do not imply that one color value can independently style every legacy state.
+- Keep accent/focus coupling explicit. KoMandir MiniPopup reads workbench-surface, while default controls and Dropdown lists read workbench-raised. Do not treat all popup/menu shells as one source token or imply independent roles where the source couples them.
 - Color roles do not authorize changes to component dimensions, state, focus, selection meaning or application content colors.
 
 ## Verification

@@ -1,10 +1,10 @@
-/* Read existing theme values. Keep control/popup and accent/focus coupling. */
+/* Read existing theme values. MiniPopup uses surface; Dropdown uses raised. */
 :root[data-karatala-theme="komandir"] {
   --karatala-color-background: var(--theme-workbench-background);
   --karatala-color-control: var(--theme-workbench-raised);
   --karatala-color-control-hover: var(--theme-workbench-hover);
   --karatala-color-field: var(--theme-workbench-input);
-  --karatala-color-popup: var(--theme-workbench-raised);
+  --karatala-color-popup: var(--theme-workbench-surface);
   --karatala-color-text: var(--theme-workbench-foreground);
   --karatala-color-muted: var(--theme-workbench-muted);
   --karatala-color-accent: var(--theme-workbench-accent);
